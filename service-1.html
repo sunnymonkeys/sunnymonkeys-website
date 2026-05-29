@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-style-mode" content="1">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <title>Our Services — Sunny Monkeys LLC</title>
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+    /* Login button */
+    .sm-login-btn {
+        display: inline-flex; align-items: center; overflow: hidden; position: relative;
+        border: 2px solid #fff !important; background: #fff !important; color: #111 !important;
+        padding: 10px 28px !important; border-radius: 6px !important;
+        font-size: 1.25rem !important; font-weight: 700 !important;
+        text-decoration: none !important; letter-spacing: 0.04em !important;
+        transition: background 0.25s, color 0.25s, border-color 0.25s !important;
+        white-space: nowrap !important;
+    }
+    .sm-login-btn .btn-text { display: inline-block; transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s; }
+    .sm-login-btn .btn-text-hover { position: absolute; left: 50%; transform: translateX(-50%) translateY(100%); opacity: 0; transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s; font-weight: 700; white-space: nowrap; }
+    .sm-login-btn:hover .btn-text { transform: translateY(-130%); opacity: 0; }
+    .sm-login-btn:hover .btn-text-hover { transform: translateX(-50%) translateY(-50%); opacity: 1; }
+    .sm-login-btn:hover { background: #111 !important; color: #fff !important; border-color: #111 !important; }
+
+    /* Pricing section */
+    .sm-pricing-section { padding: 100px 0 120px; background: #0d0d0d; }
+    .sm-pricing-section .section-eyebrow { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+    .sm-pricing-section .section-title { font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 16px; }
+    .sm-pricing-section .section-sub { font-size: 1.3rem; color: rgba(255,255,255,0.5); max-width: 620px; line-height: 1.7; margin-bottom: 60px; }
+    .sm-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    @media (max-width: 991px) { .sm-pricing-grid { grid-template-columns: 1fr; max-width: 540px; } }
+    .sm-plan {
+        background: #161616; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 16px;
+        padding: 44px 40px 50px; display: flex; flex-direction: column; position: relative;
+        transition: border-color 0.25s, transform 0.25s;
+    }
+    .sm-plan:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-4px); }
+    .sm-plan.featured { border-color: #fff; background: #1a1a1a; }
+    .sm-plan.featured::before {
+        content: "Most Popular"; position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+        background: #fff; color: #111; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.1em;
+        text-transform: uppercase; padding: 5px 20px; border-radius: 20px;
+    }
+    .sm-plan-name { font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 12px; }
+    .sm-plan-price { font-size: 3.8rem; font-weight: 800; color: #fff; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
+    .sm-plan-price span { font-size: 1.5rem; font-weight: 500; vertical-align: top; margin-top: 10px; display: inline-block; color: rgba(255,255,255,0.6); }
+    .sm-plan-cadence { font-size: 1.2rem; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
+    .sm-plan-desc { font-size: 1.3rem; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 30px; }
+    .sm-plan-features { list-style: none; padding: 0; margin: 0 0 40px; flex: 1; }
+    .sm-plan-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 1.3rem; color: rgba(255,255,255,0.7); line-height: 1.55; margin-bottom: 14px; }
+    .sm-plan-features li i { color: #fff; margin-top: 4px; flex-shrink: 0; font-size: 1rem; }
+    .sm-plan-features li.muted { color: rgba(255,255,255,0.3); }
+    .sm-plan-features li.muted i { color: rgba(255,255,255,0.2); }
+    .sm-plan-cta {
+        display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+        padding: 18px 36px; border-radius: 8px; font-size: 1.25rem; font-weight: 700;
+        letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s;
+        border: 1.5px solid rgba(255,255,255,0.2); color: #fff; background: transparent;
+    }
+    .sm-plan.featured .sm-plan-cta { background: #fff; color: #111; border-color: #fff; }
+    .sm-plan-cta:hover { background: #fff; color: #111; border-color: #fff; }
+    .sm-plan.featured .sm-plan-cta:hover { background: rgba(255,255,255,0.85); }
+    .sm-pricing-note { text-align: center; margin-top: 52px; font-size: 1.2rem; color: rgba(255,255,255,0.3); }
+    .sm-pricing-note a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+    .sm-pricing-note a:hover { color: #fff; }
+    </style>
+</head>
+
+<body class="inner-page service-1">
+
+    <!-- header area start -->
+    <header class="header-area header-one header--sticky">
+        <div class="header-container-one">
+            <div class="header-wrapper">
+                <a href="index.html" class="logo"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:48px;height:48px;object-fit:contain;display:block;border-radius:50%;"></a>
+                <div class="header-right">
+                    <nav class="nav-area drop-down-rts">
+                        <ul class="navbar-nav-1">
+                            <li class="menu-item"><a href="index.html"><span class="rolling-text">Home</span></a></li>
+                            <li class="menu-item"><a href="about.html"><span class="rolling-text">About</span></a></li>
+                            <li class="menu-item current-menu-item"><a href="service-1.html"><span class="rolling-text">Services</span></a></li>
+                            <li class="menu-item"><a href="contact.html"><span class="rolling-text">Contact</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="action-area">
+                        <div class="login-btn-wrapper">
+                            <a href="login.html" class="sm-login-btn"><span class="btn-text">Log In</span><span class="btn-text-hover">Log In</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header area end -->
+
+    <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+    <!-- breadcrumb area start -->
+    <div class="rts-breadcrumb-area bg_image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="baread-crumb-main-wrapper pt--100">
+                        <div class="inner">
+                            <span class="works">What We Offer</span>
+                            <h1 class="title rts_hero__title">Our Services</h1>
+                            <span class="bg-text">Services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+
+    <!-- services list area start -->
+    <div class="rts-service-area three rts-section-gap service__area-3 rts-service-revel-pro">
+        <div class="shape">
+            <img src="assets/images/service/shape-1.png" alt="shape-image">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-area-left-three-large">
+                        <span>Full-Service Creative Studio</span>
+                        <h2 class="title quote">What We Do</h2>
+                        <p class="left-m-para rts-text-anim">
+                            From brand identity to digital presence, Sunny Monkeys offers everything a growing brand <br>
+                            needs to look great, communicate clearly, and connect with the right audience. Every <br>
+                            service we offer is built around one goal: making your brand impossible to ignore.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="rts-service-1">
+
+                        <!-- service 01 -->
+                        <div class="single-service-area-start rts-service-item-1 rts-service-animation rts-skew-up-gsap mt--80">
+                            <div class="number-area"><span>01</span></div>
+                            <a href="service-details.html" class="title-area">
+                                <h3 class="title">Brand <br> Identity</h3>
+                            </a>
+                            <div class="discription-area">
+                                <p class="disc">We build brand identities that are strategic, <br> memorable, and true to who you are — <br> from naming to full visual systems.</p>
+                                <div class="sm-service-area-wrapper">
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Logo Design</p></div>
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Creative Consulting</p></div>
+                                </div>
+                            </div>
+                            <div class="end-arrow discription-area"><a href="service-details.html"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
+                        </div>
+
+                        <!-- service 02 -->
+                        <div class="single-service-area-start rts-service-item-1 rts-service-animation rts-skew-up-gsap">
+                            <div class="number-area"><span>02</span></div>
+                            <a href="service-details.html" class="title-area">
+                                <h3 class="title">Corporate <br> Branding</h3>
+                            </a>
+                            <div class="discription-area">
+                                <p class="disc">Polished branded materials that make your <br> business look its best — from pitch decks <br> to stationery and print collateral.</p>
+                                <div class="sm-service-area-wrapper">
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Presentations</p></div>
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Print &amp; Stationery</p></div>
+                                </div>
+                            </div>
+                            <div class="end-arrow discription-area"><a href="service-details.html"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
+                        </div>
+
+                        <!-- service 03 -->
+                        <div class="single-service-area-start rts-service-item-1 rts-service-animation rts-skew-up-gsap">
+                            <div class="number-area"><span>03</span></div>
+                            <a href="service-details.html" class="title-area">
+                                <h3 class="title">Social Media <br> Design</h3>
+                            </a>
+                            <div class="discription-area">
+                                <p class="disc">Scroll-stopping graphics, post templates, <br> and stories that keep your brand consistent <br> and engaging across every platform.</p>
+                                <div class="sm-service-area-wrapper">
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Post Templates</p></div>
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Story &amp; Ad Graphics</p></div>
+                                </div>
+                            </div>
+                            <div class="end-arrow discription-area"><a href="service-details.html"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
+                        </div>
+
+                        <!-- service 04 -->
+                        <div class="single-service-area-start rts-service-item-1 rts-service-animation rts-skew-up-gsap">
+                            <div class="number-area"><span>04</span></div>
+                            <a href="service-details.html" class="title-area">
+                                <h3 class="title">Email Design <br> &amp; Marketing</h3>
+                            </a>
+                            <div class="discription-area">
+                                <p class="disc">Beautiful email templates and campaign <br> graphics designed to drive engagement <br> and keep your audience coming back.</p>
+                                <div class="sm-service-area-wrapper">
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Email Templates</p></div>
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Campaign Graphics</p></div>
+                                </div>
+                            </div>
+                            <div class="end-arrow discription-area"><a href="service-details.html"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
+                        </div>
+
+                        <!-- service 05 -->
+                        <div class="single-service-area-start rts-service-item-1 rts-service-animation rts-skew-up-gsap">
+                            <div class="number-area"><span>05</span></div>
+                            <a href="service-details.html" class="title-area">
+                                <h3 class="title">Web <br> Design</h3>
+                            </a>
+                            <div class="discription-area">
+                                <p class="disc">Clean, modern websites and landing pages <br> built to engage visitors and reflect your <br> brand at every scroll.</p>
+                                <div class="sm-service-area-wrapper">
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>UI/UX Design</p></div>
+                                    <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Landing Pages</p></div>
+                                </div>
+                            </div>
+                            <div class="end-arrow discription-area"><a href="service-details.html"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- services list area end -->
+
+    <!-- pricing section start -->
+    <div class="sm-pricing-section" id="pricing">
+        <div class="container">
+            <p class="section-eyebrow">Packages</p>
+            <h2 class="section-title">Simple, Honest Pricing</h2>
+            <p class="section-sub">Choose a package that fits where your brand is right now. Every plan includes dedicated creative support and a direct line to our team.</p>
+
+            <div class="sm-pricing-grid">
+
+                <!-- Starter -->
+                <div class="sm-plan">
+                    <p class="sm-plan-name">Starter</p>
+                    <div class="sm-plan-price"><span>$</span>799</div>
+                    <p class="sm-plan-cadence">one-time project</p>
+                    <p class="sm-plan-desc">Perfect for new businesses building their brand from the ground up and needing a strong visual foundation.</p>
+                    <ul class="sm-plan-features">
+                        <li><i class="fa-regular fa-check"></i> Logo design (2 concepts)</li>
+                        <li><i class="fa-regular fa-check"></i> Brand color palette &amp; typography</li>
+                        <li><i class="fa-regular fa-check"></i> Business card design</li>
+                        <li><i class="fa-regular fa-check"></i> 3 social media post templates</li>
+                        <li><i class="fa-regular fa-check"></i> 1 round of revisions</li>
+                        <li class="muted"><i class="fa-regular fa-xmark"></i> Brand guidelines document</li>
+                        <li class="muted"><i class="fa-regular fa-xmark"></i> Email template</li>
+                        <li class="muted"><i class="fa-regular fa-xmark"></i> Web design</li>
+                    </ul>
+                    <a href="contact.html?package=starter" class="sm-plan-cta">Get Started <i class="fa-light fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Growth (featured) -->
+                <div class="sm-plan featured">
+                    <p class="sm-plan-name">Growth</p>
+                    <div class="sm-plan-price"><span>$</span>1,799</div>
+                    <p class="sm-plan-cadence">one-time project</p>
+                    <p class="sm-plan-desc">For growing brands ready to show up consistently across every touchpoint — digital and print.</p>
+                    <ul class="sm-plan-features">
+                        <li><i class="fa-regular fa-check"></i> Everything in Starter</li>
+                        <li><i class="fa-regular fa-check"></i> Logo design (3 concepts)</li>
+                        <li><i class="fa-regular fa-check"></i> Full brand guidelines document</li>
+                        <li><i class="fa-regular fa-check"></i> 8 social media post templates</li>
+                        <li><i class="fa-regular fa-check"></i> 1 branded email template</li>
+                        <li><i class="fa-regular fa-check"></i> Corporate presentation template</li>
+                        <li><i class="fa-regular fa-check"></i> 2 rounds of revisions</li>
+                        <li class="muted"><i class="fa-regular fa-xmark"></i> Web design</li>
+                    </ul>
+                    <a href="contact.html?package=growth" class="sm-plan-cta">Get Started <i class="fa-light fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Premium -->
+                <div class="sm-plan">
+                    <p class="sm-plan-name">Premium</p>
+                    <div class="sm-plan-price"><span>$</span>3,499</div>
+                    <p class="sm-plan-cadence">one-time project</p>
+                    <p class="sm-plan-desc">The full brand experience — identity, collateral, digital presence, and a custom website to bring it all together.</p>
+                    <ul class="sm-plan-features">
+                        <li><i class="fa-regular fa-check"></i> Everything in Growth</li>
+                        <li><i class="fa-regular fa-check"></i> Logo design (unlimited concepts)</li>
+                        <li><i class="fa-regular fa-check"></i> Custom website design (up to 5 pages)</li>
+                        <li><i class="fa-regular fa-check"></i> Full social media kit (15 templates)</li>
+                        <li><i class="fa-regular fa-check"></i> Email campaign graphics</li>
+                        <li><i class="fa-regular fa-check"></i> Print &amp; stationery suite</li>
+                        <li><i class="fa-regular fa-check"></i> Unlimited revisions</li>
+                        <li><i class="fa-regular fa-check"></i> Priority turnaround</li>
+                    </ul>
+                    <a href="contact.html?package=premium" class="sm-plan-cta">Get Started <i class="fa-light fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+
+            <p class="sm-pricing-note">
+                Need something different? <a href="contact.html?package=custom">Tell us about your project</a> and we'll put together a custom quote.
+            </p>
+        </div>
+    </div>
+    <!-- pricing section end -->
+
+    <!-- footer -->
+    <div class="rts-footer-area-one rts-section-gapTop">
+        <div class="container">
+            <div class="row rts-section-gapBottom">
+                <div class="col-lg-12">
+                    <div class="footer-main-wrapper-one">
+                        <div class="footer-left-area">
+                            <a href="index.html" class="logo-footer"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:52px;height:52px;object-fit:contain;display:block;margin-bottom:16px;border-radius:50%;"></a>
+                            <p class="disc">Bold, strategic design for brands <br> that want to stand out and grow.</p>
+                            <div class="rts-social-area-one">
+                                <ul>
+                                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-single-wized-start">
+                            <h5 class="title">Useful Links</h5>
+                            <ul class="footer-nav">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="service-1.html">Our Services</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-single-wized-start">
+                            <h5 class="title">Legal</h5>
+                            <ul class="footer-nav">
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-single-wized-start">
+                            <h5 class="title">Contact Info</h5>
+                            <ul class="footer-nav">
+                                <li>30 N Gould St, Ste N <br> Sheridan, WY 82801</li>
+                                <li><a href="mailto:contact@sunnymonkeys.com">contact@sunnymonkeys.com</a></li>
+                                <li><a href="tel:+16193044022">+1 619 304 4022</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-bottom-one">
+                        <p>2026 &copy; Sunny Monkeys LLC. All rights reserved. &nbsp;|&nbsp;
+                            <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp;
+                            <a href="terms.html">Terms &amp; Conditions</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer end -->
+
+    </div>
+    </div>
+    <!-- smooth wrapper end -->
+
+    <!-- Scripts style two -->
+    <div class="loading-screen" id="loading-screen">
+        <span class="bar top-bar"></span>
+        <span class="bar down-bar"></span>
+        <span class="progress-line"></span>
+        <span class="loading-counter"> </span>
+    </div>
+
+    <div class="bg-noise"></div>
+
+    <!-- back to top start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!-- back to top end -->
+
+    <!-- pre loader start -->
+    <div class="rts-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="no">
+        <span class="fn-cursor"></span>
+    </div>
+    <div class="rts-cursor cursor-inner" data-default="yes" data-link="yes" data-slider="no">
+        <span class="fn-cursor">
+        <span class="fn-left"></span>
+        <span class="fn-right"></span>
+        </span>
+    </div>
+    <!-- pre loader end -->
+
+    <!-- dark light switcher start-->
+    <div class="modal-sidebar-scroll rts-dark-light">
+        <ul>
+            <li class="go-dark-w"><span>Dark</span><i class="rts-go-dark fal fa-moon"></i></li>
+            <li class="go-light-w"><span>Light</span><i class="rts-go-light fa-light fa-brightness"></i></li>
+        </ul>
+    </div>
+    <!-- dark light switcher end -->
+
+    <script defer src="assets/js/vendor/jquery.min.js"></script>
+    <script defer src="assets/js/plugins/bootstrap.min.js"></script>
+    <script defer src="assets/js/plugins/contact.form.js"></script>
+    <script defer src="assets/js/vendor/waypoint.js"></script>
+    <script defer src="assets/js/plugins/swiper.js"></script>
+
+    <!-- for side bar sticky -->
+    <script defer src="assets/js/plugins/resizer-sensor.js"></script>
+    <script defer src="assets/js/plugins/sticky-sidebar.js"></script>
+    <!-- for side bar sticky end-->
+
+    <script defer src="assets/js/plugins/isotop.js"></script>
+    <script defer src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+
+    <script defer src="assets/js/plugins/smoothscroll-varticle.js"></script>
+    <script defer src="assets/js/vendor/gsap.js"></script>
+    <script defer src="assets/js/plugins/scrolltiger.js"></script>
+    <script defer src="assets/js/plugins/scrolltoplugin.js"></script>
+    <script defer src="assets/js/plugins/splittext.js"></script>
+    <script defer src="assets/js/plugins/smoothscroll.js"></script>
+
+    <!-- title opacity scroll magic -->
+    <script defer src="assets/js/plugins/scrollmagic.js"></script>
+    <script defer src="assets/js/plugins/animate-scrollmagic.js"></script>
+    <!-- title opacity scroll magic end -->
+
+    <script defer src="assets/js/plugins/tilt.js"></script>
+    <script defer src="assets/js/plugins/counterup.js"></script>
+
+    <script defer src="assets/js/vendor/waw.js"></script>
+    <!-- custom javascripts -->
+    <script defer src="assets/js/main.js"></script>
+    <!-- Scripts style two End -->
+
+</body>
+</html>

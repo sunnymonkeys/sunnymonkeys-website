@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Layout Options — Sunny Monkeys</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f4f4; color: #111; }
+
+        .header {
+            background: #111;
+            color: #fff;
+            padding: 32px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header h1 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; }
+        .header p { font-size: 0.85rem; opacity: 0.5; margin-top: 4px; }
+        .header a { color: #fff; text-decoration: none; font-size: 0.85rem; opacity: 0.6; }
+        .header a:hover { opacity: 1; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            padding: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+
+        .card-info {
+            padding: 20px 24px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .card-info h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+        .card-info p { font-size: 0.82rem; color: #666; line-height: 1.5; }
+
+        .badge {
+            flex-shrink: 0;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .badge.rec { background: #111; color: #fff; }
+        .badge.inner { background: #e8f4e8; color: #2a7a2a; }
+        .badge.demo { background: #f0f0f0; color: #666; }
+
+        .preview-frame {
+            width: 100%;
+            height: 440px;
+            border: none;
+            display: block;
+            background: #fafafa;
+            pointer-events: none;
+        }
+
+        .card-actions {
+            padding: 14px 24px;
+            display: flex;
+            gap: 10px;
+            background: #fafafa;
+            border-top: 1px solid #f0f0f0;
+        }
+        .btn {
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .btn-dark { background: #111; color: #fff; }
+        .btn-outline { background: transparent; color: #111; border: 1.5px solid #ddd; }
+        .btn:hover { opacity: 0.8; }
+
+        .note {
+            font-size: 0.78rem;
+            color: #888;
+            font-style: italic;
+            align-self: center;
+        }
+
+        .section-label {
+            padding: 12px 40px 0;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <h1>Sunny Monkeys — Service Layout Picker</h1>
+        <p>7 layout options. Click "Open Full Page" on any card to explore it properly.</p>
+    </div>
+    <a href="index.html">← Back to Homepage</a>
+</div>
+
+<p class="section-label">Main Service Pages (pick one as your /services page)</p>
+
+<div class="grid">
+
+    <div class="card">
+        <div class="card-info">
+            <div>
+                <h2>Option 1 — Vertical List</h2>
+                <p>Services stacked in a clean vertical list with large imagery and text side by side. Bold and editorial — similar feel to what the homepage already uses.</p>
+            </div>
+            <span class="badge rec">Recommended</span>
+        </div>
+        <iframe class="preview-frame" src="service-1.html"></iframe>
+        <div class="card-actions">
+            <a class="btn btn-dark" href="service-1.html" target="_blank">Open Full Page</a>
+            <span class="note">File: service-1.html</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-info">
+            <div>
+                <h2>Option 2 — Grid Layout</h2>
+                <p>Services arranged in a 2-column card grid. More compact and structured — good if you want all services visible at a glance without scrolling much.</p>
+            </div>
+            <span class="badge demo">Layout Demo</span>
+        </div>
+        <iframe class="preview-frame" src="service-2.html"></iframe>
+        <div class="card-actions">
+            <a class="btn btn-dark" href="service-2.html" target="_blank">Open Full Page</a>
+            <span class="note">File: service-2.html</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-info">
+            <div>
+                <h2>Option 3 — Full Width Sections</h2>
+                <p>Each service gets its own full-width section with a dark/light alternating background. Very immersive — great if you want to tell a story about each service.</p>
+            </div>
+            <span class="badge demo">Layout Demo</span>
+        </div>
+        <iframe class="preview-frame" src="service-3.html"></iframe>
+        <div class="card-actions">
+            <a class="btn btn-dark" href="service-3.html" target="_blank">Open Full Page</a>
+            <span class="note">File: service-3.html</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-info">
+            <div>
+                <h2>Option 4 — Service Cards</h2>
+                <p>Services shown as clean, minimal cards with icons. Feels more like a SaaS pricing page — modern and easy to scan. Good for a business-forward look.</p>
+            </div>
+            <span class="badge demo">Layout Demo</span>
+        </div>
+        <iframe class="preview-frame" src="service-card.html"></iframe>
+        <div class="card-actions">
+            <a class="btn btn-dark" href="service-card.html" target="_blank">Open Full Page</a>
+            <span class="note">File: service-card.html</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-info">
+            <div>
+                <h2>Option 5 — Compact List</h2>
+                <p>A tighter, more compact list layout with small icons and short descriptions. Best used if you have many services to show without making the page too long.</p>
+            </div>
+            <span class="badge demo">Layout Demo</span>
+        </div>
+        <iframe class="preview-frame" src="service-list.html"></iframe>
+        <div class="card-actions">
+            <a class="btn btn-dark" href="service-list.html" target="_blank">Open Full Page</a>
+            <span class="note">File: service-list.html</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-info">
+            <div>
+                <h2>Option 6 — Reveal on Scroll</h2>
+                <p>Services reveal themselves as you scroll down — an animated list with a dramatic entrance effect. Very creative and impactful. Best viewed in a browser, not iframe.</p>
+            </div>
+            <span class="badge demo">Layout Demo</span>
+        </div>
+        <iframe class="preview-frame" src="service-list-revel.html"></iframe>
+        <div class="card-actions">
+            <a class="btn btn-dark" href="service-list-revel.html" target="_blank">Open Full Page</a>
+            <span class="note">File: service-list-revel.html</span>
+        </div>
+    </div>
+
+</div>
+
+<p class="section-label" style="margin-top: 8px;">Inner Page (individual service detail — always pair this with your main services page)</p>
+
+<div class="grid" style="padding-top: 16px; padding-bottom: 60px;">
+
+    <div class="card">
+        <div class="card-info">
+            <div>
+                <h2>Service Detail Page</h2>
+                <p>The inner page visitors land on when they click a specific service. Shows a deep-dive: description, process, FAQs, related services. You'll want this regardless of which main layout you pick.</p>
+            </div>
+            <span class="badge inner">Always Needed</span>
+        </div>
+        <iframe class="preview-frame" src="service-details.html"></iframe>
+        <div class="card-actions">
+            <a class="btn btn-dark" href="service-details.html" target="_blank">Open Full Page</a>
+            <span class="note">File: service-details.html</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

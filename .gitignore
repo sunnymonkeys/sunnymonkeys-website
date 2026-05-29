@@ -1,0 +1,15 @@
+# Database credentials — never commit this
+portal/config/db.php
+
+# Client-uploaded PDFs — live on the server, not in the repo
+portal/uploads/*.pdf
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Sublime Text
+*.sublime-workspace
+
+# Node (future-proofing)
+node_modules/

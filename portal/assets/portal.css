@@ -1,0 +1,152 @@
+/* ── Sunny Monkeys Client Portal ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg:        #0d0d0d;
+    --surface:   #161616;
+    --surface2:  #1e1e1e;
+    --border:    rgba(255,255,255,0.08);
+    --border-hi: rgba(255,255,255,0.22);
+    --text:      #f0f0f0;
+    --muted:     rgba(255,255,255,0.45);
+    --accent:    #8B1A2D;
+    --accent-hi: #b02038;
+}
+
+body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; min-height: 100vh; }
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Layout ── */
+.portal-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+.portal-header {
+    border-bottom: 1px solid var(--border); padding: 20px 0;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.portal-header .logo img { width: 40px; height: 40px; object-fit: contain; border-radius: 50%; }
+.portal-header .logo-name { font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; margin-left: 12px; }
+.portal-header .header-right { display: flex; align-items: center; gap: 20px; font-size: 0.9rem; color: var(--muted); }
+.portal-header .header-right a { color: var(--muted); transition: color 0.2s; }
+.portal-header .header-right a:hover { color: var(--text); text-decoration: none; }
+
+.portal-main { padding: 48px 0 80px; }
+
+/* ── Cards ── */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+.card + .card { margin-top: 24px; }
+
+/* ── Page title ── */
+.page-title { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 6px; }
+.page-subtitle { font-size: 0.95rem; color: var(--muted); margin-bottom: 40px; }
+
+/* ── Section heading ── */
+.section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; }
+.section-head h2 { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+
+/* ── Document list ── */
+.doc-list { list-style: none; }
+.doc-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px; border-radius: 8px; background: var(--surface2);
+    border: 1px solid var(--border); margin-bottom: 10px;
+    transition: border-color 0.2s;
+}
+.doc-item:hover { border-color: var(--border-hi); }
+.doc-item-left { display: flex; align-items: center; gap: 14px; }
+.doc-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.doc-icon.invoice { background: rgba(139,26,45,0.15); color: #e0536a; }
+.doc-icon.contract { background: rgba(80,120,200,0.12); color: #7aadff; }
+.doc-title { font-size: 1rem; font-weight: 600; }
+.doc-meta { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+.doc-download {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+    border: 1px solid var(--border-hi); color: var(--text); background: transparent;
+    transition: all 0.2s; white-space: nowrap;
+}
+.doc-download:hover { background: #fff; color: #111; border-color: #fff; text-decoration: none; }
+
+.empty-state { text-align: center; padding: 48px 24px; color: var(--muted); }
+.empty-state .icon { font-size: 2.5rem; margin-bottom: 12px; }
+.empty-state p { font-size: 0.95rem; }
+
+/* ── Forms ── */
+.form-group { margin-bottom: 22px; }
+.form-group label { display: block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%; background: var(--surface2); border: 1.5px solid var(--border);
+    border-radius: 8px; padding: 13px 16px; font-size: 1rem; color: var(--text);
+    outline: none; transition: border-color 0.2s; -webkit-appearance: none; appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus { border-color: rgba(255,255,255,0.35); }
+.form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; cursor: pointer; }
+.form-group select option { background: #1e1e1e; }
+
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; border-radius: 8px; font-size: 1rem; font-weight: 700;
+    letter-spacing: 0.04em; border: none; cursor: pointer; transition: all 0.2s;
+    text-decoration: none;
+}
+.btn-primary { background: #fff; color: #111; }
+.btn-primary:hover { background: #e8e8e8; text-decoration: none; }
+.btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-hi); }
+.btn-outline:hover { background: rgba(255,255,255,0.06); text-decoration: none; }
+.btn-danger { background: var(--accent); color: #fff; }
+.btn-danger:hover { background: var(--accent-hi); }
+.btn-sm { padding: 8px 18px; font-size: 0.88rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+/* ── Alerts ── */
+.alert { padding: 14px 18px; border-radius: 8px; margin-bottom: 24px; font-size: 0.95rem; }
+.alert-success { background: rgba(50,180,100,0.1); border: 1px solid rgba(50,180,100,0.25); color: #5fd490; }
+.alert-error   { background: rgba(220,50,50,0.1);  border: 1px solid rgba(220,50,50,0.25);  color: #f07070; }
+
+/* ── Admin table ── */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+.data-table td { padding: 14px 14px; font-size: 0.95rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+.badge-invoice  { background: rgba(139,26,45,0.2);  color: #e0536a; }
+.badge-contract { background: rgba(80,120,200,0.15); color: #7aadff; }
+.badge-admin    { background: rgba(255,200,50,0.15); color: #ffd166; }
+.badge-client   { background: rgba(255,255,255,0.07); color: var(--muted); }
+
+/* ── Nav tabs ── */
+.admin-nav { display: flex; gap: 4px; margin-bottom: 36px; border-bottom: 1px solid var(--border); padding-bottom: 0; }
+.admin-nav a {
+    padding: 10px 20px; font-size: 0.9rem; font-weight: 600; color: var(--muted);
+    border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.2s, border-color 0.2s;
+    text-decoration: none;
+}
+.admin-nav a:hover { color: var(--text); }
+.admin-nav a.active { color: var(--text); border-bottom-color: #fff; }
+
+/* ── Stats ── */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 36px; }
+.stat-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+.stat-card .num { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em; }
+.stat-card .lbl { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+
+/* ── Login page ── */
+.login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 24px; }
+.login-box { width: 100%; max-width: 440px; }
+.login-box .logo-area { text-align: center; margin-bottom: 40px; }
+.login-box .logo-area img { width: 56px; height: 56px; object-fit: contain; border-radius: 50%; margin-bottom: 12px; }
+.login-box .logo-area h1 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+.login-box .logo-area p { font-size: 0.9rem; color: var(--muted); margin-top: 4px; }
+.login-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 40px; }
+.login-card .btn-primary { width: 100%; justify-content: center; margin-top: 8px; padding: 15px; font-size: 1.05rem; }
+.login-back { text-align: center; margin-top: 24px; font-size: 0.88rem; color: var(--muted); }
+.login-back a { color: var(--muted); transition: color 0.2s; }
+.login-back a:hover { color: var(--text); }

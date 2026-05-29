@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-style-mode" content="1">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <title>Contact — Sunny Monkeys LLC</title>
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+    /* ── Login button ── */
+    .sm-login-btn {
+        display: inline-flex; align-items: center; overflow: hidden; position: relative;
+        border: 2px solid #fff !important; background: #fff !important; color: #111 !important;
+        padding: 10px 28px !important; border-radius: 6px !important;
+        font-size: 1.25rem !important; font-weight: 700 !important;
+        text-decoration: none !important; letter-spacing: 0.04em !important;
+        transition: background 0.25s, color 0.25s, border-color 0.25s !important;
+        white-space: nowrap !important;
+    }
+    .sm-login-btn .btn-text { display: inline-block; transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s; }
+    .sm-login-btn .btn-text-hover { position: absolute; left: 50%; transform: translateX(-50%) translateY(100%); opacity: 0; transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s; font-weight: 700; white-space: nowrap; }
+    .sm-login-btn:hover .btn-text { transform: translateY(-130%); opacity: 0; }
+    .sm-login-btn:hover .btn-text-hover { transform: translateX(-50%) translateY(-50%); opacity: 1; }
+    .sm-login-btn:hover { background: #111 !important; color: #fff !important; border-color: #111 !important; }
+    
+    .contact-hero { padding: 160px 0 80px; background: #111; color: #fff; }
+    .contact-hero .sub { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; margin-bottom: 16px; }
+    .contact-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; }
+    .contact-section { padding: 100px 0 120px; }
+    .contact-form-wrap { max-width: 740px; }
+    .form-group { margin-bottom: 28px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%; background: #f7f7f7; border: 1.5px solid #e8e8e8; border-radius: 8px;
+        padding: 14px 18px; font-size: 1rem; color: #111; outline: none;
+        transition: border-color 0.2s; -webkit-appearance: none; appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #111; background: #fff; }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+    .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23111' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 18px center; padding-right: 44px; cursor: pointer; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+    .submit-btn { display: inline-flex; align-items: center; gap: 10px; background: #111; color: #fff; border: none; padding: 16px 36px; border-radius: 8px; font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+    .submit-btn:hover { background: #333; transform: translateY(-2px); }
+    .contact-info-wrap { padding-left: 60px; padding-top: 20px; }
+    @media (max-width: 991px) { .contact-info-wrap { padding-left: 0; padding-top: 60px; } }
+    .contact-info-item { margin-bottom: 40px; }
+    .contact-info-item h5 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #999; margin-bottom: 10px; }
+    .contact-info-item p, .contact-info-item a { font-size: 1rem; color: #111; text-decoration: none; line-height: 1.7; }
+    .contact-info-item a:hover { text-decoration: underline; }
+
+    </style>
+</head>
+<body class="inner-page contact-page">
+
+    <!-- header area start -->
+    <header class="header-area header-one header--sticky">
+        <div class="header-container-one">
+            <div class="header-wrapper">
+                <a href="index.html" class="logo"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:48px;height:48px;object-fit:contain;display:block;border-radius:50%;"></a>
+                <div class="header-right">
+                    <nav class="nav-area drop-down-rts">
+                        <ul class="navbar-nav-1">
+                            <li class="menu-item"><a href="index.html"><span class="rolling-text">Home</span></a></li>
+                            <li class="menu-item"><a href="about.html"><span class="rolling-text">About</span></a></li>
+                            <li class="menu-item"><a href="service-1.html"><span class="rolling-text">Services</span></a></li>
+                            <li class="menu-item  current-menu-item"><a href="contact.html"><span class="rolling-text">Contact</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="action-area">
+                        <div class="login-btn-wrapper">
+                            <a href="login.html" class="sm-login-btn"><span class="btn-text">Log In</span><span class="btn-text-hover">Log In</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header area end -->
+
+    <div id="smooth-wrapper"><div id="smooth-content">
+
+    <!-- hero -->
+    <div class="contact-hero">
+        <div class="container">
+            <p class="sub">Get In Touch</p>
+            <h1>Let's Build Something <br><span style="opacity:0.45;">Great Together</span></h1>
+        </div>
+    </div>
+
+    <!-- contact section -->
+    <div class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="contact-form-wrap">
+                        <form action="#" method="POST" id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cf-name">Full Name</label>
+                                    <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cf-email">Email Address</label>
+                                    <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cf-service">Service / Package</label>
+                                <select id="cf-service" name="service" required>
+                                    <option value="" disabled selected>Select a service or package</option>
+                                    <optgroup label="Services">
+                                        <option value="brand-identity">Brand Identity</option>
+                                        <option value="corporate-branding">Corporate Branding</option>
+                                        <option value="social-media-design">Social Media Design</option>
+                                        <option value="email-design-marketing">Email Design &amp; Marketing</option>
+                                        <option value="web-design">Web Design</option>
+                                    </optgroup>
+                                    <optgroup label="Packages">
+                                        <option value="starter">Starter Package</option>
+                                        <option value="growth">Growth Package</option>
+                                        <option value="premium">Premium Package</option>
+                                    </optgroup>
+                                    <option value="custom">Custom / Let&apos;s Talk</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cf-message">Tell Us About Your Project</label>
+                                <textarea id="cf-message" name="message" placeholder="Share a bit about your brand, goals, and what you're looking to create..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                Send Message <i class="fa-light fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="contact-info-wrap">
+                        <div class="contact-info-item">
+                            <h5>Office</h5>
+                            <p>30 N Gould St, Ste N<br>Sheridan, WY 82801<br>United States</p>
+                        </div>
+                        <div class="contact-info-item">
+                            <h5>Email</h5>
+                            <a href="mailto:contact@sunnymonkeys.com">contact@sunnymonkeys.com</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <h5>Phone</h5>
+                            <a href="tel:+16193044022">+1 619 304 4022</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <h5>Follow Us</h5>
+                            <a href="https://www.linkedin.com/company/sunny-monkeys/" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-linkedin-in" style="margin-right:8px;"></i>LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="rts-footer-area-one rts-section-gapTop">
+        <div class="container">
+            <div class="row rts-section-gapBottom">
+                <div class="col-lg-12">
+                    <div class="footer-main-wrapper-one">
+                        <div class="footer-left-area">
+                            <a href="index.html" class="logo-footer"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:52px;height:52px;object-fit:contain;display:block;margin-bottom:16px;border-radius:50%;"></a>
+                            <p class="disc">Bold, strategic design for brands <br> that want to stand out and grow.</p>
+                            <div class="rts-social-area-one">
+                                <ul>
+                                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-single-wized-start">
+                            <h5 class="title">Useful Links</h5>
+                            <ul class="footer-nav">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="service-1.html">Our Services</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-single-wized-start">
+                            <h5 class="title">Legal</h5>
+                            <ul class="footer-nav">
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-single-wized-start">
+                            <h5 class="title">Contact Info</h5>
+                            <ul class="footer-nav">
+                                <li>30 N Gould St, Ste N <br> Sheridan, WY 82801</li>
+                                <li><a href="mailto:contact@sunnymonkeys.com">contact@sunnymonkeys.com</a></li>
+                                <li><a href="tel:+16193044022">+1 619 304 4022</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-bottom-one">
+                        <p>2026 &copy; Sunny Monkeys LLC. All rights reserved. &nbsp;|&nbsp;
+                            <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp;
+                            <a href="terms.html">Terms &amp; Conditions</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer end -->
+    </div></div>
+
+
+    <!-- Scripts style two -->
+    <div class="loading-screen" id="loading-screen">
+        <span class="bar top-bar"></span>
+        <span class="bar down-bar"></span>
+        <span class="progress-line"></span>
+        <span class="loading-counter"> </span>
+    </div>
+
+    <div class="bg-noise"></div>
+
+    <!-- back to top start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!-- back to top end -->
+
+    <!-- pre loader start -->
+    <div class="rts-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="no">
+        <span class="fn-cursor"></span>
+    </div>
+    <div class="rts-cursor cursor-inner" data-default="yes" data-link="yes" data-slider="no">
+        <span class="fn-cursor">
+        <span class="fn-left"></span>
+        <span class="fn-right"></span>
+        </span>
+    </div>
+    <!-- pre loader end -->
+
+    <!-- dark light switcher start-->
+    <div class="modal-sidebar-scroll rts-dark-light">
+        <ul>
+            <li class="go-dark-w"><span>Dark</span><i class="rts-go-dark fal fa-moon"></i></li>
+            <li class="go-light-w"><span>Light</span><i class="rts-go-light fa-light fa-brightness"></i></li>
+        </ul>
+    </div>
+    <!-- dark light switcher end -->
+
+    <script defer src="assets/js/vendor/jquery.min.js"></script>
+    <script defer src="assets/js/plugins/bootstrap.min.js"></script>
+    <script defer src="assets/js/plugins/contact.form.js"></script>
+    <script defer src="assets/js/vendor/waypoint.js"></script>
+    <script defer src="assets/js/plugins/swiper.js"></script>
+    <script defer src="assets/js/plugins/resizer-sensor.js"></script>
+    <script defer src="assets/js/plugins/sticky-sidebar.js"></script>
+    <script defer src="assets/js/plugins/isotop.js"></script>
+    <script defer src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+    <script defer src="assets/js/plugins/smoothscroll-varticle.js"></script>
+    <script defer src="assets/js/vendor/gsap.js"></script>
+    <script defer src="assets/js/plugins/scrolltiger.js"></script>
+    <script defer src="assets/js/plugins/scrolltoplugin.js"></script>
+    <script defer src="assets/js/plugins/splittext.js"></script>
+    <script defer src="assets/js/plugins/smoothscroll.js"></script>
+    <script defer src="assets/js/plugins/scrollmagic.js"></script>
+    <script defer src="assets/js/plugins/animate-scrollmagic.js"></script>
+    <script defer src="assets/js/plugins/tilt.js"></script>
+    <script defer src="assets/js/plugins/counterup.js"></script>
+    <script defer src="assets/js/vendor/waw.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <!-- Scripts style two End -->
+</body>
+</html>

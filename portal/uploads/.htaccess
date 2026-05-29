@@ -1,0 +1,4 @@
+# Block all direct browser access to uploaded files.
+# Files are served only through download.php which enforces auth.
+Order deny,allow
+Deny from all

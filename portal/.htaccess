@@ -1,0 +1,8 @@
+# Prevent directory listing
+Options -Indexes
+
+# Block direct access to config files
+<FilesMatch "^(db|setup)\.php$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
