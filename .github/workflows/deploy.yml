@@ -20,6 +20,8 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
           local-dir: ./
           server-dir: /public_html/preview/
           exclude: |
