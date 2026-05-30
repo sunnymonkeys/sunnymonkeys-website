@@ -1,3 +1,6 @@
+# Original template zip — not needed in deployment
+mighty-html.zip
+
 # Database credentials — never commit this
 portal/config/db.php
 
