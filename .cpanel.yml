@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home1/marcome2/public_html/preview/
+    - export DEPLOYPATH=/home1/marcome2/public_html/
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -R . $DEPLOYPATH
     - /bin/rm -rf $DEPLOYPATH/.git
