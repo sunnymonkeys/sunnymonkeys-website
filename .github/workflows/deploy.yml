@@ -29,4 +29,4 @@ jobs:
             --exclude='.github' \
             --exclude='portal/config/db.php' \
             --exclude='portal/uploads/' \
-            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home1/marcome2/public_html/preview/
+            ./ marcome2@sunnymonkeys.com:/home1/marcome2/public_html/preview/
