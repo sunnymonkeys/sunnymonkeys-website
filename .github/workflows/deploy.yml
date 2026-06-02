@@ -10,23 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup SSH key
+      - name: Pull latest code on server
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          echo "StrictHostKeyChecking no" >> ~/.ssh/config
-          echo "UserKnownHostsFile /dev/null" >> ~/.ssh/config
+          curl -s -w "\nHTTP Status: %{http_code}\n" \
+            -H "Authorization: cpanel marcome2:${{ secrets.CPANEL_API_TOKEN }}" \
+            "https://sunnymonkeys.com:2083/execute/VersionControl/retrieve?repository=/home1/marcome2/repositories/sunnymonkeys-website"
 
-      - name: Deploy via rsync
+      - name: Deploy to public_html
         run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key -p 22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='portal/config/db.php' \
-            --exclude='portal/uploads/' \
-            ./ marcome2@sunnymonkeys.com:/home1/marcome2/public_html/preview/
+          curl -s -w "\nHTTP Status: %{http_code}\n" \
+            -H "Authorization: cpanel marcome2:${{ secrets.CPANEL_API_TOKEN }}" \
+            "https://sunnymonkeys.com:2083/execute/VersionControlDeployment/create?repository=/home1/marcome2/repositories/sunnymonkeys-website"
