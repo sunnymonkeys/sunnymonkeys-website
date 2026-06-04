@@ -38,6 +38,8 @@ $clients = $pdo->query('SELECT c.*, COUNT(d.id) as doc_count FROM clients c LEFT
   tr:hover td { background: #141414; }
   .badge { background: #1e2e1e; color: #6fcf6f; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; }
   .empty { color: #555; text-align: center; padding: 48px; }
+  .toast { position: fixed; top: 20px; right: 20px; background: #1a3a1a; border: 1px solid #2a6a2a; color: #6fcf6f; padding: 12px 20px; border-radius: 10px; font-size: 0.88rem; font-weight: 500; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 999; animation: slideIn 0.3s ease; }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 </style>
 </head>
 <body>
@@ -87,5 +89,9 @@ $clients = $pdo->query('SELECT c.*, COUNT(d.id) as doc_count FROM clients c LEFT
   </table>
   <?php endif; ?>
 </div>
+<?php if (!empty($_GET['toast'])): ?>
+<div class="toast" id="toast">✓ <?= htmlspecialchars($_GET['toast']) ?></div>
+<script>setTimeout(() => { const t = document.getElementById('toast'); if(t) t.style.opacity = '0'; }, 3500);</script>
+<?php endif; ?>
 </body>
 </html>

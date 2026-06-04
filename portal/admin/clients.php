@@ -20,6 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $pdo->prepare('INSERT INTO clients (name, email, company, password) VALUES (?, ?, ?, ?)');
             $stmt->execute([$name, $email, $company, $hash]);
+            if (isset($_POST['action']) && $_POST['action'] === 'view') {
+                header('Location: https://sunnymonkeys.com/portal/admin/index.php?toast=' . urlencode("Client \"$name\" created successfully."));
+                exit;
+            }
             $success = "Client \"$name\" created successfully.";
         } catch (Exception $e) {
             $error = 'Email already exists or database error.';
@@ -78,7 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" name="company" placeholder="Acme Inc.">
     <label>Temporary Password</label>
     <input type="text" name="password" required placeholder="They can change this later">
-    <button type="submit" class="btn">Create Client</button>
+    <div style="display:flex;gap:12px;margin-top:8px;">
+      <button type="submit" name="action" value="view" class="btn">Create & View Clients</button>
+      <button type="submit" name="action" value="another" class="btn" style="background:#222;color:#fff;border:1px solid #444;">Create & Add Another</button>
+    </div>
   </form>
 </div>
 </body>
