@@ -1,39 +1,28 @@
 <?php
 session_start();
+if (!isset($_SESSION['admin_id'])) { header('Location: https://sunnymonkeys.com/portal/login.php'); exit; }
+require_once __DIR__ . '/../config/db.php';
+$pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if (empty($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-    header('Location: ../login.php');
-    exit;
-}
-
-require_once '../config/db.php';
-$db = getDB();
-
-$success = '';
-$error   = '';
+$success = $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name     = trim($_POST['name']     ?? '');
-    $email    = trim($_POST['email']    ?? '');
-    $password = trim($_POST['password'] ?? '');
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $company = trim($_POST['company'] ?? '');
+    $password = $_POST['password'] ?? '';
 
     if (!$name || !$email || !$password) {
-        $error = 'All fields are required.';
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = 'Please enter a valid email address.';
-    } elseif (strlen($password) < 8) {
-        $error = 'Password must be at least 8 characters.';
+        $error = 'Name, email, and password are required.';
     } else {
-        // Check duplicate
-        $chk = $db->prepare("SELECT id FROM users WHERE email = ?");
-        $chk->execute([$email]);
-        if ($chk->fetch()) {
-            $error = 'A client with that email already exists.';
-        } else {
-            $hash = password_hash($password, PASSWORD_BCRYPT);
-            $ins  = $db->prepare("INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, 'client')");
-            $ins->execute([$name, $email, $hash]);
-            $success = "Client <strong>" . htmlspecialchars($name) . "</strong> added successfully. They can now log in at <code>/portal/login.php</code>.";
+        try {
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $pdo->prepare('INSERT INTO clients (name, email, company, password) VALUES (?, ?, ?, ?)');
+            $stmt->execute([$name, $email, $company, $hash]);
+            $success = "Client \"$name\" created successfully.";
+        } catch (Exception $e) {
+            $error = 'Email already exists or database error.';
         }
     }
 }
@@ -41,67 +30,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Client — Sunny Monkeys Portal</title>
-    <link rel="shortcut icon" href="../../assets/images/fav.png">
-    <link rel="stylesheet" href="../assets/portal.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Client — Sunny Monkeys</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d0d0d; color: #fff; font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
+  header { background: #111; border-bottom: 1px solid #222; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
+  header .brand { display: flex; align-items: center; gap: 12px; }
+  header img { width: 36px; height: 36px; object-fit: contain; border-radius: 50%; }
+  header h1 { font-size: 1rem; font-weight: 600; }
+  header nav a { color: #aaa; font-size: 0.88rem; text-decoration: none; margin-left: 20px; }
+  header nav a:hover { color: #fff; }
+  .container { max-width: 520px; margin: 0 auto; padding: 48px 24px; }
+  h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 28px; }
+  label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; color: #aaa; margin-bottom: 6px; text-transform: uppercase; }
+  input { width: 100%; background: #111; border: 1px solid #333; border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 0.95rem; margin-bottom: 20px; outline: none; }
+  input:focus { border-color: #555; }
+  .btn { background: #fff; color: #000; border: none; border-radius: 8px; padding: 12px 24px; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
+  .btn:hover { background: #e0e0e0; }
+  .back { color: #666; font-size: 0.85rem; text-decoration: none; display: inline-block; margin-bottom: 24px; }
+  .success { background: #0a2a0a; border: 1px solid #1a5a1a; color: #6fcf6f; padding: 10px 14px; border-radius: 8px; margin-bottom: 20px; font-size: 0.88rem; }
+  .error { background: #2a0a0a; border: 1px solid #5a1a1a; color: #ff6b6b; padding: 10px 14px; border-radius: 8px; margin-bottom: 20px; font-size: 0.88rem; }
+</style>
 </head>
 <body>
-
-<div class="portal-wrap">
-
-    <header class="portal-header">
-        <div style="display:flex;align-items:center;">
-            <a href="../../index.html" class="logo"><img src="../../assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys"></a>
-            <span class="logo-name">Admin Panel</span>
-        </div>
-        <div class="header-right">
-            <a href="index.php">← Dashboard</a>
-            <a href="../logout.php">Sign Out</a>
-        </div>
-    </header>
-
-    <main class="portal-main">
-        <h1 class="page-title">Add New Client</h1>
-        <p class="page-subtitle">Create a login for a client so they can access their documents.</p>
-
-        <nav class="admin-nav">
-            <a href="index.php">Clients</a>
-            <a href="upload.php">Upload Document</a>
-            <a href="clients.php" class="active">Add Client</a>
-        </nav>
-
-        <div class="card" style="max-width:560px;">
-            <?php if ($success): ?>
-                <div class="alert alert-success"><?= $success ?></div>
-            <?php endif; ?>
-            <?php if ($error): ?>
-                <div class="alert alert-error"><?= htmlspecialchars($error) ?></div>
-            <?php endif; ?>
-
-            <form method="POST" action="">
-                <div class="form-group">
-                    <label for="name">Client Name</label>
-                    <input type="text" id="name" name="name" placeholder="Acme Corp or Jane Doe"
-                           value="<?= htmlspecialchars($_POST['name'] ?? '') ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="client@company.com"
-                           value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Temporary Password</label>
-                    <input type="text" id="password" name="password" placeholder="min. 8 characters" required>
-                    <p style="font-size:0.8rem;color:rgba(255,255,255,0.3);margin-top:6px;">
-                        Share this with the client. They can't change it yet — that feature can be added later.
-                    </p>
-                </div>
-                <button type="submit" class="btn btn-primary">Create Client Account</button>
-            </form>
-        </div>
-    </main>
+<header>
+  <div class="brand">
+    <img src="/assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys">
+    <h1>Admin Portal</h1>
+  </div>
+  <nav>
+    <a href="index.php">← Clients</a>
+    <a href="../logout.php">Sign out</a>
+  </nav>
+</header>
+<div class="container">
+  <h2>Add New Client</h2>
+  <?php if ($success): ?><div class="success"><?= htmlspecialchars($success) ?></div><?php endif; ?>
+  <?php if ($error): ?><div class="error"><?= htmlspecialchars($error) ?></div><?php endif; ?>
+  <form method="POST">
+    <label>Full Name</label>
+    <input type="text" name="name" required placeholder="Jane Smith">
+    <label>Email Address</label>
+    <input type="email" name="email" required placeholder="jane@company.com">
+    <label>Company (optional)</label>
+    <input type="text" name="company" placeholder="Acme Inc.">
+    <label>Temporary Password</label>
+    <input type="text" name="password" required placeholder="They can change this later">
+    <button type="submit" class="btn">Create Client</button>
+  </form>
 </div>
 </body>
 </html>

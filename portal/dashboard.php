@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: https://sunnymonkeys.com/portal/login.php');
     exit;
 }
 require_once __DIR__ . '/config/db.php';

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['user_id']) || isset($_SESSION['admin_id'])) {
-    header('Location: ' . (isset($_SESSION['admin_id']) ? 'admin/index.php' : 'dashboard.php'));
+    header('Location: https://sunnymonkeys.com/portal/' . (isset($_SESSION['admin_id']) ? 'admin/index.php' : 'dashboard.php'));
     exit;
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($admin && password_verify($password, $admin['password'])) {
         $_SESSION['admin_id'] = $admin['id'];
         $_SESSION['admin_name'] = $admin['username'];
-        header('Location: admin/index.php');
+        header('Location: https://sunnymonkeys.com/portal/admin/index.php');
         exit;
     }
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($client && password_verify($password, $client['password'])) {
         $_SESSION['user_id'] = $client['id'];
         $_SESSION['user_name'] = $client['name'];
-        header('Location: dashboard.php');
+        header('Location: https://sunnymonkeys.com/portal/dashboard.php');
         exit;
     }
 
