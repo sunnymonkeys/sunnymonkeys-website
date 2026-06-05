@@ -1,13 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin_id'])) {
-    header('Location: https://sunnymonkeys.com/portal/login.php');
-    exit;
-}
+if (!isset($_SESSION['admin_id'])) { header('Location: https://sunnymonkeys.com/portal/login.php'); exit; }
 require_once __DIR__ . '/../config/db.php';
-$pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
+$pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8', DB_USER, DB_PASS);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 $clients = $pdo->query('SELECT c.*, COUNT(d.id) as doc_count FROM clients c LEFT JOIN documents d ON c.id = d.client_id GROUP BY c.id ORDER BY c.created_at DESC')->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -15,13 +11,13 @@ $clients = $pdo->query('SELECT c.*, COUNT(d.id) as doc_count FROM clients c LEFT
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin — Sunny Monkeys</title>
+<title>Sunny Monkeys</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0d0d0d; color: #fff; font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
   header { background: #111; border-bottom: 1px solid #222; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
   header .brand { display: flex; align-items: center; gap: 12px; }
-  header img { width: 36px; height: 36px; object-fit: contain; border-radius: 50%; }
+  header img { height: 32px; width: auto; display: block; }
   header h1 { font-size: 1rem; font-weight: 600; }
   header nav a { color: #aaa; font-size: 0.88rem; text-decoration: none; margin-left: 20px; }
   header nav a:hover { color: #fff; }
@@ -55,25 +51,14 @@ $clients = $pdo->query('SELECT c.*, COUNT(d.id) as doc_count FROM clients c LEFT
   </nav>
 </header>
 <div class="container">
-  <div class="top">
-    <h2>Clients</h2>
-    <a href="clients.php" class="btn">+ Add Client</a>
-  </div>
+  <div class="top"><h2>Clients</h2><a href="clients.php" class="btn">+ Add Client</a></div>
   <?php if (empty($clients)): ?>
     <p class="empty">No clients yet. Add your first one!</p>
   <?php else: ?>
   <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Company</th>
-        <th>Documents</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
+    <thead><tr><th>Name</th><th>Email</th><th>Company</th><th>Documents</th><th>Actions</th></tr></thead>
     <tbody>
-      <?php foreach ($clients as $c): ?>
+    <?php foreach ($clients as $c): ?>
       <tr>
         <td><?= htmlspecialchars($c['name']) ?></td>
         <td><?= htmlspecialchars($c['email']) ?></td>
@@ -84,14 +69,14 @@ $clients = $pdo->query('SELECT c.*, COUNT(d.id) as doc_count FROM clients c LEFT
           <a href="upload.php?client_id=<?= $c['id'] ?>" class="btn-sm" style="margin-left:6px">Upload</a>
         </td>
       </tr>
-      <?php endforeach; ?>
+    <?php endforeach; ?>
     </tbody>
   </table>
   <?php endif; ?>
 </div>
 <?php if (!empty($_GET['toast'])): ?>
 <div class="toast" id="toast">✓ <?= htmlspecialchars($_GET['toast']) ?></div>
-<script>setTimeout(() => { const t = document.getElementById('toast'); if(t) t.style.opacity = '0'; }, 3500);</script>
+<script>setTimeout(()=>{ const t=document.getElementById('toast'); if(t)t.style.opacity='0'; },3500);</script>
 <?php endif; ?>
 </body>
 </html>

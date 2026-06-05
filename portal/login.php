@@ -4,39 +4,29 @@ if (isset($_SESSION['user_id']) || isset($_SESSION['admin_id'])) {
     header('Location: https://sunnymonkeys.com/portal/' . (isset($_SESSION['admin_id']) ? 'admin/index.php' : 'dashboard.php'));
     exit;
 }
-
 $error = '';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once __DIR__ . '/config/db.php';
-    $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
+    $pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8', DB_USER, DB_PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     $email    = trim($_POST['email']    ?? '');
     $password = $_POST['password'] ?? '';
-
-    // Check admin
     $stmt = $pdo->prepare('SELECT * FROM admins WHERE username = ?');
     $stmt->execute([$email]);
     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($admin && password_verify($password, $admin['password'])) {
         $_SESSION['admin_id']   = $admin['id'];
         $_SESSION['admin_name'] = $admin['username'];
-        header('Location: https://sunnymonkeys.com/portal/admin/index.php');
-        exit;
+        header('Location: https://sunnymonkeys.com/portal/admin/index.php'); exit;
     }
-
-    // Check client
     $stmt = $pdo->prepare('SELECT * FROM clients WHERE email = ?');
     $stmt->execute([$email]);
     $client = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($client && password_verify($password, $client['password'])) {
         $_SESSION['user_id']   = $client['id'];
         $_SESSION['user_name'] = $client['name'];
-        header('Location: https://sunnymonkeys.com/portal/dashboard.php');
-        exit;
+        header('Location: https://sunnymonkeys.com/portal/dashboard.php'); exit;
     }
-
     $error = 'Invalid email or password.';
 }
 ?>
@@ -46,14 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/fav.png">
-    <title>Client Login — Sunny Monkeys LLC</title>
+    <title>Sunny Monkeys</title>
     <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #111; min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: 'Segoe UI', sans-serif; }
     .login-wrap { width: 100%; max-width: 420px; padding: 20px; }
     .login-logo { text-align: center; margin-bottom: 40px; }
-    .login-logo a { display: inline-block; }
-    .login-logo img { height: 44px; width: 44px; object-fit: contain; border-radius: 50%; display: block; }
+    .login-logo img { height: 52px; width: auto; display: inline-block; }
     .login-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 16px; padding: 48px 40px; }
     @media (max-width: 480px) { .login-card { padding: 36px 24px; } }
     .login-card h2 { font-size: 2.4rem; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.03em; }
@@ -82,9 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="login-card">
             <h2>Client Portal</h2>
             <p>Sign in to access your project dashboard.</p>
-            <?php if ($error): ?>
-                <div class="error-box"><?= htmlspecialchars($error) ?></div>
-            <?php endif; ?>
+            <?php if ($error): ?><div class="error-box"><?= htmlspecialchars($error) ?></div><?php endif; ?>
             <form method="POST">
                 <div class="lf-group">
                     <label for="lf-email">Email Address</label>
@@ -96,13 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <button type="submit" class="login-btn-main">Sign In</button>
             </form>
-            <div class="login-footer">
-                <a href="/contact.html">Need access? Contact us →</a>
-            </div>
+            <div class="login-footer"><a href="/contact.html">Need access? Contact us →</a></div>
         </div>
-        <div class="login-back">
-            <a href="/">← Back to Sunny Monkeys</a>
-        </div>
+        <div class="login-back"><a href="/">← Back to Sunny Monkeys</a></div>
     </div>
 </body>
 </html>
