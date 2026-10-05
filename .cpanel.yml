@@ -7,3 +7,5 @@ deployment:
     - /bin/rm -rf $DEPLOYPATH/.git
     - /bin/rm -f $DEPLOYPATH/.cpanel.yml
     - /bin/rm -f $DEPLOYPATH/.gitignore
+    - /bin/rm -rf $DEPLOYPATH/.github
+    - /bin/rm -f $DEPLOYPATH/README.md

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /portal/
+Disallow: /login
+
+Sitemap: https://sunnymonkeys.com/sitemap.xml
