@@ -1,23 +1,60 @@
 name: Deploy to HostGator
 
+# Push to main -> cPanel pulls from GitHub ("Update from Remote")
+# -> cPanel runs .cpanel.yml ("Deploy HEAD Commit"), which copies the repo into public_html.
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      CPANEL_URL: https://sunnymonkeys.com:2083
+      REPO_ROOT: /home1/marcome2/repositories/sunnymonkeys-website
+      AUTH: "cpanel marcome2:${{ secrets.CPANEL_API_TOKEN }}"
+
     steps:
       - name: Pull latest code on server
         run: |
-          curl -s -w "\nHTTP Status: %{http_code}\n" \
-            -H "Authorization: cpanel marcome2:${{ secrets.CPANEL_API_TOKEN }}" \
-            "https://sunnymonkeys.com:2083/execute/VersionControl/retrieve?repository=/home1/marcome2/repositories/sunnymonkeys-website"
+          set -euo pipefail
+          resp=$(curl -sS --fail-with-body -G -H "Authorization: $AUTH" \
+            --data-urlencode "repository_root=$REPO_ROOT" \
+            --data-urlencode "branch=main" \
+            "$CPANEL_URL/execute/VersionControl/update")
+          echo "$resp" | jq '{status, errors, head: .data.last_update.identifier, deployable: .data.deployable}'
+          test "$(echo "$resp" | jq -r .status)" = "1" || { echo "::error::cPanel could not pull from GitHub"; exit 1; }
+          head=$(echo "$resp" | jq -r '.data.last_update.identifier // empty')
+          if [ -n "$head" ] && [ "$head" != "$GITHUB_SHA" ]; then
+            echo "::error::Server is at $head, expected $GITHUB_SHA"; exit 1
+          fi
 
       - name: Deploy to public_html
         run: |
-          curl -s -w "\nHTTP Status: %{http_code}\n" \
-            -H "Authorization: cpanel marcome2:${{ secrets.CPANEL_API_TOKEN }}" \
-            "https://sunnymonkeys.com:2083/execute/VersionControlDeployment/create?repository=/home1/marcome2/repositories/sunnymonkeys-website"
+          set -euo pipefail
+          resp=$(curl -sS --fail-with-body -G -H "Authorization: $AUTH" \
+            --data-urlencode "repository_root=$REPO_ROOT" \
+            "$CPANEL_URL/execute/VersionControlDeployment/create")
+          echo "$resp" | jq '{status, errors, deploy_id: .data.deploy_id}'
+          test "$(echo "$resp" | jq -r .status)" = "1" || { echo "::error::cPanel refused the deployment"; exit 1; }
+          deploy_id=$(echo "$resp" | jq -r .data.deploy_id)
+
+          # Deployments are queued; wait for this one to finish.
+          for i in $(seq 1 24); do
+            sleep 5
+            ts=$(curl -sS --fail-with-body -G -H "Authorization: $AUTH" \
+              "$CPANEL_URL/execute/VersionControlDeployment/retrieve" \
+              | jq -c --arg id "$deploy_id" '.data[] | select((.deploy_id|tostring) == $id) | .timestamps')
+            echo "attempt $i: $ts"
+            if echo "$ts" | jq -e '.succeeded' > /dev/null 2>&1; then echo "Deployed."; exit 0; fi
+            if echo "$ts" | jq -e '.failed' > /dev/null 2>&1; then echo "::error::Deployment failed, see the log in cPanel > Git Version Control"; exit 1; fi
+          done
+          echo "::error::Deployment did not finish within 2 minutes"; exit 1
