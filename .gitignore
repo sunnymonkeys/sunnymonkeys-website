@@ -3,6 +3,7 @@ mighty-html.zip
 
 # Database credentials — never commit this
 portal/config/db.php
+portal/config/mail.php
 
 # Client-uploaded PDFs — live on the server, not in the repo
 portal/uploads/*.pdf

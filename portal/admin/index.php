@@ -45,6 +45,7 @@ $clients = $pdo->query('SELECT c.*, COUNT(d.id) as doc_count FROM clients c LEFT
     <h1>Admin Portal</h1>
   </div>
   <nav>
+    <a href="inquiries.php">Inquiries</a>
     <a href="clients.php">+ New Client</a>
     <a href="upload.php">Upload Doc</a>
     <a href="../logout.php">Sign out</a>

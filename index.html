@@ -309,53 +309,6 @@
                                         impactful visual design to help businesses connect with their <br>
                                         audience and grow with confidence.
                                     </p>
-                                    <div class="progress-main-wrapper">
-                                        <div class="single-progress-area-one mb--40">
-                                            <div class="progress">
-                                                <div class="progress-bar wow fadeInLeft bg--primary" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            <div class="progress-bottom">
-                                                <p class="name">Brand Identity</p>
-                                                <span class="parcent">95%</span>
-                                            </div>
-                                        </div>
-                                        <div class="single-progress-area-one mb--40">
-                                            <div class="progress">
-                                                <div class="progress-bar wow fadeInLeft bg--primary" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            <div class="progress-bottom">
-                                                <p class="name">Corporate Branding</p>
-                                                <span class="parcent">88%</span>
-                                            </div>
-                                        </div>
-                                        <div class="single-progress-area-one mb--40">
-                                            <div class="progress">
-                                                <div class="progress-bar wow fadeInLeft bg--primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            <div class="progress-bottom">
-                                                <p class="name">Social Media Design</p>
-                                                <span class="parcent">90%</span>
-                                            </div>
-                                        </div>
-                                        <div class="single-progress-area-one mb--40">
-                                            <div class="progress">
-                                                <div class="progress-bar wow fadeInLeft bg--primary" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            <div class="progress-bottom">
-                                                <p class="name">Email Design &amp; Marketing</p>
-                                                <span class="parcent">85%</span>
-                                            </div>
-                                        </div>
-                                        <div class="single-progress-area-one">
-                                            <div class="progress">
-                                                <div class="progress-bar wow fadeInLeft bg--primary" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            <div class="progress-bottom">
-                                                <p class="name">Web Design</p>
-                                                <span class="parcent">82%</span>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="btn--area-left mt--50">
                                         <a href="contact.html" class="learn-more-btn">Work With Us<i
                                                 class="fa-solid fa-arrow-up-right"></i></a>
@@ -1000,8 +953,9 @@
                                         <p class="disc">
                                             Subscribe to our newsletter for future updates. <br> Don’t worry, we don’t spam.
                                         </p>
-                                        <form action="#" class="subscribtion-input">
-                                            <input id="email" type="email" placeholder="Enter your email..." required>
+                                        <form action="/portal/inquiry.php" method="POST" class="subscribtion-input">
+                                            <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;opacity:0">
+                                            <input id="email" name="email" type="email" placeholder="Enter your email..." required>
                                             <label for="email"><i class="fa-regular fa-envelope"></i></label>
                                             <button type="submit" class="rts-btn btn-dark">subscribe</button>
                                         </form>
@@ -1075,7 +1029,7 @@
 
     <script defer src="assets/js/vendor/jquery.min.js"></script>
     <script defer src="assets/js/plugins/bootstrap.min.js"></script>
-    <script defer src="assets/js/plugins/contact.form.js"></script>
+    <script defer src="assets/js/plugins/contact.form.js?v=2"></script>
     <script defer src="assets/js/vendor/waypoint.js"></script>
     <script defer src="assets/js/plugins/swiper.js"></script>
 

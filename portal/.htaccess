@@ -2,7 +2,10 @@
 Options -Indexes
 
 # Block direct access to config files
-<FilesMatch "^(db|setup)\.php$">
+<FilesMatch "^(db|setup|mail)\.php$">
     Order deny,allow
     Deny from all
 </FilesMatch>
+
+# Helper code is only included by other scripts, never opened directly
+RedirectMatch 403 ^/portal/lib/

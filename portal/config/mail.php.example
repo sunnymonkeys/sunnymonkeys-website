@@ -1,0 +1,9 @@
+<?php
+// Copy this file to mail.php (same folder) and put in the Titan mailbox password.
+// mail.php is never committed to Git and can't be opened from a browser.
+
+define('MAIL_HOST', 'smtp.titan.email');
+define('MAIL_PORT', 465);                          // SSL/TLS
+define('MAIL_USER', 'contact@sunnymonkeys.com');   // the mailbox that sends
+define('MAIL_PASS', 'your-mailbox-password');
+define('MAIL_TO',   'contact@sunnymonkeys.com');   // where new inquiries are sent

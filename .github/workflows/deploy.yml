@@ -23,6 +23,14 @@ jobs:
       AUTH: "cpanel marcome2:${{ secrets.CPANEL_API_TOKEN }}"
 
     steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Check PHP files for syntax errors (nothing deploys if one is broken)
+        run: |
+          php --version | head -1
+          find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
+
       - name: Pull latest code on server
         run: |
           set -euo pipefail

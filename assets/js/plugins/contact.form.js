@@ -1,60 +1,45 @@
 /**
- *
- * -----------------------------------------------------------------------------
- *
- * Template : Bizup - Creative Agency & Portfolio HTML Template
- * Author : reacthemes
- * Author URI : https://reactheme.com/ 
- *
- * -----------------------------------------------------------------------------
- *
- **/
-
+ * Sunny Monkeys forms: sends the contact form (#contact-form) and the footer newsletter form
+ * (form.subscribtion-input) to /portal/inquiry.php and shows the reply under the form.
+ * The server saves every submission to the portal (Admin > Inquiries) before emailing it.
+ */
 (function ($) {
     'use strict';
-    // Get the form.
-    var form = $('#contact-form');
 
-    // Get the messages div.
-    var formMessages = $('#form-messages');
+    var pageLoadedAt = Date.now();
+    var fallback = 'Sorry, something went wrong. Please email us at contact@sunnymonkeys.com.';
 
-    // Set up an event listener for the contact form.
-    $(form).submit(function (e) {
-        // Stop the browser from submitting the form.
-        e.preventDefault();
+    function wire(selector, kind) {
+        var $form = $(selector);
+        if (!$form.length) return;
 
-        // Serialize the form data.
-        var formData = $(form).serialize();
+        var $status = $('<p class="sm-form-status" role="status" aria-live="polite"></p>')
+            .css({ marginTop: '14px', fontSize: '15px', lineHeight: 1.5 })
+            .insertAfter($form);
 
-        // Submit the form using AJAX.
-        $.ajax({
+        $form.on('submit', function (e) {
+            e.preventDefault();
+            var $button = $form.find('[type="submit"]').prop('disabled', true);
+            $status.css('color', '').text('Sending...');
+
+            $.ajax({
                 type: 'POST',
-                url: $(form).attr('action'),
-                data: formData
+                url: '/portal/inquiry.php',
+                data: $form.serialize() + '&form=' + kind + '&started=' + pageLoadedAt
             })
-            .done(function (response) {
-                // Make sure that the formMessages div has the 'success' class.
-                $(formMessages).removeClass('error');
-                $(formMessages).addClass('success');
+                .done(function (text) {
+                    $status.css('color', '').text(text || 'Thanks!');
+                    $form[0].reset();
+                })
+                .fail(function (xhr) {
+                    $status.css('color', '#d9534f').text(xhr.responseText || fallback);
+                })
+                .always(function () {
+                    $button.prop('disabled', false);
+                });
+        });
+    }
 
-                // Set the message text.
-                $(formMessages).text(response);
-
-                // Clear the form.
-                $('#name, #email, #message').val('');
-            })
-            .fail(function (data) {
-                // Make sure that the formMessages div has the 'error' class.
-                $(formMessages).removeClass('success');
-                $(formMessages).addClass('error');
-
-                // Set the message text.
-                if (data.responseText !== '') {
-                    $(formMessages).text(data.responseText);
-                } else {
-                    $(formMessages).text('Oops! An error occured and your message could not be sent.');
-                }
-            });
-    });
-
+    wire('#contact-form', 'contact');
+    wire('form.subscribtion-input', 'newsletter');
 })(jQuery);
