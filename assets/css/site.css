@@ -22,7 +22,24 @@
     }
 }
 
-/* Footer newsletter button (was 12px) */
-.subscribtion-input .rts-btn {
+/* Footer newsletter button: the template shrinks it to 12px below 1200px wide */
+.footer-main-wrapper-one .footer-single-wized-start .subscribtion-area .subscribtion-input button {
     font-size: 1.4rem;
 }
+
+/* Header "Log In" button. Shared here so every page gets it (Privacy and Terms had no styles for it
+   and showed "Log InLog In" as plain text). Some pages still repeat these rules inline. */
+.sm-login-btn {
+    display: inline-flex; align-items: center; overflow: hidden; position: relative;
+    border: 2px solid #fff !important; background: #fff !important; color: #111 !important;
+    padding: 10px 28px !important; border-radius: 6px !important;
+    font-size: 1.5rem !important; font-weight: 700 !important;
+    text-decoration: none !important; letter-spacing: 0.04em !important;
+    transition: background 0.25s, color 0.25s, border-color 0.25s !important;
+    white-space: nowrap !important;
+}
+.sm-login-btn .btn-text { display: inline-block; transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s; }
+.sm-login-btn .btn-text-hover { position: absolute; left: 50%; transform: translateX(-50%) translateY(100%); opacity: 0; transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s; font-weight: 700; white-space: nowrap; }
+.sm-login-btn:hover .btn-text { transform: translateY(-130%); opacity: 0; }
+.sm-login-btn:hover .btn-text-hover { transform: translateX(-50%) translateY(-50%); opacity: 1; }
+.sm-login-btn:hover { background: #111 !important; color: #fff !important; border-color: #111 !important; }
