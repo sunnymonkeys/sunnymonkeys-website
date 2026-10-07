@@ -20,13 +20,14 @@
     <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/site.css?v=1">
     <style>
     /* Login button */
     .sm-login-btn {
         display: inline-flex; align-items: center; overflow: hidden; position: relative;
         border: 2px solid #fff !important; background: #fff !important; color: #111 !important;
         padding: 10px 28px !important; border-radius: 6px !important;
-        font-size: 1.25rem !important; font-weight: 700 !important;
+        font-size: 1.5rem !important; font-weight: 700 !important;
         text-decoration: none !important; letter-spacing: 0.04em !important;
         transition: background 0.25s, color 0.25s, border-color 0.25s !important;
         white-space: nowrap !important;
@@ -39,9 +40,9 @@
 
     /* Pricing section */
     .sm-pricing-section { padding: 100px 0 120px; background: #0d0d0d; }
-    .sm-pricing-section .section-eyebrow { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+    .sm-pricing-section .section-eyebrow { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
     .sm-pricing-section .section-title { font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 16px; }
-    .sm-pricing-section .section-sub { font-size: 1.3rem; color: rgba(255,255,255,0.5); max-width: 620px; line-height: 1.7; margin-bottom: 60px; }
+    .sm-pricing-section .section-sub { font-size: 1.7rem; color: rgba(255,255,255,0.65); max-width: 620px; line-height: 1.7; margin-bottom: 60px; }
     .sm-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     @media (max-width: 991px) { .sm-pricing-grid { grid-template-columns: 1fr; max-width: 540px; } }
     .sm-plan {
@@ -53,30 +54,30 @@
     .sm-plan.featured { border-color: #fff; background: #1a1a1a; }
     .sm-plan.featured::before {
         content: "Most Popular"; position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
-        background: #fff; color: #111; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.1em;
+        background: #fff; color: #111; font-size: 1.15rem; font-weight: 800; letter-spacing: 0.1em;
         text-transform: uppercase; padding: 5px 20px; border-radius: 20px;
     }
-    .sm-plan-name { font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 12px; }
-    .sm-plan-price { font-size: 3.8rem; font-weight: 800; color: #fff; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
-    .sm-plan-price span { font-size: 1.5rem; font-weight: 500; vertical-align: top; margin-top: 10px; display: inline-block; color: rgba(255,255,255,0.6); }
-    .sm-plan-cadence { font-size: 1.2rem; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
-    .sm-plan-desc { font-size: 1.3rem; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 30px; }
+    .sm-plan-name { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+    .sm-plan-price { font-size: 4.8rem; font-weight: 800; color: #fff; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
+    .sm-plan-price span { font-size: 2rem; font-weight: 500; vertical-align: top; margin-top: 10px; display: inline-block; color: rgba(255,255,255,0.6); }
+    .sm-plan-cadence { font-size: 1.5rem; color: rgba(255,255,255,0.55); margin-bottom: 28px; }
+    .sm-plan-desc { font-size: 1.6rem; color: rgba(255,255,255,0.68); line-height: 1.65; margin-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 30px; }
     .sm-plan-features { list-style: none; padding: 0; margin: 0 0 40px; flex: 1; }
-    .sm-plan-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 1.3rem; color: rgba(255,255,255,0.7); line-height: 1.55; margin-bottom: 14px; }
-    .sm-plan-features li i { color: #fff; margin-top: 4px; flex-shrink: 0; font-size: 1rem; }
-    .sm-plan-features li.muted { color: rgba(255,255,255,0.3); }
+    .sm-plan-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 1.6rem; color: rgba(255,255,255,0.8); line-height: 1.55; margin-bottom: 14px; }
+    .sm-plan-features li i { color: #fff; margin-top: 4px; flex-shrink: 0; font-size: 1.3rem; }
+    .sm-plan-features li.muted { color: rgba(255,255,255,0.38); text-decoration: line-through; }
     .sm-plan-features li.muted i { color: rgba(255,255,255,0.2); }
     .sm-plan-cta {
         display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-        padding: 18px 36px; border-radius: 8px; font-size: 1.25rem; font-weight: 700;
+        padding: 18px 36px; border-radius: 8px; font-size: 1.6rem; font-weight: 700;
         letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s;
         border: 1.5px solid rgba(255,255,255,0.2); color: #fff; background: transparent;
     }
     .sm-plan.featured .sm-plan-cta { background: #fff; color: #111; border-color: #fff; }
     .sm-plan-cta:hover { background: #fff; color: #111; border-color: #fff; }
     .sm-plan.featured .sm-plan-cta:hover { background: rgba(255,255,255,0.85); }
-    .sm-pricing-note { text-align: center; margin-top: 52px; font-size: 1.2rem; color: rgba(255,255,255,0.3); }
-    .sm-pricing-note a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+    .sm-pricing-note { text-align: center; margin-top: 52px; font-size: 1.6rem; color: rgba(255,255,255,0.55); }
+    .sm-pricing-note a { color: rgba(255,255,255,0.85); text-decoration: underline; }
     .sm-pricing-note a:hover { color: #fff; }
     </style>
 </head>
@@ -165,7 +166,7 @@
                                     <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Creative Consulting</p></div>
                                 </div>
                             </div>
-                            <div class="end-arrow discription-area"><a href="/contact"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="end-arrow discription-area"><a href="/contact" aria-label="Ask about this service"><i class="fa-regular fa-arrow-right"></i></a></div>
                             <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
                         </div>
 
@@ -182,7 +183,7 @@
                                     <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Print &amp; Stationery</p></div>
                                 </div>
                             </div>
-                            <div class="end-arrow discription-area"><a href="/contact"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="end-arrow discription-area"><a href="/contact" aria-label="Ask about this service"><i class="fa-regular fa-arrow-right"></i></a></div>
                             <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
                         </div>
 
@@ -199,7 +200,7 @@
                                     <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Story &amp; Ad Graphics</p></div>
                                 </div>
                             </div>
-                            <div class="end-arrow discription-area"><a href="/contact"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="end-arrow discription-area"><a href="/contact" aria-label="Ask about this service"><i class="fa-regular fa-arrow-right"></i></a></div>
                             <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
                         </div>
 
@@ -216,7 +217,7 @@
                                     <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Campaign Graphics</p></div>
                                 </div>
                             </div>
-                            <div class="end-arrow discription-area"><a href="/contact"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="end-arrow discription-area"><a href="/contact" aria-label="Ask about this service"><i class="fa-regular fa-arrow-right"></i></a></div>
                             <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
                         </div>
 
@@ -233,7 +234,7 @@
                                     <div class="sm-service"><i class="fa-regular fa-plus"></i><p>Landing Pages</p></div>
                                 </div>
                             </div>
-                            <div class="end-arrow discription-area"><a href="/contact"><i class="fa-regular fa-arrow-right"></i></a></div>
+                            <div class="end-arrow discription-area"><a href="/contact" aria-label="Ask about this service"><i class="fa-regular fa-arrow-right"></i></a></div>
                             <div class="rts-service-hover-bg" style="background-image: url(assets/images/logo-sunny-monkeys.png); background-size: 55%; background-repeat: no-repeat; background-position: center; background-color: #111;"></div>
                         </div>
 
@@ -330,7 +331,7 @@
                             <p class="disc">Bold, strategic design for brands <br> that want to stand out and grow.</p>
                             <div class="rts-social-area-one">
                                 <ul>
-                                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" target="_blank" rel="noopener" aria-label="Sunny Monkeys on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
                                 </ul>
                             </div>
                         </div>

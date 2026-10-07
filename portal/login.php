@@ -46,20 +46,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .login-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 16px; padding: 48px 40px; }
     @media (max-width: 480px) { .login-card { padding: 36px 24px; } }
     .login-card h2 { font-size: 2.4rem; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.03em; }
-    .login-card p { font-size: 1.1rem; color: #666; margin-bottom: 36px; }
+    .login-card p { font-size: 1.1rem; color: #999; margin-bottom: 36px; }
     .lf-group { margin-bottom: 20px; }
-    .lf-group label { display: block; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin-bottom: 8px; }
+    .lf-group label { display: block; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8a8a; margin-bottom: 8px; }
     .lf-group input { width: 100%; background: #111; border: 1.5px solid #2e2e2e; border-radius: 8px; padding: 16px 18px; font-size: 1.1rem; color: #fff; outline: none; transition: border-color 0.2s; font-family: inherit; }
     .lf-group input:focus { border-color: #555; }
     .lf-group input::placeholder { color: #444; }
     .login-btn-main { width: 100%; background: #fff; color: #111; border: none; border-radius: 8px; padding: 17px; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s, transform 0.15s; margin-top: 8px; font-family: inherit; }
     .login-btn-main:hover { background: #e8e8e8; transform: translateY(-1px); }
     .error-box { background: #2a0a0a; border: 1px solid #5a1a1a; color: #ff6b6b; padding: 12px 16px; border-radius: 8px; font-size: 0.95rem; margin-bottom: 24px; }
-    .login-footer { text-align: center; margin-top: 28px; font-size: 1rem; color: #444; }
-    .login-footer a { color: #777; text-decoration: none; }
+    .login-footer { text-align: center; margin-top: 28px; font-size: 1rem; color: #777; }
+    .login-footer a { color: #aaa; text-decoration: none; }
     .login-footer a:hover { color: #fff; }
     .login-back { text-align: center; margin-top: 32px; }
-    .login-back a { color: #444; font-size: 1rem; text-decoration: none; transition: color 0.2s; }
+    .login-back a { color: #888; font-size: 1rem; text-decoration: none; transition: color 0.2s; }
     .login-back a:hover { color: #fff; }
     </style>
 </head>

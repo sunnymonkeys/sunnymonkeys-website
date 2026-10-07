@@ -1,0 +1,28 @@
+/*
+ * Sunny Monkeys site-wide fixes, loaded on every page right after the template's style.css.
+ * Put shared tweaks here instead of repeating them in each page's <style> block.
+ *
+ * Heads-up: the template sets html { font-size: 10px }, so 1rem = 10px (1.6rem = 16px).
+ */
+
+/* Inner pages (everything except the homepage) have a fixed dark design. The template colors
+   footer column headings #141414 in light mode, which made them invisible there. */
+.inner-page .footer-main-wrapper-one .footer-single-wized-start .title {
+    color: #fff;
+}
+
+/* The light/dark switch only does something on the homepage, so hide it on inner pages.
+   On phones it floated over form fields and text, so hide it there too. */
+.inner-page .rts-dark-light {
+    display: none !important;
+}
+@media (max-width: 767px) {
+    .rts-dark-light {
+        display: none !important;
+    }
+}
+
+/* Footer newsletter button (was 12px) */
+.subscribtion-input .rts-btn {
+    font-size: 1.4rem;
+}
