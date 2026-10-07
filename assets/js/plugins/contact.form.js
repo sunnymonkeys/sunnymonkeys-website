@@ -41,5 +41,11 @@
     }
 
     wire('#contact-form', 'contact');
+
+    // Preselect the package when arriving from a "Get Started" button, e.g. /contact?package=growth
+    var pkg = (new URLSearchParams(window.location.search).get('package') || '').replace(/[^a-z-]/g, '');
+    if (pkg && $('#cf-service option[value="' + pkg + '"]').length) {
+        $('#cf-service').val(pkg);
+    }
     wire('form.subscribtion-input', 'newsletter');
 })(jQuery);

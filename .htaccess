@@ -11,7 +11,19 @@ RewriteRule ^login/?$ /portal/login.php [L]
 
 # Old URLs
 RewriteRule ^login\.html$ /login [R=301,L]
-RewriteRule ^service-compare\.html$ /service-1.html [R=301,L]
+RewriteRule ^service-compare\.html$ /services [R=301,L]
+RewriteRule ^service-1\.html$ /services [R=301,L]
+
+# Clean page addresses: /about shows about.html.
+# Old links ending in .html redirect to the clean address (index.html goes to /).
+RewriteCond %{THE_REQUEST} \s/+index\.html[?\s] [NC]
+RewriteRule ^ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+([a-z0-9-]+)\.html[?\s] [NC]
+RewriteRule ^ /%1 [R=301,L]
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([a-z0-9-]+)/$ /$1 [R=301,L]
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([a-z0-9-]+)$ /$1.html [L]
 
 # Browsers ask for /favicon.ico by default
 RewriteRule ^favicon\.ico$ /assets/images/fav.png [L]

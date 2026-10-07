@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <button type="submit" class="login-btn-main">Sign In</button>
             </form>
-            <div class="login-footer"><a href="/contact.html">Need access? Contact us →</a></div>
+            <div class="login-footer"><a href="/contact">Need access? Contact us →</a></div>
         </div>
         <div class="login-back"><a href="/">← Back to Sunny Monkeys</a></div>
     </div>
