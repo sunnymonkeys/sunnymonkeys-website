@@ -9,3 +9,4 @@ deployment:
     - /bin/rm -f $DEPLOYPATH/.gitignore
     - /bin/rm -rf $DEPLOYPATH/.github
     - /bin/rm -f $DEPLOYPATH/README.md
+    - /bin/rm -f $DEPLOYPATH/CLAUDE.md
