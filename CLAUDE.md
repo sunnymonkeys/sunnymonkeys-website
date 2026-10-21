@@ -16,7 +16,7 @@ This file is technical only. The repo is public, so keep business details out of
 - **Push to `main` and the site deploys itself.** `.github/workflows/deploy.yml` runs `php -l` on every PHP file (nothing deploys if one is broken), then calls the cPanel API: `VersionControl/update` pulls the repo on the server, and `VersionControlDeployment/create` runs `.cpanel.yml`, which copies the repo into `public_html`. It takes about 15 seconds after the job starts.
 - **Always check the change on the live site afterwards,** e.g. `curl -s "https://sunnymonkeys.com/page?nc=$RANDOM"`. GitHub Actions has had outages where jobs never started.
 - `.cpanel.yml` copies files but never deletes them on the server. Removing a file from the repo leaves it live until someone removes it on the server by hand (only Marco can do that, from his Mac or cPanel).
-- `.cpanel.yml` strips `.git`, `.github`, `.cpanel.yml`, `.gitignore`, `README.md` and `CLAUDE.md` out of `public_html`.
+- `.cpanel.yml` strips `.git`, `.github`, `.cpanel.yml`, `.gitignore`, `README.md`, `CLAUDE.md`, `docs/`, `GLOSSARY.md` and `.scratch/` out of `public_html`. Agent-only files live in those paths and must never reach the live site.
 - Commit author: `Marco Mendoza <contact@sunnymonkeys.com>`.
 
 ## Conventions and gotchas
@@ -46,3 +46,17 @@ This file is technical only. The repo is public, so keep business details out of
 - [ ] About page (currently "Coming Soon"): write a short founder story with Marco.
 - [ ] Decide on one look site-wide (all dark vs. the homepage's light mode).
 - [ ] Old leftover `service-1.html` is still on the server; the redirect in `.htaccess` makes it harmless.
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues on this repo, via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Canonical names, unchanged: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `GLOSSARY.md` and `docs/adr/` at the repo root, created lazily by `/domain-modeling`. See `docs/agents/domain.md`.
