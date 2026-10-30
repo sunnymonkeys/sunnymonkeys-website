@@ -30,6 +30,7 @@
                 .done(function (text) {
                     $status.css('color', '').text(text || 'Thanks!');
                     $form[0].reset();
+                    $form.find('select').trigger('change');
                 })
                 .fail(function (xhr) {
                     $status.css('color', '#d9534f').text(xhr.responseText || fallback);
@@ -42,10 +43,22 @@
 
     wire('#contact-form', 'contact');
 
-    // Preselect the package when arriving from a "Get Started" button, e.g. /contact?package=growth
-    var pkg = (new URLSearchParams(window.location.search).get('package') || '').replace(/[^a-z-]/g, '');
-    if (pkg && $('#cf-service option[value="' + pkg + '"]').length) {
-        $('#cf-service').val(pkg);
+    // In-House Designer inquiries also ask when the designer should start. The field stays hidden otherwise.
+    var $service = $('#cf-service');
+    var $start = $('#cf-start');
+    function toggleStart() {
+        var inHouse = ($service.val() || '').indexOf('in-house') === 0;
+        $('#cf-start-group').prop('hidden', !inHouse);
+        $start.prop('required', inHouse);
+        if (!inHouse) $start.val('');
     }
+    $service.on('change', toggleStart);
+
+    // Preselect the service, package or plan when arriving from a button, e.g. /contact?package=growth
+    var pkg = (new URLSearchParams(window.location.search).get('package') || '').replace(/[^a-z-]/g, '');
+    if (pkg && $service.find('option[value="' + pkg + '"]').length) {
+        $service.val(pkg);
+    }
+    toggleStart();
     wire('form.subscribtion-input', 'newsletter');
 })(jQuery);

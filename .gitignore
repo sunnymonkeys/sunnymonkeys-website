@@ -17,3 +17,6 @@ portal/uploads/*.pdf
 
 # Node (future-proofing)
 node_modules/
+
+# Claude desktop app: local preview config
+.claude/

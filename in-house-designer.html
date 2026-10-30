@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-style-mode" content="1">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <title>Your In-House Designer: a Dedicated Remote Designer | Sunny Monkeys</title>
+    <meta name="description" content="A bilingual designer dedicated to your brand, full-time or part-time, with Sunny Monkeys art direction. Social media, video, website updates and print, every week.">
+    <link rel="canonical" href="https://sunnymonkeys.com/in-house-designer">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sunny Monkeys LLC">
+    <meta property="og:title" content="Your In-House Designer: a Dedicated Remote Designer | Sunny Monkeys">
+    <meta property="og:description" content="A bilingual designer dedicated to your brand, full-time or part-time, with Sunny Monkeys art direction. Social media, video, website updates and print, every week.">
+    <meta property="og:url" content="https://sunnymonkeys.com/in-house-designer">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/site.css?v=2">
+    <style>
+    /* Page sections. Remember: 1rem = 10px on this template. */
+    .ih-section { padding: 100px 0; }
+    .ih-section.alt { background: #0d0d0d; }
+    .ih-eyebrow { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
+    .ih-title { font-size: clamp(2.8rem, 5vw, 4.4rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
+    .ih-lead { font-size: 1.9rem; color: rgba(255,255,255,0.78); line-height: 1.7; max-width: 760px; margin-bottom: 0; }
+    .ih-text { font-size: 1.7rem; color: rgba(255,255,255,0.68); line-height: 1.7; max-width: 720px; margin-bottom: 18px; }
+    .ih-facts { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+    .ih-fact { border: 1.5px solid rgba(255,255,255,0.18); border-radius: 999px; padding: 10px 20px; font-size: 1.5rem; color: #fff; font-weight: 600; }
+    .ih-grid { display: grid; gap: 24px; margin-top: 48px; }
+    .ih-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .ih-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 991px) { .ih-grid.cols-2, .ih-grid.cols-3 { grid-template-columns: 1fr; } }
+    .ih-card { background: #161616; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 36px 32px; }
+    .ih-card .num { display: block; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
+    .ih-card h3 { font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.25; }
+    .ih-card p { font-size: 1.6rem; color: rgba(255,255,255,0.68); line-height: 1.65; margin: 0; }
+    .ih-quote { font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.2; border-left: 3px solid #fff; padding-left: 28px; margin: 48px 0 0; max-width: 760px; }
+
+    /* The two options (no prices: every match is different) */
+    .ih-plan { background: #161616; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 44px 40px 50px; display: flex; flex-direction: column; transition: border-color 0.25s, transform 0.25s; }
+    .ih-plan:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-4px); }
+    .ih-plan-name { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+    .ih-plan-title { font-size: 3rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 18px; }
+    .ih-plan-desc { font-size: 1.6rem; color: rgba(255,255,255,0.68); line-height: 1.65; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 28px; }
+    .ih-plan-features { list-style: none; padding: 0; margin: 0 0 40px; flex: 1; }
+    .ih-plan-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 1.6rem; color: rgba(255,255,255,0.8); line-height: 1.55; margin-bottom: 14px; }
+    .ih-plan-features li i { color: #fff; margin-top: 4px; flex-shrink: 0; font-size: 1.3rem; }
+    .ih-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #fff; color: #111; padding: 18px 36px; border-radius: 8px; font-size: 1.6rem; font-weight: 700; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s, background 0.2s, color 0.2s; }
+    .ih-btn:hover { opacity: 0.85; color: #111; }
+    .ih-btn.ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.25); }
+    .ih-btn.ghost:hover { background: #fff; color: #111; opacity: 1; }
+    .ih-note { font-size: 1.5rem; color: rgba(255,255,255,0.55); margin-top: 32px; line-height: 1.6; }
+    .ih-note a { color: rgba(255,255,255,0.85); text-decoration: underline; }
+
+    /* AI note */
+    .ih-ai { background: #161616; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 40px; margin-top: 60px; max-width: 760px; }
+    .ih-ai h3 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
+    .ih-ai p { font-size: 1.9rem; color: #fff; line-height: 1.6; margin: 0; font-weight: 600; }
+
+    /* FAQ */
+    .ih-faq { margin-top: 40px; max-width: 820px; }
+    .ih-faq details { border-top: 1px solid rgba(255,255,255,0.12); padding: 22px 0; }
+    .ih-faq details:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .ih-faq summary { cursor: pointer; list-style: none; font-size: 1.9rem; font-weight: 700; color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .ih-faq summary::-webkit-details-marker { display: none; }
+    .ih-faq summary::after { content: "+"; font-size: 2.6rem; font-weight: 400; color: rgba(255,255,255,0.6); line-height: 1; }
+    .ih-faq details[open] summary::after { content: "\2013"; }
+    .ih-faq details p { font-size: 1.6rem; color: rgba(255,255,255,0.68); line-height: 1.7; margin: 14px 0 0; max-width: 720px; }
+
+    .ih-cta { text-align: center; padding: 120px 0; }
+    .ih-cta .ih-title { margin-bottom: 16px; }
+    .ih-cta .ih-text { margin: 0 auto 36px; }
+    </style>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://sunnymonkeys.com/in-house-designer#service",
+          "name": "Your In-House Designer",
+          "serviceType": "Dedicated remote graphic designer",
+          "description": "A bilingual designer dedicated to one brand, full-time or part-time, with Sunny Monkeys art direction: social media, video editing, website updates, brochures, flyers and event materials.",
+          "url": "https://sunnymonkeys.com/in-house-designer",
+          "provider": {
+            "@type": "Organization",
+            "name": "Sunny Monkeys",
+            "url": "https://sunnymonkeys.com/"
+          },
+          "availableLanguage": ["English", "Spanish"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "In-house designer plans",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Full-time in-house designer",
+                "url": "https://sunnymonkeys.com/contact?package=in-house-full-time"
+              },
+              {
+                "@type": "Offer",
+                "name": "Part-time in-house designer",
+                "url": "https://sunnymonkeys.com/contact?package=in-house-part-time"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is this outsourcing?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Remote, yes. Outsourced, no. Your designer works only for you (two brands at most on part-time), in your hours and your tools, with Sunny Monkeys art direction behind them." }
+            },
+            {
+              "@type": "Question",
+              "name": "Where are the designers?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Bilingual designers in Latin America who work on US hours, in English and Spanish." }
+            },
+            {
+              "@type": "Question",
+              "name": "Can my designer build our new website?",
+              "acceptedAnswer": { "@type": "Answer", "text": "A full new website is a project with its own scope and quote. Your designer keeps it updated afterwards." }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the minimum commitment?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Three months, enough for the immersion to pay off." }
+            },
+            {
+              "@type": "Question",
+              "name": "What if it isn't working out?",
+              "acceptedAnswer": { "@type": "Answer", "text": "If your designer isn't the right fit, we'll match you with a new one." }
+            },
+            {
+              "@type": "Question",
+              "name": "Who owns the work?",
+              "acceptedAnswer": { "@type": "Answer", "text": "You do. Every file and every design your designer creates is yours. Software licenses are included." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body class="inner-page in-house-page">
+
+    <!-- header area start -->
+    <header class="header-area header-one header--sticky">
+        <div class="header-container-one">
+            <div class="header-wrapper">
+                <a href="/" class="logo"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:48px;height:48px;object-fit:contain;display:block;border-radius:50%;"></a>
+                <div class="header-right">
+                    <nav class="nav-area drop-down-rts">
+                        <ul class="navbar-nav-1">
+                            <li class="menu-item"><a href="/"><span class="rolling-text">Home</span></a></li>
+                            <li class="menu-item"><a href="/services"><span class="rolling-text">Services</span></a></li>
+                            <li class="menu-item current-menu-item"><a href="/in-house-designer"><span class="rolling-text">In-House Designer</span></a></li>
+                            <li class="menu-item"><a href="/about"><span class="rolling-text">About</span></a></li>
+                            <li class="menu-item"><a href="/contact"><span class="rolling-text">Contact</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="action-area">
+                        <div class="login-btn-wrapper">
+                            <a href="/login" class="sm-login-btn"><span class="btn-text">Log In</span><span class="btn-text-hover">Log In</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header area end -->
+
+    <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+    <!-- breadcrumb area start -->
+    <div class="rts-breadcrumb-area bg_image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="baread-crumb-main-wrapper pt--100">
+                        <div class="inner">
+                            <span class="works">Your In-House Designer</span>
+                            <h1 class="title rts_hero__title">A Designer Who's All Yours</h1>
+                            <span class="bg-text">In-House</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+
+    <!-- intro -->
+    <div class="ih-section">
+        <div class="container">
+            <p class="ih-eyebrow">Dedicated, not outsourced</p>
+            <h2 class="ih-title">The designer who built your brand stays with it</h2>
+            <p class="ih-lead">
+                Your In-House Designer is a bilingual designer from our network in Latin America, dedicated to your business. They learn your brand, your values and how you operate, then take care of your design every week: social media, video editing, website updates, brochures, flyers and event materials. Remote, on your schedule, inside your tools, with Sunny Monkeys art direction behind every piece.
+            </p>
+            <div class="ih-facts">
+                <span class="ih-fact">Full-time or part-time</span>
+                <span class="ih-fact">Start in 2 to 3 weeks</span>
+                <span class="ih-fact">Art direction included</span>
+                <span class="ih-fact">English and Spanish</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- the agency problem -->
+    <div class="ih-section alt">
+        <div class="container">
+            <p class="ih-eyebrow">Why not an agency?</p>
+            <h2 class="ih-title">One designer. Four or five brands. Something gives.</h2>
+            <p class="ih-text">
+                At most agencies, a designer handles four or five brands at the same time. They can't know the context of each business, so the work drifts: a different look every month, less consistency, less impact.
+            </p>
+            <p class="ih-text">
+                A good brief is enough for a brand that's just getting started. An established business needs someone who knows it inside out. That's what your in-house designer is: one person, dedicated to your brand, who gets better at your business every week.
+            </p>
+            <p class="ih-quote">"The designer who built your brand stays with it."</p>
+        </div>
+    </div>
+
+    <!-- what they take care of -->
+    <div class="ih-section">
+        <div class="container">
+            <p class="ih-eyebrow">What your designer takes care of</p>
+            <h2 class="ih-title">Everything your brand needs, week after week</h2>
+            <div class="ih-grid cols-3">
+                <div class="ih-card">
+                    <h3>Social media</h3>
+                    <p>Posts, stories, ads and templates, on brand and on time, for every platform you use.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>Video editing</h3>
+                    <p>Short videos for social media, ads and your website, cut and finished in your style.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>Website updates</h3>
+                    <p>New sections, landing pages and ongoing maintenance, so your site never falls behind.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>Brochures and flyers</h3>
+                    <p>Corporate print, sales material and everything you need for events and trade shows.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>Presentations</h3>
+                    <p>Pitch decks, proposals and corporate presentations that look like the same company every time.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>Everyday requests</h3>
+                    <p>Whatever the week brings: email graphics, signage, menus, badges, one-off pieces.</p>
+                </div>
+            </div>
+            <p class="ih-note">Need a brand-new website? That's a project with its own scope and quote. <a href="/services">See our services and packages</a>. Your designer keeps it updated afterwards.</p>
+        </div>
+    </div>
+
+    <!-- how it works -->
+    <div class="ih-section alt">
+        <div class="container">
+            <p class="ih-eyebrow">How it works</p>
+            <h2 class="ih-title">From the first call to a designer who knows your business</h2>
+            <div class="ih-grid cols-2">
+                <div class="ih-card">
+                    <span class="num">01</span>
+                    <h3>Book a call</h3>
+                    <p>Tell us what you need, full-time or part-time, and when you'd like to start.</p>
+                </div>
+                <div class="ih-card">
+                    <span class="num">02</span>
+                    <h3>We match you</h3>
+                    <p>We choose a designer from our network who fits your industry, your style and your hours. Your designer starts in 2 to 3 weeks.</p>
+                </div>
+                <div class="ih-card">
+                    <span class="num">03</span>
+                    <h3>Immersion, 1 to 2 weeks</h3>
+                    <p>Meetings with your team, a review of your brand and a working guide. A Sunny Monkeys lead works alongside your designer before they fly solo. We don't drop someone in and disappear.</p>
+                </div>
+                <div class="ih-card">
+                    <span class="num">04</span>
+                    <h3>Design, every week</h3>
+                    <p>Your designer works your hours, in Slack or Teams, with weekly reviews and our art direction. Nothing goes out without your approval.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- the two options -->
+    <div class="ih-section" id="plans">
+        <div class="container">
+            <p class="ih-eyebrow">Two ways to have one</p>
+            <h2 class="ih-title">Full-time or part-time, always dedicated</h2>
+            <p class="ih-text">Every match is different, so we go over pricing on the call. Both options start in 2 to 3 weeks and run for a minimum of 3 months.</p>
+            <div class="ih-grid cols-2">
+                <div class="ih-plan">
+                    <p class="ih-plan-name">Full-time</p>
+                    <h3 class="ih-plan-title">Your designer, all week</h3>
+                    <p class="ih-plan-desc">For brands with a steady flow of design work across channels. One designer, one brand.</p>
+                    <ul class="ih-plan-features">
+                        <li><i class="fa-regular fa-check"></i> Dedicated to your brand only</li>
+                        <li><i class="fa-regular fa-check"></i> Works your hours, in your tools</li>
+                        <li><i class="fa-regular fa-check"></i> 1 to 2 week immersion with your team</li>
+                        <li><i class="fa-regular fa-check"></i> Sunny Monkeys art direction and weekly reviews</li>
+                        <li><i class="fa-regular fa-check"></i> Software licenses included</li>
+                    </ul>
+                    <a href="/contact?package=in-house-full-time" class="ih-btn">Book a call <i class="fa-light fa-arrow-right"></i></a>
+                </div>
+                <div class="ih-plan">
+                    <p class="ih-plan-name">Part-time</p>
+                    <h3 class="ih-plan-title">Half the week, fully yours</h3>
+                    <p class="ih-plan-desc">For brands with regular but lighter design needs. Your designer works with one other brand at most, never more.</p>
+                    <ul class="ih-plan-features">
+                        <li><i class="fa-regular fa-check"></i> Two brands per designer, maximum</li>
+                        <li><i class="fa-regular fa-check"></i> Works your hours, in your tools</li>
+                        <li><i class="fa-regular fa-check"></i> 1 to 2 week immersion with your team</li>
+                        <li><i class="fa-regular fa-check"></i> Sunny Monkeys art direction and weekly reviews</li>
+                        <li><i class="fa-regular fa-check"></i> Software licenses included</li>
+                    </ul>
+                    <a href="/contact?package=in-house-part-time" class="ih-btn ghost">Book a call <i class="fa-light fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- what's included -->
+    <div class="ih-section alt">
+        <div class="container">
+            <p class="ih-eyebrow">What's included</p>
+            <h2 class="ih-title">A hire, without the hiring</h2>
+            <div class="ih-grid cols-3">
+                <div class="ih-card">
+                    <h3>Art direction and supervision</h3>
+                    <p>A Sunny Monkeys lead reviews the work and keeps the quality where it should be.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>Software, on us</h3>
+                    <p>Design licenses are included. Your designer comes with their tools.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>Everything is yours</h3>
+                    <p>You own every file and every design your designer creates.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>The right fit</h3>
+                    <p>If your designer isn't the right fit, we'll match you with a new one.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>Vacations and sick days</h3>
+                    <p>You decide: pause the work, or we arrange temporary coverage.</p>
+                </div>
+                <div class="ih-card">
+                    <h3>Your tools</h3>
+                    <p>Slack or Teams, your project board, your drive. If you don't have them yet, we set them up.</p>
+                </div>
+            </div>
+            <div class="ih-ai">
+                <h3>A note on AI</h3>
+                <p>We use AI to move faster. The ideas, the judgment and the art direction are human. And AI doesn't know your business. Your designer does.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="ih-section">
+        <div class="container">
+            <p class="ih-eyebrow">Questions</p>
+            <h2 class="ih-title">Before you book the call</h2>
+            <div class="ih-faq">
+                <details>
+                    <summary>Is this outsourcing?</summary>
+                    <p>Remote, yes. Outsourced, no. Your designer works only for you (two brands at most on part-time), in your hours and your tools, with our art direction behind them. Think of it as a hire, without the hiring.</p>
+                </details>
+                <details>
+                    <summary>Where are the designers?</summary>
+                    <p>Bilingual designers in Latin America who work on US hours. Your designer speaks your team's language, in English and Spanish.</p>
+                </details>
+                <details>
+                    <summary>Can my designer build our new website?</summary>
+                    <p>A full new website is a project with its own scope and quote. Your designer keeps it updated afterwards. See our <a href="/services" style="color:#fff;text-decoration:underline;">services and packages</a>.</p>
+                </details>
+                <details>
+                    <summary>What's the minimum commitment?</summary>
+                    <p>Three months. Enough for the immersion to pay off and for your designer to really know your business.</p>
+                </details>
+                <details>
+                    <summary>What if it isn't working out?</summary>
+                    <p>Tell us. If your designer isn't the right fit, we'll match you with a new one.</p>
+                </details>
+                <details>
+                    <summary>Who owns the work?</summary>
+                    <p>You do. Every file and every design your designer creates is yours, and software licenses are included.</p>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="ih-section alt ih-cta">
+        <div class="container">
+            <p class="ih-eyebrow">Let's find your designer</p>
+            <h2 class="ih-title">Tell us what your team needs every week</h2>
+            <p class="ih-text">We'll come back with a match, a start date and a plan for the immersion.</p>
+            <a href="/contact?package=in-house" class="ih-btn">Book a call <i class="fa-light fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="rts-footer-area-one rts-section-gapTop">
+        <div class="container">
+            <div class="row rts-section-gapBottom">
+                <div class="col-lg-12">
+                    <div class="footer-main-wrapper-one">
+                        <div class="footer-left-area">
+                            <a href="/" class="logo-footer"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:52px;height:52px;object-fit:contain;display:block;margin-bottom:16px;border-radius:50%;"></a>
+                            <p class="disc">Bold, strategic design for brands <br> that want to stand out and grow.</p>
+                            <div class="rts-social-area-one">
+                                <ul>
+                                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" target="_blank" rel="noopener" aria-label="Sunny Monkeys on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-single-wized-start">
+                            <h5 class="title">Useful Links</h5>
+                            <ul class="footer-nav">
+                                <li><a href="/about">About Us</a></li>
+                                <li><a href="/services">Our Services</a></li>
+                                <li><a href="/in-house-designer">In-House Designer</a></li>
+                                <li><a href="/contact">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-single-wized-start">
+                            <h5 class="title">Legal</h5>
+                            <ul class="footer-nav">
+                                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                <li><a href="/terms">Terms &amp; Conditions</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-single-wized-start">
+                            <h5 class="title">Contact Info</h5>
+                            <ul class="footer-nav">
+                                <li><a href="mailto:contact@sunnymonkeys.com">contact@sunnymonkeys.com</a></li>
+                                <li><a href="tel:+16193044022">+1 619 304 4022</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-bottom-one">
+                        <p>2026 &copy; Sunny Monkeys LLC. All rights reserved. &nbsp;|&nbsp;
+                            <a href="/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp;
+                            <a href="/terms">Terms &amp; Conditions</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer end -->
+
+    </div>
+    </div>
+    <!-- smooth wrapper end -->
+
+    <!-- Scripts style two -->
+    <div class="loading-screen" id="loading-screen">
+        <span class="bar top-bar"></span>
+        <span class="bar down-bar"></span>
+        <span class="progress-line"></span>
+        <span class="loading-counter"> </span>
+    </div>
+
+    <div class="bg-noise"></div>
+
+    <!-- back to top start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!-- back to top end -->
+
+    <!-- pre loader start -->
+    <div class="rts-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="no">
+        <span class="fn-cursor"></span>
+    </div>
+    <div class="rts-cursor cursor-inner" data-default="yes" data-link="yes" data-slider="no">
+        <span class="fn-cursor">
+        <span class="fn-left"></span>
+        <span class="fn-right"></span>
+        </span>
+    </div>
+    <!-- pre loader end -->
+
+    <!-- dark light switcher start-->
+    <div class="modal-sidebar-scroll rts-dark-light">
+        <ul>
+            <li class="go-dark-w"><span>Dark</span><i class="rts-go-dark fal fa-moon"></i></li>
+            <li class="go-light-w"><span>Light</span><i class="rts-go-light fa-light fa-brightness"></i></li>
+        </ul>
+    </div>
+    <!-- dark light switcher end -->
+
+    <script defer src="assets/js/vendor/jquery.min.js"></script>
+    <script defer src="assets/js/plugins/bootstrap.min.js"></script>
+    <script defer src="assets/js/plugins/contact.form.js?v=4"></script>
+    <script defer src="assets/js/vendor/waypoint.js"></script>
+    <script defer src="assets/js/plugins/swiper.js"></script>
+    <script defer src="assets/js/plugins/resizer-sensor.js"></script>
+    <script defer src="assets/js/plugins/sticky-sidebar.js"></script>
+    <script defer src="assets/js/plugins/isotop.js"></script>
+    <script defer src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+    <script defer src="assets/js/plugins/smoothscroll-varticle.js"></script>
+    <script defer src="assets/js/vendor/gsap.js"></script>
+    <script defer src="assets/js/plugins/scrolltiger.js"></script>
+    <script defer src="assets/js/plugins/scrolltoplugin.js"></script>
+    <script defer src="assets/js/plugins/splittext.js"></script>
+    <script defer src="assets/js/plugins/smoothscroll.js"></script>
+    <script defer src="assets/js/plugins/scrollmagic.js"></script>
+    <script defer src="assets/js/plugins/animate-scrollmagic.js"></script>
+    <script defer src="assets/js/plugins/tilt.js"></script>
+    <script defer src="assets/js/plugins/counterup.js"></script>
+    <script defer src="assets/js/vendor/waw.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <!-- Scripts style two End -->
+
+</body>
+</html>
