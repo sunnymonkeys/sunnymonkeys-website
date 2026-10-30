@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-style-mode" content="1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
-    <title>Startup &amp; Small Business Branding and Web Design | Sunny Monkeys</title>
-    <meta name="description" content="Boutique design studio for startups and small businesses: logo and brand identity, social media, email and web design. Clear packages from $799.">
+    <title>Branding, Web Design &amp; In-House Designers | Sunny Monkeys</title>
+    <meta name="description" content="Design studio for startups and small businesses. Brand identity and websites as fixed-price projects, or a dedicated in-house designer embedded in your team.">
     <link rel="canonical" href="https://sunnymonkeys.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sunny Monkeys LLC">
-    <meta property="og:title" content="Startup &amp; Small Business Branding and Web Design | Sunny Monkeys">
-    <meta property="og:description" content="Boutique design studio for startups and small businesses: logo and brand identity, social media, email and web design. Clear packages from $799.">
+    <meta property="og:title" content="Branding, Web Design &amp; In-House Designers | Sunny Monkeys">
+    <meta property="og:description" content="Design studio for startups and small businesses. Brand identity and websites as fixed-price projects, or a dedicated in-house designer embedded in your team.">
     <meta property="og:url" content="https://sunnymonkeys.com/">
     <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
@@ -68,6 +68,33 @@
         color: #fff !important;
         border-color: #111 !important;
     }
+
+    /* ── Two ways to work with us (works in the homepage's light and dark modes) ── */
+    .sm-ways { padding-top: 90px; }
+    .sm-ways-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    @media (max-width: 991px) { .sm-ways-grid { grid-template-columns: 1fr; } }
+    .sm-way { border: 1.5px solid rgba(128,128,128,0.35); border-radius: 16px; padding: 44px 40px; display: flex; flex-direction: column; }
+    .sm-way .eyebrow { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px; }
+    .sm-way h3 { font-size: clamp(2.2rem, 3vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; color: inherit; }
+    .sm-way p:not(.eyebrow) { font-size: 1.7rem; line-height: 1.7; opacity: 0.8; margin-bottom: 24px; }
+    .sm-way ul { list-style: none; padding: 0; margin: 0 0 32px; flex: 1; }
+    .sm-way li { display: flex; gap: 12px; align-items: flex-start; font-size: 1.6rem; line-height: 1.55; margin-bottom: 12px; }
+    .sm-way li i { margin-top: 5px; font-size: 1.3rem; flex-shrink: 0; }
+    .sm-way-link { font-size: 1.6rem; font-weight: 700; text-decoration: underline; color: inherit; display: inline-flex; align-items: center; gap: 8px; }
+    .sm-way-link:hover { opacity: 0.7; color: inherit; }
+    html.rts-light-mood .sm-way { background: #fff; border-color: #e3e3e3; color: #111; }
+    html.rts-light-mood .sm-way.featured { background: #111; border-color: #111; color: #fff; }
+    html.rts-dark .sm-way { background: #161616; border-color: rgba(255,255,255,0.1); color: #fff; }
+    html.rts-dark .sm-way.featured { background: #fff; border-color: #fff; color: #111; }
+
+    /* ── Why in-house (the agency problem) ── */
+    .sm-why { padding: 110px 0; background: #111; color: #fff; position: relative; }
+    .sm-why .eyebrow { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
+    .sm-why h2 { font-size: clamp(2.8rem, 5vw, 4.6rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 24px; }
+    .sm-why p { font-size: 1.7rem; line-height: 1.7; color: rgba(255,255,255,0.72); max-width: 640px; margin-bottom: 16px; }
+    .sm-why .pullquote { font-size: clamp(2.2rem, 3.4vw, 3.2rem); font-weight: 800; color: #fff; border-left: 3px solid #fff; padding-left: 24px; margin: 36px 0; line-height: 1.25; letter-spacing: -0.02em; max-width: 640px; }
+    .sm-why-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #111; padding: 18px 36px; border-radius: 8px; font-size: 1.6rem; font-weight: 700; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s; }
+    .sm-why-btn:hover { opacity: 0.85; color: #111; }
     </style>
     <script type="application/ld+json">
 {
@@ -80,7 +107,7 @@
           "legalName": "Sunny Monkeys LLC",
           "url": "https://sunnymonkeys.com/",
           "logo": "https://sunnymonkeys.com/assets/images/logo-sunny-monkeys.png",
-          "description": "Boutique design studio for startups and small businesses: logo and brand identity, social media, email and web design.",
+          "description": "Design studio for startups and small businesses: brand identity, web design and custom web apps as fixed-price projects, or a dedicated in-house designer embedded in your team.",
           "email": "contact@sunnymonkeys.com",
           "telephone": "+1-619-304-4022",
           "contactPoint": {
@@ -99,7 +126,9 @@
             "Corporate branding",
             "Social media design",
             "Email design",
-            "Web design"
+            "Web design",
+            "Custom web apps",
+            "Dedicated in-house designers"
           ]
         },
         {
@@ -131,10 +160,13 @@
                                 <a href="/"><span class="rolling-text">Home</span></a>
                             </li>
                             <li class="menu-item main-nav-on">
-                                <a href="/about"><span class="rolling-text">About</span></a>
+                                <a href="/services"><span class="rolling-text">Services</span></a>
                             </li>
                             <li class="menu-item main-nav-on">
-                                <a href="/services"><span class="rolling-text">Services</span></a>
+                                <a href="/in-house-designer"><span class="rolling-text">In-House Designer</span></a>
+                            </li>
+                            <li class="menu-item main-nav-on">
+                                <a href="/about"><span class="rolling-text">About</span></a>
                             </li>
                             <li class="menu-item main-nav-on">
                                 <a href="/contact"><span class="rolling-text">Contact</span></a>
@@ -180,10 +212,13 @@
                                                     <a href="/">Home</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="/about">About</a>
+                                                    <a href="/services">Services</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="/services">Services</a>
+                                                    <a href="/in-house-designer">In-House Designer</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="/about">About</a>
                                                 </li>
                                                 <li class="menu-item">
                                                     <a href="/contact">Contact</a>
@@ -248,23 +283,22 @@
                         <div class="col-lg-9">
                             <div class="banner-one-wrapper mt--80 mt_sm--0">
                                 <h1 class="title rts_hero__title">
-                                    Boost Your Brand <br>
-                                    with <span class="border-bottom-1">Creative Design</span>
+                                    Build Your Brand, <br>
+                                    or Bring a <span class="border-bottom-1">Designer In-House</span>
                                 </h1>
                                 <div class="para-wraph">
                                     <p class="disc hero__sub-title">
-                                        At Sunny Monkeys, we create strategies that reflect the essence <br>
-                                        and unique values of your business, turning ideas into <br>
-                                        bold, memorable visual identities.
+                                        Sunny Monkeys is a design studio for startups and small businesses. <br>
+                                        Hire us for a project, from brand identity to a working website, <br>
+                                        or embed a dedicated designer who knows your business like your own team.
                                     </p>
                                 </div>
                                 <div class="bannerJump_animation banner-jump-button rts-scroll-down-circle-wrapper-4">
                                     <div class="jump__anim rts_round_btn_wrap scroll-down-circle-4">
                                         <div class="rts-mouse-move-button">
                                             <div class="btn_wrapper">
-                                                <a href="#services-section" class="rts-btn-mouse-move btn-hover btn-item"><span></span> Explore
-                                                    Our <br>
-                                                    Services
+                                                <a href="#two-ways" class="rts-btn-mouse-move btn-hover btn-item"><span></span> See How <br>
+                                                    We Work
                                                     <i class="fa-solid fa-arrow-up-right"></i></a>
                                             </div>
                                         </div>
@@ -334,13 +368,13 @@
                             <!-- about right area start -->
                             <div class="about-area-right-start">
                                 <div class="inner-about-wrapper">
-                                    <h2 class="title quote">Creative Solutions
-                                        That Move Your Brand Forward</h2>
+                                    <h2 class="title quote">Two Ways to
+                                        Work With Us</h2>
                                     <p class="disc rts-text-anim">
-                                        Sunny Monkeys is a boutique creative design studio built for brands <br>
-                                        that want to stand out. We combine strategic thinking with <br>
-                                        impactful visual design to help businesses connect with their <br>
-                                        audience and grow with confidence.
+                                        Some brands need a project: a new identity, a website, a launch. <br>
+                                        Others need a designer who shows up every week and knows the <br>
+                                        business inside out. We do both, and both come with <br>
+                                        our art direction.
                                     </p>
                                     <div class="btn--area-left mt--50">
                                         <a href="/contact" class="learn-more-btn">Work With Us<i
@@ -353,6 +387,34 @@
                     </div>
                 </div>
                 <!-- about main inner wrapper main -->
+
+                <!-- two ways to work with us: Build (projects) or In-House (a dedicated designer) -->
+                <div class="container sm-ways" id="two-ways">
+                    <div class="sm-ways-grid">
+                        <div class="sm-way">
+                            <p class="eyebrow">Build</p>
+                            <h3>Projects with a clear scope and a fixed price</h3>
+                            <p>Brand identity, websites designed and built, social media and email design. You know what you get, what it costs and when it's done.</p>
+                            <ul>
+                                <li><i class="fa-regular fa-check"></i> Packages from $799, or a custom quote</li>
+                                <li><i class="fa-regular fa-check"></i> Weekly check-ins, nothing goes live without your approval</li>
+                                <li><i class="fa-regular fa-check"></i> Websites you can edit yourself</li>
+                            </ul>
+                            <a href="/services" class="sm-way-link">See services and packages <i class="fa-solid fa-arrow-up-right"></i></a>
+                        </div>
+                        <div class="sm-way featured">
+                            <p class="eyebrow">In-House</p>
+                            <h3>A dedicated designer, embedded in your team</h3>
+                            <p>A bilingual designer who learns your brand and takes care of your design every week: social, video, website updates and print. Full-time or part-time, with our art direction.</p>
+                            <ul>
+                                <li><i class="fa-regular fa-check"></i> Starts in 2 to 3 weeks</li>
+                                <li><i class="fa-regular fa-check"></i> Works your hours, in your tools</li>
+                                <li><i class="fa-regular fa-check"></i> Software licenses included</li>
+                            </ul>
+                            <a href="/in-house-designer" class="sm-way-link">Meet your in-house designer <i class="fa-solid fa-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- rts about area end -->
 
@@ -440,9 +502,9 @@
                                 <h2 class="title">Full-Service <br>
                                     Creative Studio</h2>
                                 <p class="dsic">
-                                    From brand identity to digital presence, we offer everything <br>
-                                    a growing brand needs to look great, communicate clearly, <br>
-                                    and connect with the right audience.
+                                    From brand identity to a working website, everything a growing <br>
+                                    brand needs to look great, communicate clearly, and connect <br>
+                                    with the right audience. As a project, or with a designer of your own.
                                 </p>
                                 <a href="/contact" class="learn-more-btn">Contact Us<i
                                         class="fa-solid fa-arrow-up-right"></i></a>
@@ -465,8 +527,34 @@
                                         </div>
                                         <div class="list-info col-md-3">
                                             <p class="disc">
-                                                We build brand identities that are strategic, memorable,
-                                                and true to who you are, from naming to visual systems.
+                                                Strategy, naming, logo and a full visual system, plus the
+                                                presentations, stationery and print your business runs on.
+                                            </p>
+                                        </div>
+                                        <div class="button-area">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
+                                                <g>
+                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="single-item-service-one">
+                                    <a href="/services">
+                                        <div class="rts-img-contaciner">
+                                            <figure class="list-img">
+                                                <img class="list-img" src="assets/images/product/63.jpg" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="list-title col-md-6">
+                                            <h3>Web Design</h3>
+                                        </div>
+                                        <div class="list-info col-md-3">
+                                            <p class="disc">
+                                                Websites designed, built and launched, working. Mobile-ready,
+                                                with basic SEO, and you can edit your own text and images.
                                             </p>
                                         </div>
                                         <div class="button-area">
@@ -487,12 +575,12 @@
                                             </figure>
                                         </div>
                                         <div class="list-title col-md-6">
-                                            <h3>Corporate Branding</h3>
+                                            <h3>Custom Web Apps &amp; Development</h3>
                                         </div>
                                         <div class="list-info col-md-3">
                                             <p class="disc">
-                                                Polished branded materials that make your business
-                                                look its best: pitch decks, stationery &amp; print.
+                                                Client portals, booking tools, dashboards and internal tools,
+                                                scoped to your business with a custom quote.
                                             </p>
                                         </div>
                                         <div class="button-area">
@@ -558,19 +646,19 @@
                                     </a>
                                 </div>
                                 <div class="single-item-service-one">
-                                    <a href="/services">
+                                    <a href="/in-house-designer">
                                         <div class="rts-img-contaciner">
                                             <figure class="list-img">
-                                                <img class="list-img" src="assets/images/product/63.jpg" alt="">
+                                                <img class="list-img" src="assets/images/product/64.jpg" alt="">
                                             </figure>
                                         </div>
                                         <div class="list-title col-md-6">
-                                            <h3>Web Design</h3>
+                                            <h3>In-House Designer</h3>
                                         </div>
                                         <div class="list-info col-md-3">
                                             <p class="disc">
-                                                Clean, modern websites and landing pages built
-                                                to reflect your brand at every scroll.
+                                                A dedicated, bilingual designer embedded in your team,
+                                                taking care of your design every week, with our art direction.
                                             </p>
                                         </div>
                                         <div class="button-area">
@@ -594,6 +682,22 @@
 
 
 
+
+            <!-- why in-house: the agency problem -->
+            <div class="sm-why">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <p class="eyebrow">Why in-house?</p>
+                            <h2>One designer. Four or five brands. Something gives.</h2>
+                            <p>At most agencies, a designer handles four or five brands at the same time. They can't know the context of each business, so the work drifts: a different look every month, less consistency, less impact.</p>
+                            <p>A good brief is enough for a brand that's just getting started. An established business needs someone who knows it inside out. That's why we offer Your In-House Designer: one designer, dedicated to your brand, backed by our art direction.</p>
+                            <p class="pullquote">"The designer who built your brand stays with it."</p>
+                            <a href="/in-house-designer" class="sm-why-btn">Meet your in-house designer <i class="fa-light fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- large-image sections starts -->
             <div class="large-image-option-start rts-section-gap bg-dark-1 position-relative rts_jump_counter__animation">
@@ -943,6 +1047,7 @@
                                     <ul class="footer-nav">
                                         <li><a href="/about">About Us</a></li>
                                         <li><a href="/services">Our Services</a></li>
+                                        <li><a href="/in-house-designer">In-House Designer</a></li>
                                         <!-- Portfolio link hidden — uncomment when portfolio is ready -->
                                         <li><a href="/contact">Contact Us</a></li>
                                     </ul>
@@ -1057,7 +1162,7 @@
 
     <script defer src="assets/js/vendor/jquery.min.js"></script>
     <script defer src="assets/js/plugins/bootstrap.min.js"></script>
-    <script defer src="assets/js/plugins/contact.form.js?v=3"></script>
+    <script defer src="assets/js/plugins/contact.form.js?v=4"></script>
     <script defer src="assets/js/vendor/waypoint.js"></script>
     <script defer src="assets/js/plugins/swiper.js"></script>
 
