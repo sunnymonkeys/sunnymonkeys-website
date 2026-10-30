@@ -7,7 +7,7 @@ This file is technical only. The repo is public, so keep business details out of
 ## How the site is built
 
 - A static HTML site built on a purchased third-party template (jQuery, Bootstrap, GSAP), plus a small PHP client portal. No build step and no framework.
-- Public pages sit in the repo root: `index.html`, `about.html`, `services.html`, `contact.html`, `privacy-policy.html`, `terms.html`, `error.html` (the 404 page).
+- Public pages sit in the repo root: `index.html`, `about.html`, `services.html`, `in-house-designer.html`, `contact.html`, `privacy-policy.html`, `terms.html`, `error.html` (the 404 page).
 - `portal/` is a PHP + MySQL client portal: login, client dashboard, documents, and admin (`portal/admin/`). Its config files `portal/config/db.php` and `portal/config/mail.php` exist only on the server, never in Git (see `.gitignore`).
 - The template is licensed, so don't copy it into other projects or publish it as a template.
 
@@ -23,8 +23,9 @@ This file is technical only. The repo is public, so keep business details out of
 
 - **The template sets `html { font-size: 10px }`, so `1rem = 10px`** (1.6rem = 16px). Older custom styles assumed 16px and rendered tiny. Body text should be at least about 16px, labels at least 13px.
 - **Shared fixes go in `assets/css/site.css`,** which every page loads right after `style.css`. Pages also have inline `<style>` blocks for page-specific styles.
-- **Cache busting:** browsers and Cloudflare cache CSS and JS for a month (see `.htaccess`), so bump the `?v=` on the `<link>`/`<script>` tags whenever you change `site.css` or a JS file. HTML is never cached.
+- **Cache busting:** browsers and Cloudflare cache CSS and JS for a month (see `.htaccess`), so bump the `?v=` on the `<link>`/`<script>` tags whenever you change `site.css`, `main.js` (currently `?v=2`) or another JS file. HTML is never cached.
 - **Clean URLs:** `.htaccess` serves `/about` from `about.html` and 301-redirects any `*.html` URL to the clean one. Link with clean absolute paths (`/about`, `/services`, `/contact?package=growth`). A new page `name.html` is automatically available at `/name`; add it to `sitemap.xml`.
+- **Hero titles:** `main.js` splits `h1.rts_hero__title` with SplitText as `"words, chars"` for the letter animation. Keep the `words` part: with `chars` alone the browser can break a line between any two letters, so long titles wrapped mid-word on tablets and phones.
 - **Theming:** inner pages (`body.inner-page`) are always dark. The homepage follows the template's light/dark switch (light by default).
 - **Writing style:** no em dashes in site copy (use commas, colons or periods). Black-and-white editorial look. Client-facing copy in English.
 - Every page has its own `<title>`, meta description, canonical URL and Open Graph tags. Keep them when you add pages.
@@ -32,12 +33,13 @@ This file is technical only. The repo is public, so keep business details out of
 ## Contact form and newsletter
 
 - Both website forms post to `portal/inquiry.php` (JS in `assets/js/plugins/contact.form.js`).
+- Choosing an In-House Designer option on the contact form shows a required "when would you like your designer to start" select (`#cf-start`). `inquiry.php` validates it and stores the answer as the first line of the message, so the `inquiries` table is unchanged.
 - Every submission is saved to the MySQL table `inquiries` first (created automatically by `portal/lib/inquiries.php`). Contact messages are then emailed through the Titan mailbox by `portal/lib/mailer.php`, a small SMTP client with no libraries, using `portal/config/mail.php`.
 - Spam handling: a hidden `website` trap field, submissions under 3 seconds after page load, and at most 5 submissions per hour per connection. Suspected spam is saved and flagged, never dropped.
 - Admins see everything at `/portal/admin/inquiries.php` (messages, newsletter sign-ups, spam). If an email failed, it shows "Email not sent" with the reason.
 - `portal/.htaccess` blocks direct access to `config/*.php` secrets and to `portal/lib/`.
 
-## Open items (as of 2026-10-08)
+## Open items (as of 2026-10-29)
 
 - [ ] Marco sends a test message from /contact and confirms the email reaches contact@sunnymonkeys.com. If it doesn't arrive, the likely cause is HostGator blocking outgoing SMTP; the fallback is an HTTPS email API.
 - [ ] Marco resets the portal admin password himself (bcrypt hash into the `admins` table via phpMyAdmin).

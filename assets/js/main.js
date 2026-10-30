@@ -2354,7 +2354,7 @@
             let hero__title = document.querySelector(".rts_hero__title");
             let hero__subtitle = document.querySelector(".hero__sub-title");
             let split_hero__title = new SplitText(hero__title, {
-              type: "chars"
+              type: "words, chars"
             });
             let split_hero__subtitle = new SplitText(hero__subtitle, {
               type: "chars words"
@@ -2389,7 +2389,7 @@
         let hero__title = document.querySelector(".rts_hero__title");
         let hero__subtitle = document.querySelector(".hero__sub-title");
         let split_hero__title = new SplitText(hero__title, {
-          type: "chars"
+          type: "words, chars"
         });
         let split_hero__subtitle = new SplitText(hero__subtitle, {
           type: "chars words"
