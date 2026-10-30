@@ -6,14 +6,27 @@ require_once __DIR__ . '/../config/db.php';
 
 const INQUIRY_SERVICES = [
     'brand-identity'         => 'Brand Identity',
-    'corporate-branding'     => 'Corporate Branding',
+    'web-design'             => 'Web Design',
+    'web-apps'               => 'Custom Web Apps & Development',
     'social-media-design'    => 'Social Media Design',
     'email-design-marketing' => 'Email Design & Marketing',
-    'web-design'             => 'Web Design',
     'starter'                => 'Starter Package',
     'growth'                 => 'Growth Package',
     'premium'                => 'Premium Package',
+    'in-house-full-time'     => 'In-House Designer (full-time)',
+    'in-house-part-time'     => 'In-House Designer (part-time)',
+    'in-house'               => 'In-House Designer (not sure yet)',
     'custom'                 => "Custom / Let's Talk",
+    // No longer on the form (merged into Brand Identity), kept so older inquiries show their label.
+    'corporate-branding'     => 'Corporate Branding',
+];
+
+// Asked only on In-House Designer inquiries. Saved as the first line of the message.
+const INQUIRY_START_OPTIONS = [
+    'asap'          => 'As soon as possible',
+    '1-2-months'    => 'In 1 to 2 months',
+    '3-months-plus' => 'In 3 months or later',
+    'exploring'     => 'Just exploring for now',
 ];
 
 function inquiries_db(): PDO

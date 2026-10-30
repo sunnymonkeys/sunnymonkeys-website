@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-style-mode" content="1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
-    <title>Start a Design Project | Contact Sunny Monkeys</title>
-    <meta name="description" content="Tell us about your project. Sunny Monkeys helps growing brands with brand identity, social media, email and web design.">
+    <title>Start a Project or Hire a Designer | Contact Sunny Monkeys</title>
+    <meta name="description" content="Tell us about your project, or about the design work your team needs every week. Brand identity, web design, packages and dedicated in-house designers.">
     <link rel="canonical" href="https://sunnymonkeys.com/contact">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sunny Monkeys LLC">
-    <meta property="og:title" content="Start a Design Project | Contact Sunny Monkeys">
-    <meta property="og:description" content="Tell us about your project. Sunny Monkeys helps growing brands with brand identity, social media, email and web design.">
+    <meta property="og:title" content="Start a Project or Hire a Designer | Contact Sunny Monkeys">
+    <meta property="og:description" content="Tell us about your project, or about the design work your team needs every week. Brand identity, web design, packages and dedicated in-house designers.">
     <meta property="og:url" content="https://sunnymonkeys.com/contact">
     <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
@@ -80,9 +80,10 @@
                     <nav class="nav-area drop-down-rts">
                         <ul class="navbar-nav-1">
                             <li class="menu-item"><a href="/"><span class="rolling-text">Home</span></a></li>
-                            <li class="menu-item"><a href="/about"><span class="rolling-text">About</span></a></li>
                             <li class="menu-item"><a href="/services"><span class="rolling-text">Services</span></a></li>
-                            <li class="menu-item  current-menu-item"><a href="/contact"><span class="rolling-text">Contact</span></a></li>
+                            <li class="menu-item"><a href="/in-house-designer"><span class="rolling-text">In-House Designer</span></a></li>
+                            <li class="menu-item"><a href="/about"><span class="rolling-text">About</span></a></li>
+                            <li class="menu-item current-menu-item"><a href="/contact"><span class="rolling-text">Contact</span></a></li>
                         </ul>
                     </nav>
                     <div class="action-area">
@@ -127,25 +128,41 @@
                             <div class="form-group">
                                 <label for="cf-service">Service / Package</label>
                                 <select id="cf-service" name="service" required>
-                                    <option value="" disabled selected>Select a service or package</option>
-                                    <optgroup label="Services">
+                                    <option value="" disabled selected>Select a service, package or plan</option>
+                                    <optgroup label="Projects">
                                         <option value="brand-identity">Brand Identity</option>
-                                        <option value="corporate-branding">Corporate Branding</option>
+                                        <option value="web-design">Web Design</option>
+                                        <option value="web-apps">Custom Web Apps &amp; Development</option>
                                         <option value="social-media-design">Social Media Design</option>
                                         <option value="email-design-marketing">Email Design &amp; Marketing</option>
-                                        <option value="web-design">Web Design</option>
                                     </optgroup>
                                     <optgroup label="Packages">
-                                        <option value="starter">Starter Package</option>
-                                        <option value="growth">Growth Package</option>
-                                        <option value="premium">Premium Package</option>
+                                        <option value="starter">Starter Package ($799)</option>
+                                        <option value="growth">Growth Package ($1,799)</option>
+                                        <option value="premium">Premium Package ($3,499)</option>
                                     </optgroup>
-                                    <option value="custom">Custom / Let&apos;s Talk</option>
+                                    <optgroup label="In-House Designer">
+                                        <option value="in-house-full-time">Full-time designer</option>
+                                        <option value="in-house-part-time">Part-time designer</option>
+                                        <option value="in-house">Not sure yet, let&apos;s talk</option>
+                                    </optgroup>
+                                    <option value="custom">Something else / Let&apos;s Talk</option>
+                                </select>
+                            </div>
+                            <!-- Only shown for In-House Designer inquiries (see contact.form.js) -->
+                            <div class="form-group" id="cf-start-group" hidden>
+                                <label for="cf-start">When would you like your designer to start?</label>
+                                <select id="cf-start" name="start">
+                                    <option value="" disabled selected>Choose one</option>
+                                    <option value="asap">As soon as possible</option>
+                                    <option value="1-2-months">In 1 to 2 months</option>
+                                    <option value="3-months-plus">In 3 months or later</option>
+                                    <option value="exploring">Just exploring for now</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="cf-message">Tell Us About Your Project</label>
-                                <textarea id="cf-message" name="message" placeholder="Share a bit about your brand, goals, and what you're looking to create..." required></textarea>
+                                <label for="cf-message">Tell Us What You Need</label>
+                                <textarea id="cf-message" name="message" placeholder="Share a bit about your brand, your goals, and what you're looking to create. For an in-house designer, tell us about the design work you need every week and the tools your team uses." required></textarea>
                             </div>
                             <button type="submit" class="submit-btn">
                                 Send Message <i class="fa-light fa-arrow-right"></i>
@@ -162,6 +179,10 @@
                         <div class="contact-info-item">
                             <h5>Phone</h5>
                             <a href="tel:+16193044022">+1 619 304 4022</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <h5>In-House Designer</h5>
+                            <p>Looking for a dedicated designer? Pick an In-House option, tell us what your team needs every week, and we'll come back with a match.</p>
                         </div>
                         <div class="contact-info-item">
                             <h5>Follow Us</h5>
@@ -196,6 +217,7 @@
                             <ul class="footer-nav">
                                 <li><a href="/about">About Us</a></li>
                                 <li><a href="/services">Our Services</a></li>
+                                <li><a href="/in-house-designer">In-House Designer</a></li>
                                 <li><a href="/contact">Contact Us</a></li>
                             </ul>
                         </div>
@@ -273,7 +295,7 @@
 
     <script defer src="assets/js/vendor/jquery.min.js"></script>
     <script defer src="assets/js/plugins/bootstrap.min.js"></script>
-    <script defer src="assets/js/plugins/contact.form.js?v=3"></script>
+    <script defer src="assets/js/plugins/contact.form.js?v=4"></script>
     <script defer src="assets/js/vendor/waypoint.js"></script>
     <script defer src="assets/js/plugins/swiper.js"></script>
     <script defer src="assets/js/plugins/resizer-sensor.js"></script>

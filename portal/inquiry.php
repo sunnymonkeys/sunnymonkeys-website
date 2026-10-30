@@ -25,6 +25,7 @@ $email   = trim($_POST['email'] ?? '');
 $name    = trim($_POST['name'] ?? '');
 $service = trim($_POST['service'] ?? '');
 $message = trim($_POST['message'] ?? '');
+$start   = trim($_POST['start'] ?? '');
 $fallback = 'Sorry, something went wrong. Please email us at contact@sunnymonkeys.com.';
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 200) {
@@ -44,7 +45,20 @@ if ($type === 'contact') {
         reply(422, 'Please tell us about your project (up to 5,000 characters).');
         exit;
     }
+    // In-House Designer inquiries also say when the designer should start.
+    if (strpos($service, 'in-house') === 0) {
+        if (!array_key_exists($start, INQUIRY_START_OPTIONS)) {
+            reply(422, "Please tell us when you'd like your designer to start.");
+            exit;
+        }
+    } else {
+        $start = '';
+    }
 }
+
+// The preferred start is kept as the first line of the message, so the table stays as it is.
+$startLabel = ($type === 'contact' && $start !== '') ? INQUIRY_START_OPTIONS[$start] : '';
+$stored = $startLabel !== '' ? "Preferred start: $startLabel\n\n$message" : $message;
 
 // Spam signals: a hidden field people never see got filled in, or the form was sent within 3 seconds
 // of the page loading. Flagged submissions are still saved (in case a real person tripped them),
@@ -80,7 +94,7 @@ try {
         $name !== '' ? $name : null,
         $email,
         $service !== '' ? $service : null,
-        $message !== '' ? $message : null,
+        $stored !== '' ? $stored : null,
         $spam ? 1 : 0,
         $ipHash,
         substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 255),
@@ -118,7 +132,9 @@ $serviceLabel = INQUIRY_SERVICES[$service];
 $body = "New inquiry from sunnymonkeys.com\n\n"
       . "Name:    $name\n"
       . "Email:   $email\n"
-      . "Service: $serviceLabel\n\n"
+      . "Service: $serviceLabel\n"
+      . ($startLabel !== '' ? "Start:   $startLabel\n" : '')
+      . "\n"
       . "$message\n\n"
       . "---\n"
       . "Reply to this email to answer them directly.\n"
