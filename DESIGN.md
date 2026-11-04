@@ -1,10 +1,10 @@
 # sunnymonkeys.com design system
 
-Written 2026-11-04 for the redesign. Every public page follows this file; the values live as CSS custom properties in `assets/css/sm.css`. The client portal (`portal/`) keeps its own stylesheet.
+Written 2026-11-04 for the redesign; accent color added the same day (version 2). Every public page follows this file; the values live as CSS custom properties in `assets/css/sm.css`. The client portal (`portal/`) keeps its own stylesheet.
 
 ## Direction
 
-Paper and ink. A black-and-white editorial site for a small design studio: white pages for projects, black bands for the in-house designer story, condensed poster type, and monochrome drawings instead of stock photos. Nothing is decorated with color; the only brand color is the blue of the monkey mark, kept for the logo file and favicon.
+Paper and ink, with one color. A black-and-white editorial site for a small design studio: white pages for projects, black bands for the in-house designer story, condensed poster type, and drawings instead of stock photos. The one color is the blue of the monkey mark (`#2988FC`, sampled from the logo), lightened to a sky blue in a gradient. It marks what is active, finished or yours: the mark, step numbers, the weekly review on the board, filled timeline bars, hover and focus, a wash behind the hero and a glow in the corner of black bands. It never carries text. The brand sheet at `/brand` (`brand.html`, not indexed, not in the menu) shows all of this on one page.
 
 Compared before deciding (home pages, November 2026): designme.agency, designjoy.co, awesomic.com, superside.com, penji.co, manypixels.co, halo-lab.com, ramotion.com, eleken.co, clay.global, growmodo.com and hirewithnear.com. Nine of the twelve are light sites with one big grotesque headline, one accent color, stat tiles and a pricing table pushed to another page. The dark ones lean on 3D renders or a brand color. A strict black-and-white site with condensed type and drawn, animated boards stands apart from all of them, and it matches the studio's own brand rules.
 
@@ -19,6 +19,11 @@ Compared before deciding (home pages, November 2026): designme.agency, designjoy
 | `--grey-3` | `#6B6B6B` | Secondary text on paper (5.7:1) |
 | `--grey-4` | `#A3A3A3` | Secondary text on ink (5.6:1) |
 | `--grey-5` | `#3A3A3A` | Rules and borders on ink |
+| `--blue` | `#2988FC` | The mark, step numbers, finished parts of drawings, focus outline, nav underline, input focus border. Large text or shapes only (3.5:1 on white) |
+| `--sky` | `#7FC3FF` | Light end of the gradient |
+| `--sky-wash` | `#E4F1FF` | Hero wash, table header, selection, the 404 code |
+| `--grad` | blue to sky, 135deg | Weekly review bar, filled timeline bars, the rule above packages, primary button hover. Shapes only, never text |
+| `--glow` | radial blue, top right | Black bands and the phone menu |
 
 Semantic variables `--bg`, `--fg`, `--fg-muted`, `--rule` and `--surface` point at these and flip inside any element with the class `ink`. Components only use the semantic names. Text contrast is at least 4.5:1 everywhere; large display type on grey is at least 3:1.
 
@@ -55,17 +60,17 @@ No eyebrow labels above headings, no all-caps labels, no single accented word in
 
 ## Components
 
-- **Buttons**: `.btn` (outline, 1.5px) and `.btn-primary` (filled). Barlow Condensed 600, min height 48px, padding 12px 24px. Hover inverts fill. Focus: 3px outline in the current foreground color, 2px offset. Disabled: 50% opacity. Inside `.ink` the colors flip automatically.
-- **Links in text**: underlined, 2px offset; hover removes the underline.
+- **Buttons**: `.btn` (outline, 1.5px) and `.btn-primary` (filled). Barlow Condensed 600, min height 48px, padding 12px 24px. Secondary hover inverts fill; primary hover turns to the gradient with white text. Focus: 3px blue outline, 2px offset. Disabled: 50% opacity. Inside `.ink` the colors flip automatically.
+- **Links in text**: underlined, 2px offset; hover turns the underline blue.
 - **Inputs**: 1.5px border, 6px radius, 48px tall, same font as body; labels in Barlow Condensed 600. Error and success messages appear in the `.form-status` line under the form, never by color alone (the text says what happened).
 - **Lists of services** (`.rows`): one row per item with a hairline rule above, a drawn icon, the name, one sentence and tags.
-- **Packages**: plan headers in a 3-column grid, then one comparison `<table>` (feature rows, plan columns). Below 720px the table becomes feature-first lists.
+- **Packages**: plan headers in a 3-column grid with a 3px gradient rule on top, then one comparison `<table>` (sky-wash header) (feature rows, plan columns). Below 720px the table becomes feature-first lists.
 - **FAQ**: native `<details>` with a styled `<summary>`.
-- **Navigation**: sticky white header, mark plus wordmark, text links, quiet "Log in", filled "Book a call". Below 900px a button opens a full-screen ink menu.
+- **Navigation**: sticky white header, blue mark plus black wordmark, text links (blue underline on the current page), quiet "Log in", filled "Book a call". Below 900px a button opens a full-screen ink menu with the glow.
 - **Footer**: ink band with the mark, three link columns, the newsletter form and the legal line.
 
 ## Imagery and motion
 
-- No stock photography. Visuals are inline monochrome SVG drawn for the subject: the designer's week board (hero), the "one designer, five brands" diagram, the immersion timeline, and 24px line icons for services. Everything draws in `currentColor`, so it works on paper and on ink.
+- No stock photography. Visuals are inline SVG drawn for the subject: the designer's week board (hero), the "one designer, five brands" diagram, the immersion timeline, and 24px line icons for services. Lines draw in `currentColor`, so they work on paper and on ink; finished checks, the in-house connection and the pulse are blue, and the review bar and filled bars use the gradient (`url(#sm-grad)`, a `<linearGradient>` placed at the top of every page's body).
 - Motion is limited to: the hero board assembling once on load and then looping slowly; diagrams animating once when they enter the viewport; interactive feedback (menu, accordions, hover). No fade-ups on sections. `prefers-reduced-motion` shows every animation's final state.
 - The monkey mark is the white PNG used as a CSS mask, so it takes the current text color.
