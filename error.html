@@ -1,124 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-style-mode" content="1">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/fav.png">
-    <title>Page Not Found | Sunny Monkeys LLC</title>
+    <title>Page Not Found | Sunny Monkeys</title>
+    <meta name="description" content="The page you&#x27;re looking for has moved or no longer exists.">
+    <link rel="canonical" href="https://sunnymonkeys.com/error">
+    <link rel="icon" type="image/png" href="/assets/images/fav.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sunny Monkeys">
+    <meta property="og:title" content="Page Not Found | Sunny Monkeys">
+    <meta property="og:description" content="The page you&#x27;re looking for has moved or no longer exists.">
+    <meta property="og:url" content="https://sunnymonkeys.com/error">
+    <meta property="og:image" content="https://sunnymonkeys.com/assets/images/og-sunny-monkeys.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/sm.css?v=1">
     <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="/assets/css/plugins/fontawesome-6.css">
-    <link rel="stylesheet" href="/assets/css/plugins/swiper.min.css">
-    <link rel="stylesheet" href="/assets/css/vendor/metismenu.css">
-    <link rel="stylesheet" href="/assets/css/plugins/animate.min.css">
-    <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
 </head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="/" aria-label="Sunny Monkeys, home"><span class="mark" aria-hidden="true"></span><span>Sunny Monkeys</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+            <ul>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/in-house-designer">In-House Designer</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/login">Log in</a>
+                <a class="btn btn-primary" href="/contact">Book a call</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<main id="main">
 
-<body class="inner-page coming-soon">
-
-
-    <div class="rts-coming-soon error">
-        <div class="container">
-            <div class="section-inner text-center">
-                <h2 class="title-elements-parent">
-                    <span>404</span> <br>
-                    Page Not Found
-                </h2>
-                <p class="desc">Sorry, the page you're looking for <br> has moved or no longer exists.</p>
-                <div class="buttons-main-wrapper-elements justify-content-center">
-                    <a href="/" class="rts-btn btn-primary">Back To Homepage</a>
-                </div>
+    <section class="section notfound">
+        <div class="wrap">
+            <p class="code" aria-hidden="true">404</p>
+            <h1>Page not found</h1>
+            <p class="lead" style="margin-top: 1.5rem">The page you're looking for has moved or no longer exists.</p>
+            <div class="actions" style="margin-top: 2rem">
+                <a class="btn btn-primary" href="/">Back to the home page</a>
+                <a class="btn" href="/services">See services and packages</a>
+                <a class="btn" href="/contact">Contact us</a>
             </div>
         </div>
+    </section>
+</main>
+<footer class="site-footer ink">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <a class="brand" href="/" aria-label="Sunny Monkeys, home"><span class="mark" aria-hidden="true"></span><span>Sunny Monkeys</span></a>
+                <p class="tagline">A design studio for startups and small businesses. Projects with a fixed price, or a designer of your own.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/services">Services and packages</a></li>
+                    <li><a href="/in-house-designer">In-House Designer</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/login">Client log in</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:contact@sunnymonkeys.com">contact@sunnymonkeys.com</a></li>
+                    <li><a href="tel:+16193044022">+1 619 304 4022</a></li>
+                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" rel="noopener">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <p class="small muted">Occasional notes on branding and design. No spam, and you can leave any time.</p>
+                <form class="newsletter" id="newsletter-form" action="/portal/inquiry.php" method="post" novalidate style="margin-top: 1rem">
+                    <label class="visually-hidden" for="nl-email">Email address</label>
+                    <input class="trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <input id="nl-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+                    <button class="btn" type="submit">Subscribe</button>
+                    <p class="form-status small" role="status" aria-live="polite" style="flex-basis: 100%"></p>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sunny Monkeys LLC. All rights reserved.</p>
+            <ul>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms &amp; Conditions</a></li>
+            </ul>
+        </div>
     </div>
-
-
-    <!-- Scripts style two -->
-    <div class="loading-screen" id="loading-screen">
-        <span class="bar top-bar"></span>
-        <span class="bar down-bar"></span>
-        <span class="progress-line"></span>
-        <span class="loading-counter"> </span>
-    </div>
-
-
-    <div class="bg-noise"></div>
-
-
-    <!-- back to top start -->
-    <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
-        </svg>
-    </div>
-    <!-- back to top end -->
-
-
-
-    <!-- pre loader start -->
-    <div class="rts-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="no">
-        <span class="fn-cursor"></span>
-    </div>
-    <div class="rts-cursor cursor-inner" data-default="yes" data-link="yes" data-slider="no">
-        <span class="fn-cursor">
-        <span class="fn-left"></span>
-        <span class="fn-right"></span>
-        </span>
-    </div>
-    <!-- pre loader end -->
-
-
-
-    <!-- dark light switcher start-->
-    <div class="modal-sidebar-scroll rts-dark-light">
-        <ul>
-            <li class="go-dark-w"><span>Dark</span><i class="rts-go-dark fal fa-moon"></i></li>
-            <li class="go-light-w"><span>Light</span><i class="rts-go-light fa-light fa-brightness"></i></li>
-        </ul>
-    </div>
-    <!-- dark light switcher end -->
-
-
-
-    <script defer src="/assets/js/vendor/jquery.min.js"></script>
-    <script defer src="/assets/js/plugins/bootstrap.min.js"></script>
-    <script defer src="/assets/js/plugins/contact.form.js?v=3"></script>
-    <script defer src="/assets/js/vendor/waypoint.js"></script>
-    <script defer src="/assets/js/plugins/swiper.js"></script>
-
-
-    <!-- for side bar sticky -->
-    <script defer src="/assets/js/plugins/resizer-sensor.js"></script>
-    <script defer src="/assets/js/plugins/sticky-sidebar.js"></script>
-    <!-- for side bar sticky end-->
-
-    <script defer src="/assets/js/plugins/isotop.js"></script>
-    <script defer src="/assets/js/plugins/imagesloaded.pkgd.min.js"></script>
-
-    <script defer src="/assets/js/plugins/smoothscroll-varticle.js"></script>
-    <script defer src="/assets/js/vendor/gsap.js"></script>
-    <script defer src="/assets/js/plugins/scrolltiger.js"></script>
-    <script defer src="/assets/js/plugins/scrolltoplugin.js"></script>
-    <script defer src="/assets/js/plugins/splittext.js"></script>
-    <script defer src="/assets/js/plugins/smoothscroll.js"></script>
-
-    <!-- title opacity scroll magix -->
-    <script defer src="/assets/js/plugins/scrollmagic.js"></script>
-    <script defer src="/assets/js/plugins/animate-scrollmagic.js"></script>
-    <!-- title opacity scroll magic end -->
-
-
-
-    <script defer src="/assets/js/plugins/tilt.js"></script>
-    <script defer src="/assets/js/plugins/counterup.js"></script>
-
-    <script defer src="/assets/js/vendor/waw.js"></script>
-    <!-- custom javascripts -->
-    <script defer src="/assets/js/main.js?v=2"></script>
-    <!-- Scripts style two End -->
+</footer>
+<script src="/assets/js/sm.js?v=1" defer></script>
 </body>
-
 </html>

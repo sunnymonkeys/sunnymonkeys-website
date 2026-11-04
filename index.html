@@ -1,103 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-style-mode" content="1">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
     <title>Branding, Web Design &amp; In-House Designers | Sunny Monkeys</title>
     <meta name="description" content="Design studio for startups and small businesses. Brand identity and websites as fixed-price projects, or a dedicated in-house designer embedded in your team.">
     <link rel="canonical" href="https://sunnymonkeys.com/">
+    <link rel="icon" type="image/png" href="/assets/images/fav.png">
+    <meta name="theme-color" content="#ffffff">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Sunny Monkeys LLC">
+    <meta property="og:site_name" content="Sunny Monkeys">
     <meta property="og:title" content="Branding, Web Design &amp; In-House Designers | Sunny Monkeys">
     <meta property="og:description" content="Design studio for startups and small businesses. Brand identity and websites as fixed-price projects, or a dedicated in-house designer embedded in your team.">
     <meta property="og:url" content="https://sunnymonkeys.com/">
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
-    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
-    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/site.css?v=2">
-
-    <style>
-    /* ── Login button ── */
-    .sm-login-btn {
-        display: inline-flex;
-        align-items: center;
-        overflow: hidden;
-        position: relative;
-        border: 2px solid #fff !important;
-        background: #fff !important;
-        color: #111 !important;
-        padding: 10px 28px !important;
-        border-radius: 6px !important;
-        font-size: 1.5rem !important;
-        font-weight: 700 !important;
-        text-decoration: none !important;
-        letter-spacing: 0.04em !important;
-        transition: background 0.25s, color 0.25s, border-color 0.25s !important;
-        white-space: nowrap !important;
-    }
-    .sm-login-btn .btn-text {
-        display: inline-block;
-        transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s;
-    }
-    .sm-login-btn .btn-text-hover {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%) translateY(100%);
-        opacity: 0;
-        transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s;
-        font-weight: 700;
-        white-space: nowrap;
-    }
-    .sm-login-btn:hover .btn-text {
-        transform: translateY(-130%);
-        opacity: 0;
-    }
-    .sm-login-btn:hover .btn-text-hover {
-        transform: translateX(-50%) translateY(-50%);
-        opacity: 1;
-    }
-    .sm-login-btn:hover {
-        background: #111 !important;
-        color: #fff !important;
-        border-color: #111 !important;
-    }
-
-    /* ── Two ways to work with us (works in the homepage's light and dark modes) ── */
-    .sm-ways { padding-top: 90px; }
-    .sm-ways-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-    @media (max-width: 991px) { .sm-ways-grid { grid-template-columns: 1fr; } }
-    .sm-way { border: 1.5px solid rgba(128,128,128,0.35); border-radius: 16px; padding: 44px 40px; display: flex; flex-direction: column; }
-    .sm-way .eyebrow { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px; }
-    .sm-way h3 { font-size: clamp(2.2rem, 3vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; color: inherit; }
-    .sm-way p:not(.eyebrow) { font-size: 1.7rem; line-height: 1.7; opacity: 0.8; margin-bottom: 24px; }
-    .sm-way ul { list-style: none; padding: 0; margin: 0 0 32px; flex: 1; }
-    .sm-way li { display: flex; gap: 12px; align-items: flex-start; font-size: 1.6rem; line-height: 1.55; margin-bottom: 12px; }
-    .sm-way li i { margin-top: 5px; font-size: 1.3rem; flex-shrink: 0; }
-    .sm-way-link { font-size: 1.6rem; font-weight: 700; text-decoration: underline; color: inherit; display: inline-flex; align-items: center; gap: 8px; }
-    .sm-way-link:hover { opacity: 0.7; color: inherit; }
-    html.rts-light-mood .sm-way { background: #fff; border-color: #e3e3e3; color: #111; }
-    html.rts-light-mood .sm-way.featured { background: #111; border-color: #111; color: #fff; }
-    html.rts-dark .sm-way { background: #161616; border-color: rgba(255,255,255,0.1); color: #fff; }
-    html.rts-dark .sm-way.featured { background: #fff; border-color: #fff; color: #111; }
-
-    /* ── Why in-house (the agency problem) ── */
-    .sm-why { padding: 110px 0; background: #111; color: #fff; position: relative; }
-    .sm-why .eyebrow { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
-    .sm-why h2 { font-size: clamp(2.8rem, 5vw, 4.6rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 24px; }
-    .sm-why p { font-size: 1.7rem; line-height: 1.7; color: rgba(255,255,255,0.72); max-width: 640px; margin-bottom: 16px; }
-    .sm-why .pullquote { font-size: clamp(2.2rem, 3.4vw, 3.2rem); font-weight: 800; color: #fff; border-left: 3px solid #fff; padding-left: 24px; margin: 36px 0; line-height: 1.25; letter-spacing: -0.02em; max-width: 640px; }
-    .sm-why-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #111; padding: 18px 36px; border-radius: 8px; font-size: 1.6rem; font-weight: 700; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s; }
-    .sm-why-btn:hover { opacity: 0.85; color: #111; }
-    </style>
+    <meta property="og:image" content="https://sunnymonkeys.com/assets/images/og-sunny-monkeys.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/sm.css?v=1">
     <script type="application/ld+json">
-{
+    {
       "@context": "https://schema.org",
       "@graph": [
         {
@@ -107,6 +32,7 @@
           "legalName": "Sunny Monkeys LLC",
           "url": "https://sunnymonkeys.com/",
           "logo": "https://sunnymonkeys.com/assets/images/logo-sunny-monkeys.png",
+          "image": "https://sunnymonkeys.com/assets/images/og-sunny-monkeys.png",
           "description": "Design studio for startups and small businesses: brand identity, web design and custom web apps as fixed-price projects, or a dedicated in-house designer embedded in your team.",
           "email": "contact@sunnymonkeys.com",
           "telephone": "+1-619-304-4022",
@@ -117,1122 +43,301 @@
             "telephone": "+1-619-304-4022",
             "availableLanguage": ["English", "Spanish"]
           },
-          "sameAs": [
-            "https://www.linkedin.com/company/sunny-monkeys/"
-          ],
-          "knowsAbout": [
-            "Brand identity",
-            "Logo design",
-            "Corporate branding",
-            "Social media design",
-            "Email design",
-            "Web design",
-            "Custom web apps",
-            "Dedicated in-house designers"
-          ]
+          "sameAs": ["https://www.linkedin.com/company/sunny-monkeys/"],
+          "knowsAbout": ["Brand identity", "Logo design", "Corporate branding", "Social media design", "Email design", "Web design", "Custom web apps", "Dedicated in-house designers"]
         },
         {
           "@type": "WebSite",
           "@id": "https://sunnymonkeys.com/#website",
           "url": "https://sunnymonkeys.com/",
           "name": "Sunny Monkeys",
-          "publisher": {
-            "@id": "https://sunnymonkeys.com/#organization"
-          }
+          "publisher": { "@id": "https://sunnymonkeys.com/#organization" }
         }
       ]
     }
     </script>
 </head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="/" aria-label="Sunny Monkeys, home"><span class="mark" aria-hidden="true"></span><span>Sunny Monkeys</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+            <ul>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/in-house-designer">In-House Designer</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/login">Log in</a>
+                <a class="btn btn-primary" href="/contact">Book a call</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<main id="main">
 
-<body class="index-one">
-
-    <!-- header area start -->
-    <header class="header-area header-one header--sticky">
-        <div class="header-container-one">
-            <div class="header-wrapper">
-                <a href="/" class="logo"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:48px;height:48px;object-fit:contain;display:block;border-radius:50%;"></a>
-                <div class="header-right">
-
-                    <nav class="nav-area drop-down-rts">
-                        <ul class="navbar-nav-1">
-                            <li class="menu-item main-nav-on current-menu-item">
-                                <a href="/"><span class="rolling-text">Home</span></a>
-                            </li>
-                            <li class="menu-item main-nav-on">
-                                <a href="/services"><span class="rolling-text">Services</span></a>
-                            </li>
-                            <li class="menu-item main-nav-on">
-                                <a href="/in-house-designer"><span class="rolling-text">In-House Designer</span></a>
-                            </li>
-                            <li class="menu-item main-nav-on">
-                                <a href="/about"><span class="rolling-text">About</span></a>
-                            </li>
-                            <li class="menu-item main-nav-on">
-                                <a href="/contact"><span class="rolling-text">Contact</span></a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <div class="action-area">
-                        <div class="login-btn-wrapper">
-                            <a href="/login" class="sm-login-btn"><span class="btn-text">Log In</span><span class="btn-text-hover">Log In</span></a>
-                        </div>
-                        <div class="menu-btn">
-
-                            <div class="rts-offcanvas-wrapper">
-                                <div class="container-menu">
-                                    <div class="action-menu">
-                                        <div class="close-event"></div>
-                                        <div class="open-event">
-                                            <!-- <div class="text">
-                        <span>Menu</span>
-                        <span>Close</span>
-                    </div> -->
-                                            <div class="burger">
-                                                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-close" data-v-649bbaab="">
-                                                    <line x1="13.788" y1="1.28816" x2="1.06011" y2="14.0161" stroke="currentColor" stroke-width="1.2"></line>
-                                                    <line x1="1.06049" y1="1.43963" x2="13.7884" y2="14.1675" stroke="currentColor" stroke-width="1.2"></line>
-                                                </svg>
-                                                <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-burger" data-v-649bbaab="">
-                                                    <line x1="18" y1="0.6" y2="0.6" stroke="currentColor" stroke-width="1.2" data-v-649bbaab=""></line>
-                                                    <line x1="18" y1="5.7167" y2="5.7167" stroke="currentColor" stroke-width="1.2" data-v-649bbaab=""></line>
-                                                    <line x1="18" y1="10.8334" y2="10.8334" stroke="currentColor" stroke-width="1.2" data-v-649bbaab=""></line>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="rts-fs-menu">
-                                    <div class="rts-fs-container row">
-
-                                        <div class="rts-fs--nav col-12 col-md-6">
-                                            <ul id="primary-menu" class="navbar-nav-button">
-                                                <li class="menu-item current-menu-item">
-                                                    <a href="/">Home</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="/services">Services</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="/in-house-designer">In-House Designer</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="/about">About</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="/contact">Contact</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="rts-fs--contacts col-12 col-md-6">
-                                            <div class="contact-inner">
-                                                <div class="contact-information">
-                                                    <h2 class="heading-title">Get In Touch</h2>
-                                                    <div class="contact">
-                                                        <ul>
-                                                            <li><a href="mailto:contact@sunnymonkeys.com" class="mail">contact@sunnymonkeys.com</a></li>
-                                                            <li><a href="tel:+16193044022" class="number">+1 619 304 4022</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="rts-social-area-one">
-                                                        <ul>
-                                                            <li><a href="https://www.linkedin.com/company/sunny-monkeys/" target="_blank" rel="noopener" aria-label="Sunny Monkeys on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <section class="hero">
+        <div class="wrap hero-grid">
+            <div>
+                <h1><span class="line">Build your brand,</span><span class="line">or bring a</span><span class="line">designer in-house.</span></h1>
+                <p class="lead hero-rise">Sunny Monkeys is a design studio for startups and small businesses. Hire us for a project, from brand identity to a working website, or embed a dedicated designer who knows your business like your own team does.</p>
+                <div class="actions hero-rise">
+                    <a class="btn btn-primary" href="/services">See services and packages</a>
+                    <a class="btn" href="/in-house-designer">Meet your in-house designer</a>
                 </div>
+            </div>
+            <div class="hero-rise">
+<svg class="board board-d" viewBox="0 0 600 420" role="img" aria-labelledby="home-board-d-title">
+<title id="home-board-d-title">A week of work from your in-house designer: social posts, a video edit, a landing page, an event flyer and a weekly review.</title>
+<rect class="frame" x="0.75" y="0.75" width="598.5" height="418.5" rx="8"/>
+<g class="day"><text x="16" y="36">Mon</text><text x="133" y="36">Tue</text><text x="250" y="36">Wed</text><text x="367" y="36">Thu</text><text x="484" y="36">Fri</text></g>
+<g class="grid"><line x1="0" y1="50" x2="600" y2="50"/><line x1="125" y1="50" x2="125" y2="340"/><line x1="242" y1="50" x2="242" y2="340"/><line x1="359" y1="50" x2="359" y2="340"/><line x1="476" y1="50" x2="476" y2="340"/></g>
+<g class="chip" style="--i:0"><rect x="16" y="66" width="100" height="40" rx="6"/><text x="27" y="91">IG carousel</text></g>
+<g class="done" style="--i:0"><circle cx="116" cy="66" r="9"/><path d="M111.5 66 l3.0 3.0 l6.0 -6.0"/></g>
+<g class="chip" style="--i:1"><rect x="133" y="66" width="100" height="40" rx="6"/><text x="144" y="91">Reel edit</text></g>
+<g class="done" style="--i:1"><circle cx="233" cy="66" r="9"/><path d="M228.5 66 l3.0 3.0 l6.0 -6.0"/></g>
+<g class="chip" style="--i:2"><rect x="250" y="66" width="100" height="40" rx="6"/><text x="261" y="91">Landing page</text></g>
+<g class="done" style="--i:2"><circle cx="350" cy="66" r="9"/><path d="M345.5 66 l3.0 3.0 l6.0 -6.0"/></g>
+<g class="chip" style="--i:3"><rect x="367" y="66" width="100" height="40" rx="6"/><text x="378" y="91">Event flyer</text></g>
+<g class="chip" style="--i:4"><rect x="484" y="66" width="100" height="40" rx="6"/><text x="495" y="91">Brochure</text></g>
+<g class="chip" style="--i:5"><rect x="16" y="118" width="100" height="40" rx="6"/><text x="27" y="143">Stories</text></g>
+<g class="done" style="--i:5"><circle cx="116" cy="118" r="9"/><path d="M111.5 118 l3.0 3.0 l6.0 -6.0"/></g>
+<g class="chip" style="--i:6"><rect x="133" y="118" width="100" height="40" rx="6"/><text x="144" y="143">Email header</text></g>
+<g class="chip" style="--i:7"><rect x="250" y="118" width="100" height="40" rx="6"/><text x="261" y="143">Site update</text></g>
+<g class="chip" style="--i:8"><rect x="367" y="118" width="100" height="40" rx="6"/><text x="378" y="143">Ad set</text></g>
+<g class="chip" style="--i:9"><rect x="250" y="170" width="100" height="40" rx="6"/><text x="261" y="195">Pitch deck</text></g>
+<g class="review" style="--i:10"><rect x="16" y="355" width="568" height="40" rx="6"/><text x="44" y="380">Friday: weekly review with your Sunny Monkeys lead</text></g>
+</svg>
+<svg class="board board-m" viewBox="0 0 360 330" role="img" aria-labelledby="home-board-m-title">
+<title id="home-board-m-title">A week of work from your in-house designer: social posts, a video edit, a landing page, an event flyer and a weekly review.</title>
+<rect class="frame" x="0.75" y="0.75" width="358.5" height="328.5" rx="8"/>
+<g class="day"><text x="8" y="26">Mon</text><text x="78" y="26">Tue</text><text x="148" y="26">Wed</text><text x="218" y="26">Thu</text><text x="288" y="26">Fri</text></g>
+<g class="grid"><line x1="0" y1="36" x2="360" y2="36"/><line x1="74" y1="36" x2="74" y2="262"/><line x1="144" y1="36" x2="144" y2="262"/><line x1="214" y1="36" x2="214" y2="262"/><line x1="284" y1="36" x2="284" y2="262"/></g>
+<g class="chip" style="--i:0"><rect x="8" y="44" width="62" height="30" rx="6"/><text x="16" y="63">Carousel</text></g>
+<g class="done" style="--i:0"><circle cx="70" cy="44" r="7"/><path d="M66.5 44 l2.3 2.3 l4.7 -4.7"/></g>
+<g class="chip" style="--i:1"><rect x="78" y="44" width="62" height="30" rx="6"/><text x="86" y="63">Reel edit</text></g>
+<g class="done" style="--i:1"><circle cx="140" cy="44" r="7"/><path d="M136.5 44 l2.3 2.3 l4.7 -4.7"/></g>
+<g class="chip" style="--i:2"><rect x="148" y="44" width="62" height="30" rx="6"/><text x="156" y="63">Landing</text></g>
+<g class="done" style="--i:2"><circle cx="210" cy="44" r="7"/><path d="M206.5 44 l2.3 2.3 l4.7 -4.7"/></g>
+<g class="chip" style="--i:3"><rect x="218" y="44" width="62" height="30" rx="6"/><text x="226" y="63">Flyer</text></g>
+<g class="chip" style="--i:4"><rect x="288" y="44" width="62" height="30" rx="6"/><text x="296" y="63">Brochure</text></g>
+<g class="chip" style="--i:5"><rect x="8" y="84" width="62" height="30" rx="6"/><text x="16" y="103">Stories</text></g>
+<g class="done" style="--i:5"><circle cx="70" cy="84" r="7"/><path d="M66.5 84 l2.3 2.3 l4.7 -4.7"/></g>
+<g class="chip" style="--i:6"><rect x="78" y="84" width="62" height="30" rx="6"/><text x="86" y="103">Email</text></g>
+<g class="chip" style="--i:7"><rect x="148" y="84" width="62" height="30" rx="6"/><text x="156" y="103">Site fix</text></g>
+<g class="chip" style="--i:8"><rect x="218" y="84" width="62" height="30" rx="6"/><text x="226" y="103">Ad set</text></g>
+<g class="chip" style="--i:9"><rect x="148" y="124" width="62" height="30" rx="6"/><text x="156" y="143">Deck</text></g>
+<g class="review" style="--i:10"><rect x="8" y="276" width="344" height="30" rx="6"/><text x="26" y="297">Fri: weekly review with your lead</text></g>
+</svg>
             </div>
         </div>
-    </header>
-    <!-- header area end -->
+    </section>
 
-    <div id="smooth-wrapper">
-        <div id="smooth-content">
-
-            <!-- rts banenr area start -->
-            <div class="banner-area banner-style-one banner-bg-1 hero__area-3 banner__jump">
-                <div class="shape-image">
-                    <img src="assets/images/banner/06.png" alt="">
-                </div>
-                <div class="top-center-image rts-scroll-down-circle-wrapper-3">
-                    <a href="/contact" class="speen-shape scroll-down-circle-3">
-                        <svg class="uni-circle-text-path uk-text-secondary uni-animation-spin" viewBox="0 0 100 100" width="180" height="180">
-                            <defs>
-                                <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0">
-                                </path>
-                            </defs>
-                            <text font-size="11.75">
-                                <textPath xlink:href="#circle">Start a Project • Get In Touch •</textPath>
-                            </text>
-                        </svg>
-                        <i class="fa-solid fa-star-sharp"></i>
-                    </a>
-                </div>
-                <div class="container">
-                    <div class="row  ptb--200 ptb_sm--150">
-                        <div class="col-lg-9">
-                            <div class="banner-one-wrapper mt--80 mt_sm--0">
-                                <h1 class="title rts_hero__title">
-                                    Build Your Brand, <br>
-                                    or Bring a <span class="border-bottom-1">Designer In-House</span>
-                                </h1>
-                                <div class="para-wraph">
-                                    <p class="disc hero__sub-title">
-                                        Sunny Monkeys is a design studio for startups and small businesses. <br>
-                                        Hire us for a project, from brand identity to a working website, <br>
-                                        or embed a dedicated designer who knows your business like your own team.
-                                    </p>
-                                </div>
-                                <div class="bannerJump_animation banner-jump-button rts-scroll-down-circle-wrapper-4">
-                                    <div class="jump__anim rts_round_btn_wrap scroll-down-circle-4">
-                                        <div class="rts-mouse-move-button">
-                                            <div class="btn_wrapper">
-                                                <a href="#two-ways" class="rts-btn-mouse-move btn-hover btn-item"><span></span> See How <br>
-                                                    We Work
-                                                    <i class="fa-solid fa-arrow-up-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="col-lg-4">
-                            <div class="vedio-button-area-banner-one">
-                                <img src="assets/images/banner/05.png" alt="">
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <!-- rts banenr area end -->
-
-            <!-- rts about area start -->
-            <div class="rts-about-area-1 rts-section-gapBottom">
-                <div class="shape-about-one">
-                    <img src="assets/images/about/05.png" alt="">
-                </div>
-                <div class="container-full">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="grid-lines-wrapper">
-                                <div class="grid-lines">
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="gsap-inner sec1">
-                                <div class="image-wrapper-main-about mt-dec-135 rts-reveal-one">
-                                    <img src="assets/images/about/01.jpg" alt="A creative team gathered around a table, collaborating on a design project" class="rts-reveal-image-one">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-split-wrap-about scrolltext-wrapper">
-                        <div class="text-split scrollingText-two">
-                            <h2 class="title">
-                                Creative Design Studio <span>for Your Brand</span>
-                                Creative Design Studio <span>for Your Brand</span>
-                                Creative Design Studio <span>for Your Brand</span>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <!-- about main inner wrapper -->
-                <div class="container mt--100">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="left-main-about-inner">
-                                <img src="assets/images/about/02.png" alt="Designers reviewing color swatches, sketches and layouts on a laptop">
-                                <div class="shape-about-two">
-                                    <img src="assets/images/about/06.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 pl--60 pl_sm--15 pt_md--50 pt_sm--30">
-                            <!-- about right area start -->
-                            <div class="about-area-right-start">
-                                <div class="inner-about-wrapper">
-                                    <h2 class="title quote">Two Ways to
-                                        Work With Us</h2>
-                                    <p class="disc rts-text-anim">
-                                        Some brands need a project: a new identity, a website, a launch. <br>
-                                        Others need a designer who shows up every week and knows the <br>
-                                        business inside out. We do both, and both come with <br>
-                                        our art direction.
-                                    </p>
-                                    <div class="btn--area-left mt--50">
-                                        <a href="/contact" class="learn-more-btn">Work With Us<i
-                                                class="fa-solid fa-arrow-up-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- about right area end -->
-                        </div>
-                    </div>
-                </div>
-                <!-- about main inner wrapper main -->
-
-                <!-- two ways to work with us: Build (projects) or In-House (a dedicated designer) -->
-                <div class="container sm-ways" id="two-ways">
-                    <div class="sm-ways-grid">
-                        <div class="sm-way">
-                            <p class="eyebrow">Build</p>
-                            <h3>Projects with a clear scope and a fixed price</h3>
-                            <p>Brand identity, websites designed and built, social media and email design. You know what you get, what it costs and when it's done.</p>
-                            <ul>
-                                <li><i class="fa-regular fa-check"></i> Packages from $799, or a custom quote</li>
-                                <li><i class="fa-regular fa-check"></i> Weekly check-ins, nothing goes live without your approval</li>
-                                <li><i class="fa-regular fa-check"></i> Websites you can edit yourself</li>
-                            </ul>
-                            <a href="/services" class="sm-way-link">See services and packages <i class="fa-solid fa-arrow-up-right"></i></a>
-                        </div>
-                        <div class="sm-way featured">
-                            <p class="eyebrow">In-House</p>
-                            <h3>A dedicated designer, embedded in your team</h3>
-                            <p>A bilingual designer who learns your brand and takes care of your design every week: social, video, website updates and print. Full-time or part-time, with our art direction.</p>
-                            <ul>
-                                <li><i class="fa-regular fa-check"></i> Starts in 2 to 3 weeks</li>
-                                <li><i class="fa-regular fa-check"></i> Works your hours, in your tools</li>
-                                <li><i class="fa-regular fa-check"></i> Software licenses included</li>
-                            </ul>
-                            <a href="/in-house-designer" class="sm-way-link">Meet your in-house designer <i class="fa-solid fa-arrow-up-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- rts about area end -->
-
-            <!-- our approch area start -->
-            <div class="our-approch-area-style-one rts-section-gap bg-dark-1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="grid-lines-wrapper">
-                                <div class="grid-lines">
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 rts-slide-right-gsap">
-                            <!-- approach area left start -->
-                            <div class="approch-area-left">
-                                <div class="title-area-left-wrapper">
-                                    <span class="pre-title">Our Approach</span>
-                                    <h2 class="title quote">Our Creative <br>
-                                        Process, Built <br>
-                                        Around You</h2>
-                                </div>
-                                <p class="disc rts-text-anim">
-                                    Every project starts with listening. We take the time to <br>
-                                    understand your brand, your goals, and your audience. <br>
-                                    Then we get to work turning that into something beautiful.
-                                </p>
-                                <a href="/about" class="learn-more-btn">About Us <i
-                                        class="fa-solid fa-arrow-up-right"></i></a>
-                            </div>
-                            <!-- approach area left end -->
-                        </div>
-                        <div class="col-lg-6 col-md-6 rts-slide-left-gsap mt_sm--30">
-                            <!-- single approch area start -->
-                            <div class="single-approach-area-start">
-                                <div class="left-area">
-                                    <h3 class="title">Discovery</h3>
-                                    <p class="disc rts-text-anim">We get to know your brand, your goals, and <br>
-                                        what makes you different from everyone else.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- single approch area end -->
-                            <!-- single approch area start -->
-                            <div class="single-approach-area-start two">
-                                <div class="left-area">
-                                    <h3 class="title">Creative Direction</h3>
-                                    <p class="disc rts-text-anim">We craft a visual and messaging strategy that <br>
-                                        captures your brand's essence and speaks to your audience.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- single approch area end -->
-                            <!-- single approch area start -->
-                            <div class="single-approach-area-start three mb--0">
-                                <div class="left-area">
-                                    <h3 class="title">Delivery</h3>
-                                    <p class="disc rts-text-anim">We bring it all to life: polished, on-brand, <br>
-                                        and ready to make an impact from day one.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- single approch area end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- our approch area end -->
-
-            <!-- rts service style one area start -->
-            <div id="services-section" class="rts-section-gap rts-service-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="title-area">
-                                <span class="sub-title">Our SERVICES</span>
-                            </div>
-                            <div class="title-top-service-varticle">
-                                <h2 class="title">Full-Service <br>
-                                    Creative Studio</h2>
-                                <p class="dsic">
-                                    From brand identity to a working website, everything a growing <br>
-                                    brand needs to look great, communicate clearly, and connect <br>
-                                    with the right audience. As a project, or with a designer of your own.
-                                </p>
-                                <a href="/contact" class="learn-more-btn">Contact Us<i
-                                        class="fa-solid fa-arrow-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="service-area-one-main-wrapper">
-
-                                <div class="single-item-service-one">
-                                    <a href="/services">
-                                        <div class="rts-img-contaciner">
-                                            <figure class="list-img">
-                                                <img class="list-img" src="assets/images/product/15.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="list-title col-md-6">
-                                            <h3>Brand Identity</h3>
-                                        </div>
-                                        <div class="list-info col-md-3">
-                                            <p class="disc">
-                                                Strategy, naming, logo and a full visual system, plus the
-                                                presentations, stationery and print your business runs on.
-                                            </p>
-                                        </div>
-                                        <div class="button-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
-                                                <g>
-                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-item-service-one">
-                                    <a href="/services">
-                                        <div class="rts-img-contaciner">
-                                            <figure class="list-img">
-                                                <img class="list-img" src="assets/images/product/63.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="list-title col-md-6">
-                                            <h3>Web Design</h3>
-                                        </div>
-                                        <div class="list-info col-md-3">
-                                            <p class="disc">
-                                                Websites designed, built and launched, working. Mobile-ready,
-                                                with basic SEO, and you can edit your own text and images.
-                                            </p>
-                                        </div>
-                                        <div class="button-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
-                                                <g>
-                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-item-service-one">
-                                    <a href="/services">
-                                        <div class="rts-img-contaciner">
-                                            <figure class="list-img">
-                                                <img class="list-img" src="assets/images/product/60.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="list-title col-md-6">
-                                            <h3>Custom Web Apps &amp; Development</h3>
-                                        </div>
-                                        <div class="list-info col-md-3">
-                                            <p class="disc">
-                                                Client portals, booking tools, dashboards and internal tools,
-                                                scoped to your business with a custom quote.
-                                            </p>
-                                        </div>
-                                        <div class="button-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
-                                                <g>
-                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-item-service-one">
-                                    <a href="/services">
-                                        <div class="rts-img-contaciner">
-                                            <figure class="list-img">
-                                                <img class="list-img" src="assets/images/product/61.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="list-title col-md-6">
-                                            <h3>Social Media Design</h3>
-                                        </div>
-                                        <div class="list-info col-md-3">
-                                            <p class="disc">
-                                                Scroll-stopping graphics and post templates
-                                                that keep your brand consistent everywhere.
-                                            </p>
-                                        </div>
-                                        <div class="button-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
-                                                <g>
-                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-item-service-one">
-                                    <a href="/services">
-                                        <div class="rts-img-contaciner">
-                                            <figure class="list-img">
-                                                <img class="list-img" src="assets/images/product/62.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="list-title col-md-6">
-                                            <h3>Email Design &amp; Marketing</h3>
-                                        </div>
-                                        <div class="list-info col-md-3">
-                                            <p class="disc">
-                                                Beautiful email templates and campaign graphics
-                                                designed to drive engagement and grow your list.
-                                            </p>
-                                        </div>
-                                        <div class="button-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
-                                                <g>
-                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-item-service-one">
-                                    <a href="/in-house-designer">
-                                        <div class="rts-img-contaciner">
-                                            <figure class="list-img">
-                                                <img class="list-img" src="assets/images/product/64.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="list-title col-md-6">
-                                            <h3>In-House Designer</h3>
-                                        </div>
-                                        <div class="list-info col-md-3">
-                                            <p class="disc">
-                                                A dedicated, bilingual designer embedded in your team,
-                                                taking care of your design every week, with our art direction.
-                                            </p>
-                                        </div>
-                                        <div class="button-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.67 384.67">
-                                                <g>
-                                                    <path fill-rule="evenodd" d="M0 45.26l276.05 276.05H22.63v63.36h362.04V22.63h-63.36v253.42L45.26 0 0 45.26z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- rts service style one area end -->
-
-
-
-
-
-            <!-- why in-house: the agency problem -->
-            <div class="sm-why">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <p class="eyebrow">Why in-house?</p>
-                            <h2>One designer. Four or five brands. Something gives.</h2>
-                            <p>At most agencies, a designer handles four or five brands at the same time. They can't know the context of each business, so the work drifts: a different look every month, less consistency, less impact.</p>
-                            <p>A good brief is enough for a brand that's just getting started. An established business needs someone who knows it inside out. That's why we offer Your In-House Designer: one designer, dedicated to your brand, backed by our art direction.</p>
-                            <p class="pullquote">"The designer who built your brand stays with it."</p>
-                            <a href="/in-house-designer" class="sm-why-btn">Meet your in-house designer <i class="fa-light fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- large-image sections starts -->
-            <div class="large-image-option-start rts-section-gap bg-dark-1 position-relative rts_jump_counter__animation">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="grid-lines-wrapper">
-                                <div class="grid-lines">
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="title-area-inner large-image">
-                                <h2 class="title quote">Small Studio. <br> <span>Bold Results.</span>
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-160">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="large-video-playing grow">
-                                <video autoplay muted loop playsinline preload="metadata">
-                                    <source src="assets/images/video/02.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container mt--120">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- cunter up main wrapper -->
-                            <div class="counter-up-wrapper counter_animation">
-                                <div class="counter-single counter__anim">
-                                    <div class="inner">
-                                        <h2 class="title"><span class="counter">12</span>+</h2>
-                                        <p>Projects <br>
-                                            Delivered</p>
-                                    </div>
-                                </div>
-                                <div class="counter-single counter__anim">
-                                    <div class="inner">
-                                        <h2 class="title"><span class="counter">4</span></h2>
-                                        <p>Happy <br>
-                                            Clients</p>
-                                    </div>
-                                </div>
-                                <div class="counter-single counter__anim">
-                                    <div class="inner">
-                                        <h2 class="title"><span class="counter">2</span>+</h2>
-                                        <p>Years <br>
-                                            in Business</p>
-                                    </div>
-                                </div>
-                                <div class="counter-single counter__anim">
-                                    <div class="inner">
-                                        <h2 class="title"><span class="counter">100</span>%</h2>
-                                        <p>Client <br>
-                                            Satisfaction</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- cunter up main wrapper end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- large-image sections end -->
-
-
-            <!-- TESTIMONIALS HIDDEN — uncomment when ready
-            <!-- our trusted clients area start
-            <div class="trusted-clients-area-start rts-section-gap">
-                <div class="right-shape-testi">
-                    <img src="assets/images/testimonials/03.png" alt="testimonials">
-                </div>
-                <div class="container-full">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="main-wrapper-case-studies scrolltext-wrapper">
-                                <div class="scrollingText-three">
-                                    <h2 class="title">
-                                        our <span>Trusted Client</span> Say .
-                                        our <span>Trusted Client</span> Say .
-                                        our <span>Trusted Client</span> Say .
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row g-5 mt--80 mt_sm--30">
-                        <div class="col-lg-8 pr--100 pr_md--50 pr_sm--20">
-                            <div class="swiper-testimonails-style-one-main-wrapper">
-                                <div class="swiper mySwiper-testimonial-1">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="single-testimonials-main-wrapper">
-                                                <div class="star-area-start">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <div class="body">
-                                                    <div class="quote-img">
-                                                        <img src="assets/images/testimonials/02.png" alt="">
-                                                    </div>
-                                                    <p class="disc">
-                                                        Working with Sunny Monkeys transformed our brand <br>
-                                                        and exceeded all expectations. The results were <br>
-                                                        beyond what we imagined possible.
-                                                    </p>
-                                                    <div class="author-area">
-                                                        <div class="thumbnail">
-                                                            <img src="assets/images/testimonials/01.png" alt="testimonials">
-                                                        </div>
-                                                        <div class="info-wrapper">
-                                                            <h6 class="title">María Gómez</h6>
-                                                            <span>Marketing Director</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-testimonials-main-wrapper">
-                                                <div class="star-area-start">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <div class="body">
-                                                    <div class="quote-img">
-                                                        <img src="assets/images/testimonials/02.png" alt="">
-                                                    </div>
-                                                    <p class="disc">
-                                                        The team showed impeccable dedication and delivered <br>
-                                                        results that made a deep impact on our brand's <br>
-                                                        presence and recognition.
-                                                    </p>
-                                                    <div class="author-area">
-                                                        <div class="thumbnail">
-                                                            <img src="assets/images/testimonials/01.png" alt="testimonials">
-                                                        </div>
-                                                        <div class="info-wrapper">
-                                                            <h6 class="title">Carlos Ramírez</h6>
-                                                            <span>Brand Manager</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-testimonials-main-wrapper">
-                                                <div class="star-area-start">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                                <div class="body">
-                                                    <div class="quote-img">
-                                                        <img src="assets/images/testimonials/02.png" alt="">
-                                                    </div>
-                                                    <p class="disc">
-                                                        The experience was exceptional, with results that <br>
-                                                        truly elevated our presence and helped us connect <br>
-                                                        with our audience on a whole new level.
-                                                    </p>
-                                                    <div class="author-area">
-                                                        <div class="thumbnail">
-                                                            <img src="assets/images/testimonials/01.png" alt="testimonials">
-                                                        </div>
-                                                        <div class="info-wrapper">
-                                                            <h6 class="title">Laura Vásquez</h6>
-                                                            <span>Design Specialist</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="button-area-next-prev">
-                                        <div class="swiper-button-next"></div>
-                                        <div class="swiper-button-prev"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="after-effect-testi-right-img">
-                                <div class="thumbnail-clients-img rts-reveal-two">
-                                    <img class="rts-reveal-image-two" src="assets/images/about/04.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            our trusted clients area end -->
-
-            <!-- JOURNAL/BLOG HIDDEN — uncomment when ready
-            blog area start
-            <div class="blog-area-start rts-section-gap bg-dark-1">
-                <div class="container">
-                    <div class="row g-5">
-                        <div class="col-lg-4 col-md-12 col-sm-12">
-                            <div class="blog-left-wrapper-area-one">
-                                <div class="content-wrapper">
-                                    <span class="sub-title">Our Journal</span>
-                                    <h2 class="title quote">
-                                        STAY <br>
-                                        INSPIRED
-                                    </h2>
-                                    <p class="disc rts-text-anim">
-                                        Thoughts on branding, design, and building <br> businesses that stand out.
-                                        Fresh ideas from <br> the Sunny Monkeys studio.
-                                    </p>
-                                    <a href="blog.html" class="learn-more-btn">VIEW BLOG <i
-                                            class="fa-solid fa-arrow-up-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 rts-slide-left-gsap">
-                            <div class="blog-single-main-wrapper style-one">
-                                <a href="blog-details.html" class="thumbnail">
-                                    <div class="imgae-box">
-                                        <img src="assets/images/blog/01.jpg" alt="blog">
-                                    </div>
-                                </a>
-                                <div class="inner">
-                                    <div class="head">
-                                        <span class="date">March 25, 2023</span>
-                                        <span class="time">8 min read</span>
-                                    </div>
-                                    <div class="body">
-                                        <a href="blog-details.html">
-                                            <h4 class="title">Marketing Musings: Insights from a <br> Social Media
-                                                Marketer</h4>
-                                        </a>
-                                        <a href="blog-details.html" class="rts-btn btn-primary mt--30">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 rts-slide-left-gsap">
-                            <div class="blog-single-main-wrapper style-one">
-                                <a href="blog-details.html" class="thumbnail">
-                                    <div class="imgae-box">
-                                        <img src="assets/images/blog/02.jpg" alt="blog">
-                                    </div>
-                                </a>
-                                <div class="inner">
-                                    <div class="head">
-                                        <span class="date">March 25, 2023</span>
-                                        <span class="time">8 min read</span>
-                                    </div>
-                                    <div class="body">
-                                        <a href="blog-details.html">
-                                            <h4 class="title">Social media platforms are like ecosystems with its own
-                                                rules</h4>
-                                        </a>
-                                        <a href="blog-details.html" class="rts-btn btn-primary mt--30">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row rts-section-gapTop">
-                        <div class="col-lg-12">
-                            <div class="card-tilt--off">
-                                <div class="cta-main-wrapper-one rts-slide-up-gsap">
-                                    <div class="right-bg-image">
-                                        <img src="assets/images/cta/02.png" alt="bg-cta">
-                                    </div>
-                                    <div class="left-area">
-                                        <img src="assets/images/cta/01.png" alt="cta-main-wrapper">
-                                    </div>
-                                    <div class="cta-mid-area">
-                                        <h3 class="title">Let’s make <span>something <br>
-                                                great</span> together</h3>
-                                        <p class="disc">
-                                            We'd love to help your brand make a lasting impression:
-                                            bold, strategic, and built to grow.
-                                        </p>
-                                    </div>
-                                    <div class="button-area-right">
-                                        <a href="/contact" class="rts-btn btn-white">Get a Quote <i
-                                                class="fa-light fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            blog area end -->
-
-            <!-- rts-footer-area one -->
-            <div class="rts-footer-area-one rts-section-gapTop">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="grid-lines-wrapper">
-                                <div class="grid-lines">
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                    <div class="grid-line"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row rts-section-gapBottom">
-                        <div class="col-lg-12">
-                            <div class="footer-main-wrapper-one">
-                                <!-- footer left area start -->
-                                <div class="footer-left-area">
-                                    <a href="/" class="logo-footer"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:52px;height:52px;object-fit:contain;display:block;margin-bottom:16px;border-radius:50%;"></a>
-                                    <p class="disc">
-                                        Bold, strategic design for brands <br> that want to stand out and grow.
-                                    </p>
-                                    <div class="rts-social-area-one">
-                                        <ul>
-                                            <li><a href="https://www.linkedin.com/company/sunny-monkeys/" target="_blank" rel="noopener" aria-label="Sunny Monkeys on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- footer left area end -->
-                                <!-- footer single wized start -->
-                                <div class="footer-single-wized-start">
-                                    <h5 class="title">Useful Links</h5>
-                                    <ul class="footer-nav">
-                                        <li><a href="/about">About Us</a></li>
-                                        <li><a href="/services">Our Services</a></li>
-                                        <li><a href="/in-house-designer">In-House Designer</a></li>
-                                        <!-- Portfolio link hidden — uncomment when portfolio is ready -->
-                                        <li><a href="/contact">Contact Us</a></li>
-                                    </ul>
-                                </div>
-                                <!-- footer single wized end -->
-                                <!-- footer single wized start -->
-                                <div class="footer-single-wized-start">
-                                    <h5 class="title">Legal</h5>
-                                    <ul class="footer-nav">
-                                        <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                        <li><a href="/terms">Terms &amp; Conditions</a></li>
-                                    </ul>
-                                </div>
-                                <!-- footer single wized end -->
-                                <!-- footer single wized start -->
-                                <div class="footer-single-wized-start">
-                                    <h5 class="title">Contact Info</h5>
-                                    <div class="mail-contact-area">
-                                        <div class="single-con-info mail">
-                                            <a href="mailto:contact@sunnymonkeys.com">
-                                                contact@sunnymonkeys.com
-                                            </a>
-                                        </div>
-                                        <div class="single-con-info">
-                                            <a href="tel:+16193044022">
-                                                +1 619 304 4022
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- footer single wized end -->
-                                <!-- footer single wized start -->
-                                <div class="footer-single-wized-start">
-                                    <h5 class="title">Newsletter</h5>
-                                    <div class="subscribtion-area">
-                                        <p class="disc">
-                                            Subscribe to our newsletter for future updates. <br> Don’t worry, we don’t spam.
-                                        </p>
-                                        <form action="/portal/inquiry.php" method="POST" class="subscribtion-input">
-                                            <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;opacity:0">
-                                            <input id="email" name="email" type="email" placeholder="Enter your email..." required>
-                                            <label for="email"><i class="fa-regular fa-envelope"></i></label>
-                                            <button type="submit" class="rts-btn btn-dark">subscribe</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- footer single wized end -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="copyright-area text-center">
-                                <div class="left">
-                                    <p>2026 © <a href="https://sunnymonkeys.com">Sunny Monkeys LLC</a>. All rights reserved. &nbsp;|&nbsp; <a href="/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms">Terms &amp; Conditions</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- rts-footer-area one end -->
+    <section class="split" aria-label="Two ways to work with us">
+        <div class="half paper">
+            <p class="kicker">Build</p>
+            <h3>Projects with a clear scope and a fixed price</h3>
+            <p>Brand identity, websites designed and built, social media and email design. You know what you get, what it costs and when it's done.</p>
+            <ul>
+                <li>Packages from $799, or a custom quote</li>
+                <li>Weekly check-ins, nothing goes live without your approval</li>
+                <li>Websites you can edit yourself</li>
+            </ul>
+            <a class="link" href="/services">See services and packages</a>
         </div>
-    </div>
+        <div class="half ink">
+            <p class="kicker">In-house</p>
+            <h3>A dedicated designer, embedded in your team</h3>
+            <p>A bilingual designer who learns your brand and takes care of your design every week: social, video, website updates and print. Full-time or part-time, with our art direction.</p>
+            <ul>
+                <li>Starts in 2 to 3 weeks</li>
+                <li>Works your hours, in your tools</li>
+                <li>Software licenses included</li>
+            </ul>
+            <a class="link" href="/in-house-designer">Meet your in-house designer</a>
+        </div>
+    </section>
 
-    <!-- Scripts style two -->
-    <div class="loading-screen" id="loading-screen">
-        <span class="bar top-bar"></span>
-        <span class="bar down-bar"></span>
-        <span class="progress-line"></span>
-        <span class="loading-counter"> </span>
-    </div>
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>What we do</h2>
+                <p class="lead">From brand identity to a working website, everything a growing brand needs to look great and communicate clearly. As a project, or with a designer of your own.</p>
+            </div>
+            <ul class="rows">
+            <li class="row">
+                <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="6"/><rect x="10" y="6" width="10" height="12" rx="1.5"/></svg></span>
+                <h3><a class="row-link" href="/services">Brand identity</a></h3>
+                <p>Strategy, naming, logo and a full visual system, plus the presentations, stationery and print your business runs on.</p>
+                <span class="tags"><span class="tag">Logo and visual system</span><span class="tag">Presentations and print</span></span>
+            </li>
+            <li class="row">
+                <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6 6.5h.01M9 6.5h.01"/></svg></span>
+                <h3><a class="row-link" href="/services">Web design</a></h3>
+                <p>Websites designed, built and launched, working. Mobile-ready, with basic SEO, and you can edit your own text and images.</p>
+                <span class="tags"><span class="tag">Landing pages</span><span class="tag">Multi-page sites</span></span>
+            </li>
+            <li class="row">
+                <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg></span>
+                <h3><a class="row-link" href="/services">Custom web apps and development</a></h3>
+                <p>Client portals, booking tools, dashboards and internal tools, scoped to your business with a custom quote.</p>
+                <span class="tags"><span class="tag">Web apps</span><span class="tag">Integrations</span></span>
+            </li>
+            <li class="row">
+                <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><rect x="9.5" y="7" width="5" height="5" rx="1"/><path d="M9.5 15.5h5"/></svg></span>
+                <h3><a class="row-link" href="/services">Social media design</a></h3>
+                <p>Scroll-stopping graphics, post templates and stories that keep your brand consistent on every platform.</p>
+                <span class="tags"><span class="tag">Post templates</span><span class="tag">Story and ad graphics</span></span>
+            </li>
+            <li class="row">
+                <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+                <h3><a class="row-link" href="/services">Email design and marketing</a></h3>
+                <p>Email templates and campaign graphics designed to drive engagement and keep your audience coming back.</p>
+                <span class="tags"><span class="tag">Email templates</span><span class="tag">Campaign graphics</span></span>
+            </li>
+            <li class="row">
+                <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8.5 15.5l2.5 2.5 4.5-5"/></svg></span>
+                <h3><a class="row-link" href="/in-house-designer">In-house designer</a></h3>
+                <p>A dedicated, bilingual designer embedded in your team: social, video, website updates and print, every week, with our art direction.</p>
+                <span class="tags"><span class="tag">Full-time</span><span class="tag">Part-time</span></span>
+            </li>
+            </ul>
+        </div>
+    </section>
 
+    <section class="section ink">
+        <div class="wrap grid-2">
+            <div>
+                <h2>One designer. Four or five brands. Something gives.</h2>
+                <div class="stack prose" style="margin-top: 1.5rem">
+                    <p>At most agencies, a designer handles four or five brands at the same time. They can't know the context of each business, so the work drifts: a different look every month, less consistency, less impact.</p>
+                    <p>A good brief is enough for a brand that's just getting started. An established business needs someone who knows it inside out. That's why we offer Your In-House Designer: one designer, dedicated to your brand, backed by our art direction.</p>
+                    <p class="quote">"The designer who built your brand stays with it."</p>
+                    <p><a class="link" href="/in-house-designer">Meet your in-house designer</a></p>
+                </div>
+            </div>
+            <div>
+<svg class="diagram diagram-d" viewBox="0 0 600 310" role="img" aria-labelledby="juggle-d-title">
+<title id="juggle-d-title">At an agency one designer juggles five brands. In-house, one designer works for one brand.</title>
+<text class="label" x="20" y="34">At an agency</text>
+<text class="label" x="330" y="34">In-house</text>
+<line class="tick" x1="300" y1="20" x2="300" y2="290" stroke="currentColor" stroke-opacity="0.25"/>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="150.0" y2="72.0"/><g class="brand"><rect x="133.0" y="55.0" width="34" height="34" rx="6"/><text x="150.0" y="78.0" text-anchor="middle">A</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="233.7" y2="132.8"/><g class="brand"><rect x="216.7" y="115.8" width="34" height="34" rx="6"/><text x="233.7" y="138.8" text-anchor="middle">B</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="201.7" y2="231.2"/><g class="brand"><rect x="184.7" y="214.2" width="34" height="34" rx="6"/><text x="201.7" y="237.2" text-anchor="middle">C</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="98.3" y2="231.2"/><g class="brand"><rect x="81.3" y="214.2" width="34" height="34" rx="6"/><text x="98.3" y="237.2" text-anchor="middle">D</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="66.3" y2="132.8"/><g class="brand"><rect x="49.3" y="115.8" width="34" height="34" rx="6"/><text x="66.3" y="138.8" text-anchor="middle">E</text></g></g>
+<circle class="person" cx="150" cy="138.0" r="12.0"/><path class="person" d="M128.0 182.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="20" y="290">Five brands. None of them known well.</text>
+<circle class="pulse" cx="400" cy="160" r="40" style="--ox:400px;--oy:160px"/>
+<line class="solid" x1="430" y1="160" x2="512" y2="160"/>
+<g class="brand"><rect x="512" y="134" width="70" height="52" rx="6"/><text x="547" y="166" text-anchor="middle">You</text></g>
+<circle class="person" cx="400" cy="138.0" r="12.0"/><path class="person" d="M378.0 182.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="330" y="290">One brand, known inside out.</text>
+</svg>
+<svg class="diagram diagram-m" viewBox="0 0 300 500" role="img" aria-labelledby="juggle-m-title">
+<title id="juggle-m-title">At an agency one designer juggles five brands. In-house, one designer works for one brand.</title>
+<text class="label" x="16" y="30">At an agency</text>
+<text class="label" x="16" y="322">In-house</text>
+<line class="tick" x1="16" y1="286" x2="284" y2="286" stroke="currentColor" stroke-opacity="0.25"/>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="150.0" y2="74.0"/><g class="brand"><rect x="133.0" y="57.0" width="34" height="34" rx="6"/><text x="150.0" y="80.0" text-anchor="middle">A</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="222.3" y2="126.5"/><g class="brand"><rect x="205.3" y="109.5" width="34" height="34" rx="6"/><text x="222.3" y="132.5" text-anchor="middle">B</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="194.7" y2="211.5"/><g class="brand"><rect x="177.7" y="194.5" width="34" height="34" rx="6"/><text x="194.7" y="217.5" text-anchor="middle">C</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="105.3" y2="211.5"/><g class="brand"><rect x="88.3" y="194.5" width="34" height="34" rx="6"/><text x="105.3" y="217.5" text-anchor="middle">D</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="77.7" y2="126.5"/><g class="brand"><rect x="60.7" y="109.5" width="34" height="34" rx="6"/><text x="77.7" y="132.5" text-anchor="middle">E</text></g></g>
+<circle class="person" cx="150" cy="128.0" r="12.0"/><path class="person" d="M128.0 172.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="16" y="262">Five brands. None of them known well.</text>
+<circle class="pulse" cx="92" cy="412" r="40" style="--ox:92px;--oy:412px"/>
+<line class="solid" x1="122" y1="412" x2="204" y2="412"/>
+<g class="brand"><rect x="204" y="386" width="70" height="52" rx="6"/><text x="239" y="418" text-anchor="middle">You</text></g>
+<circle class="person" cx="92" cy="390.0" r="12.0"/><path class="person" d="M70.0 434.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="16" y="486">One brand, known inside out.</text>
+</svg>
+            </div>
+        </div>
+    </section>
 
-    <div class="bg-noise"></div>
-
-
-    <!-- back to top start -->
-    <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
-        </svg>
-    </div>
-    <!-- back to top end -->
-
-
-
-    <!-- pre loader start -->
-    <div class="rts-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="no">
-        <span class="fn-cursor"></span>
-    </div>
-    <div class="rts-cursor cursor-inner" data-default="yes" data-link="yes" data-slider="no">
-        <span class="fn-cursor">
-        <span class="fn-left"></span>
-        <span class="fn-right"></span>
-        </span>
-    </div>
-    <!-- pre loader end -->
-
-
-
-    <!-- dark light switcher start-->
-    <div class="modal-sidebar-scroll rts-dark-light">
-        <ul>
-            <li class="go-dark-w"><span>Dark</span><i class="rts-go-dark fal fa-moon"></i></li>
-            <li class="go-light-w"><span>Light</span><i class="rts-go-light fa-light fa-brightness"></i></li>
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>How we work</h2>
+                <p class="lead">Every project starts with listening. We take the time to understand your brand, your goals and your audience. Then we turn that into something you can use.</p>
+            </div>
+            <ol class="steps" style="--cols:3">
+            <li><h3>Discovery</h3><p>We get to know your brand, your goals and what makes you different from everyone else.</p></li>
+            <li><h3>Creative direction</h3><p>We craft a visual and messaging strategy that captures your brand's essence and speaks to your audience.</p></li>
+            <li><h3>Delivery</h3><p>We bring it all to life: polished, on-brand and ready to work from day one.</p></li>
+        </ol>
+            <h3 style="margin-top: 4rem">Every project and every designer comes with this</h3>
+            <ul class="facts" style="--cols:4">
+            <li><h4>A fixed price and a defined scope</h4><p>Projects are quoted before they start. In-house plans are priced on the call, once we know what your week looks like.</p></li>
+            <li><h4>Weekly check-ins</h4><p>You see progress every week and decide what comes next.</p></li>
+            <li><h4>Nothing goes live without your approval</h4><p>Revisions within the agreed scope, and a yes from you before anything ships.</p></li>
+            <li><h4>You own everything we make</h4><p>Every file and every design is yours. We use AI to move faster; the ideas, the judgment and the art direction are human.</p></li>
         </ul>
+        </div>
+    </section>
+
+    <section class="section ink cta">
+        <div class="wrap">
+            <h2>Tell us what you're building.</h2>
+            <p class="lead">Or what your team needs every week. We'll reply by email to set up a call.</p>
+            <div class="actions">
+                <a class="btn btn-primary btn-lg" href="/contact">Start a project</a>
+                <a class="btn btn-lg" href="/contact?package=in-house">Book a call about a designer</a>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="site-footer ink">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <a class="brand" href="/" aria-label="Sunny Monkeys, home"><span class="mark" aria-hidden="true"></span><span>Sunny Monkeys</span></a>
+                <p class="tagline">A design studio for startups and small businesses. Projects with a fixed price, or a designer of your own.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/services">Services and packages</a></li>
+                    <li><a href="/in-house-designer">In-House Designer</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/login">Client log in</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:contact@sunnymonkeys.com">contact@sunnymonkeys.com</a></li>
+                    <li><a href="tel:+16193044022">+1 619 304 4022</a></li>
+                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" rel="noopener">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <p class="small muted">Occasional notes on branding and design. No spam, and you can leave any time.</p>
+                <form class="newsletter" id="newsletter-form" action="/portal/inquiry.php" method="post" novalidate style="margin-top: 1rem">
+                    <label class="visually-hidden" for="nl-email">Email address</label>
+                    <input class="trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <input id="nl-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+                    <button class="btn" type="submit">Subscribe</button>
+                    <p class="form-status small" role="status" aria-live="polite" style="flex-basis: 100%"></p>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sunny Monkeys LLC. All rights reserved.</p>
+            <ul>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms &amp; Conditions</a></li>
+            </ul>
+        </div>
     </div>
-    <!-- dark light switcher end -->
-
-
-
-    <script defer src="assets/js/vendor/jquery.min.js"></script>
-    <script defer src="assets/js/plugins/bootstrap.min.js"></script>
-    <script defer src="assets/js/plugins/contact.form.js?v=4"></script>
-    <script defer src="assets/js/vendor/waypoint.js"></script>
-    <script defer src="assets/js/plugins/swiper.js"></script>
-
-
-    <!-- for side bar sticky -->
-    <script defer src="assets/js/plugins/resizer-sensor.js"></script>
-    <script defer src="assets/js/plugins/sticky-sidebar.js"></script>
-    <!-- for side bar sticky end-->
-
-    <script defer src="assets/js/plugins/isotop.js"></script>
-    <script defer src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
-
-    <script defer src="assets/js/plugins/smoothscroll-varticle.js"></script>
-    <script defer src="assets/js/vendor/gsap.js"></script>
-    <script defer src="assets/js/plugins/scrolltiger.js"></script>
-    <script defer src="assets/js/plugins/scrolltoplugin.js"></script>
-    <script defer src="assets/js/plugins/splittext.js"></script>
-    <script defer src="assets/js/plugins/smoothscroll.js"></script>
-
-    <!-- title opacity scroll magix -->
-    <script defer src="assets/js/plugins/scrollmagic.js"></script>
-    <script defer src="assets/js/plugins/animate-scrollmagic.js"></script>
-    <!-- title opacity scroll magic end -->
-
-
-
-    <script defer src="assets/js/plugins/tilt.js"></script>
-    <script defer src="assets/js/plugins/counterup.js"></script>
-
-    <script defer src="assets/js/vendor/waw.js"></script>
-    <!-- custom javascripts -->
-    <script defer src="assets/js/main.js?v=2"></script>
-    <!-- Scripts style two End -->
-
-
-
-
-    <!-- Dark/Light toggle scroll visibility -->
-    <script>
-    (function () {
-        var toggle = document.querySelector('.rts-dark-light');
-        if (!toggle) return;
-
-        // Hide initially
-        toggle.style.opacity = '0';
-        toggle.style.pointerEvents = 'none';
-        toggle.style.transition = 'opacity 0.4s ease';
-
-        // Use the hero banner as the sentinel
-        var hero = document.querySelector('.banner-area');
-        if (!hero) return;
-
-        var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    // Hero is visible — hide toggle
-                    toggle.style.opacity = '0';
-                    toggle.style.pointerEvents = 'none';
-                } else {
-                    // Hero has scrolled out — show toggle
-                    toggle.style.opacity = '1';
-                    toggle.style.pointerEvents = 'auto';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        observer.observe(hero);
-    })();
-    </script>
-
+</footer>
+<script src="/assets/js/sm.js?v=1" defer></script>
 </body>
-
 </html>

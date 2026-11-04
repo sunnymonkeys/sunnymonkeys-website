@@ -10,3 +10,4 @@ deployment:
     - /bin/rm -rf $DEPLOYPATH/.github
     - /bin/rm -f $DEPLOYPATH/README.md
     - /bin/rm -f $DEPLOYPATH/CLAUDE.md
+    - /bin/rm -f $DEPLOYPATH/DESIGN.md

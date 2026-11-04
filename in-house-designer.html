@@ -3,81 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-style-mode" content="1">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
     <title>Your In-House Designer: a Dedicated Remote Designer | Sunny Monkeys</title>
     <meta name="description" content="A bilingual designer dedicated to your brand, full-time or part-time, with Sunny Monkeys art direction. Social media, video, website updates and print, every week.">
     <link rel="canonical" href="https://sunnymonkeys.com/in-house-designer">
+    <link rel="icon" type="image/png" href="/assets/images/fav.png">
+    <meta name="theme-color" content="#ffffff">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Sunny Monkeys LLC">
+    <meta property="og:site_name" content="Sunny Monkeys">
     <meta property="og:title" content="Your In-House Designer: a Dedicated Remote Designer | Sunny Monkeys">
     <meta property="og:description" content="A bilingual designer dedicated to your brand, full-time or part-time, with Sunny Monkeys art direction. Social media, video, website updates and print, every week.">
     <meta property="og:url" content="https://sunnymonkeys.com/in-house-designer">
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
-    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
-    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/site.css?v=2">
-    <style>
-    /* Page sections. Remember: 1rem = 10px on this template. */
-    .ih-section { padding: 100px 0; }
-    .ih-section.alt { background: #0d0d0d; }
-    .ih-eyebrow { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
-    .ih-title { font-size: clamp(2.8rem, 5vw, 4.4rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
-    .ih-lead { font-size: 1.9rem; color: rgba(255,255,255,0.78); line-height: 1.7; max-width: 760px; margin-bottom: 0; }
-    .ih-text { font-size: 1.7rem; color: rgba(255,255,255,0.68); line-height: 1.7; max-width: 720px; margin-bottom: 18px; }
-    .ih-facts { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
-    .ih-fact { border: 1.5px solid rgba(255,255,255,0.18); border-radius: 999px; padding: 10px 20px; font-size: 1.5rem; color: #fff; font-weight: 600; }
-    .ih-grid { display: grid; gap: 24px; margin-top: 48px; }
-    .ih-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .ih-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    @media (max-width: 991px) { .ih-grid.cols-2, .ih-grid.cols-3 { grid-template-columns: 1fr; } }
-    .ih-card { background: #161616; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 36px 32px; }
-    .ih-card .num { display: block; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
-    .ih-card h3 { font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.25; }
-    .ih-card p { font-size: 1.6rem; color: rgba(255,255,255,0.68); line-height: 1.65; margin: 0; }
-    .ih-quote { font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.2; border-left: 3px solid #fff; padding-left: 28px; margin: 48px 0 0; max-width: 760px; }
-
-    /* The two options (no prices: every match is different) */
-    .ih-plan { background: #161616; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 44px 40px 50px; display: flex; flex-direction: column; transition: border-color 0.25s, transform 0.25s; }
-    .ih-plan:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-4px); }
-    .ih-plan-name { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
-    .ih-plan-title { font-size: 3rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 18px; }
-    .ih-plan-desc { font-size: 1.6rem; color: rgba(255,255,255,0.68); line-height: 1.65; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 28px; }
-    .ih-plan-features { list-style: none; padding: 0; margin: 0 0 40px; flex: 1; }
-    .ih-plan-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 1.6rem; color: rgba(255,255,255,0.8); line-height: 1.55; margin-bottom: 14px; }
-    .ih-plan-features li i { color: #fff; margin-top: 4px; flex-shrink: 0; font-size: 1.3rem; }
-    .ih-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #fff; color: #111; padding: 18px 36px; border-radius: 8px; font-size: 1.6rem; font-weight: 700; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s, background 0.2s, color 0.2s; }
-    .ih-btn:hover { opacity: 0.85; color: #111; }
-    .ih-btn.ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.25); }
-    .ih-btn.ghost:hover { background: #fff; color: #111; opacity: 1; }
-    .ih-note { font-size: 1.5rem; color: rgba(255,255,255,0.55); margin-top: 32px; line-height: 1.6; }
-    .ih-note a { color: rgba(255,255,255,0.85); text-decoration: underline; }
-
-    /* AI note */
-    .ih-ai { background: #161616; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 40px; margin-top: 60px; max-width: 760px; }
-    .ih-ai h3 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
-    .ih-ai p { font-size: 1.9rem; color: #fff; line-height: 1.6; margin: 0; font-weight: 600; }
-
-    /* FAQ */
-    .ih-faq { margin-top: 40px; max-width: 820px; }
-    .ih-faq details { border-top: 1px solid rgba(255,255,255,0.12); padding: 22px 0; }
-    .ih-faq details:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
-    .ih-faq summary { cursor: pointer; list-style: none; font-size: 1.9rem; font-weight: 700; color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-    .ih-faq summary::-webkit-details-marker { display: none; }
-    .ih-faq summary::after { content: "+"; font-size: 2.6rem; font-weight: 400; color: rgba(255,255,255,0.6); line-height: 1; }
-    .ih-faq details[open] summary::after { content: "\2013"; }
-    .ih-faq details p { font-size: 1.6rem; color: rgba(255,255,255,0.68); line-height: 1.7; margin: 14px 0 0; max-width: 720px; }
-
-    .ih-cta { text-align: center; padding: 120px 0; }
-    .ih-cta .ih-title { margin-bottom: 16px; }
-    .ih-cta .ih-text { margin: 0 auto 36px; }
-    </style>
+    <meta property="og:image" content="https://sunnymonkeys.com/assets/images/og-sunny-monkeys.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/sm.css?v=1">
     <script type="application/ld+json">
-{
+    {
       "@context": "https://schema.org",
       "@graph": [
         {
@@ -87,454 +32,389 @@
           "serviceType": "Dedicated remote graphic designer",
           "description": "A bilingual designer dedicated to one brand, full-time or part-time, with Sunny Monkeys art direction: social media, video editing, website updates, brochures, flyers and event materials.",
           "url": "https://sunnymonkeys.com/in-house-designer",
-          "provider": {
-            "@type": "Organization",
-            "name": "Sunny Monkeys",
-            "url": "https://sunnymonkeys.com/"
-          },
+          "provider": { "@type": "Organization", "name": "Sunny Monkeys", "url": "https://sunnymonkeys.com/" },
           "availableLanguage": ["English", "Spanish"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "In-house designer plans",
             "itemListElement": [
-              {
-                "@type": "Offer",
-                "name": "Full-time in-house designer",
-                "url": "https://sunnymonkeys.com/contact?package=in-house-full-time"
-              },
-              {
-                "@type": "Offer",
-                "name": "Part-time in-house designer",
-                "url": "https://sunnymonkeys.com/contact?package=in-house-part-time"
-              }
+              { "@type": "Offer", "name": "Full-time in-house designer", "url": "https://sunnymonkeys.com/contact?package=in-house-full-time" },
+              { "@type": "Offer", "name": "Part-time in-house designer", "url": "https://sunnymonkeys.com/contact?package=in-house-part-time" }
             ]
           }
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Is this outsourcing?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Remote, yes. Outsourced, no. Your designer works only for you (two brands at most on part-time), in your hours and your tools, with Sunny Monkeys art direction behind them." }
-            },
-            {
-              "@type": "Question",
-              "name": "Where are the designers?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Bilingual designers in Latin America who work on US hours, in English and Spanish." }
-            },
-            {
-              "@type": "Question",
-              "name": "Can my designer build our new website?",
-              "acceptedAnswer": { "@type": "Answer", "text": "A full new website is a project with its own scope and quote. Your designer keeps it updated afterwards." }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the minimum commitment?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Three months, enough for the immersion to pay off." }
-            },
-            {
-              "@type": "Question",
-              "name": "What if it isn't working out?",
-              "acceptedAnswer": { "@type": "Answer", "text": "If your designer isn't the right fit, we'll match you with a new one." }
-            },
-            {
-              "@type": "Question",
-              "name": "Who owns the work?",
-              "acceptedAnswer": { "@type": "Answer", "text": "You do. Every file and every design your designer creates is yours. Software licenses are included." }
-            }
+            { "@type": "Question", "name": "Is this outsourcing?", "acceptedAnswer": { "@type": "Answer", "text": "Remote, yes. Outsourced, no. Your designer works only for you (two brands at most on part-time), in your hours and your tools, with Sunny Monkeys art direction behind them." } },
+            { "@type": "Question", "name": "Where are the designers?", "acceptedAnswer": { "@type": "Answer", "text": "Bilingual designers in Latin America who work on US hours, in English and Spanish." } },
+            { "@type": "Question", "name": "Can my designer build our new website?", "acceptedAnswer": { "@type": "Answer", "text": "A full new website is a project with its own scope and quote. Your designer keeps it updated afterwards." } },
+            { "@type": "Question", "name": "What's the minimum commitment?", "acceptedAnswer": { "@type": "Answer", "text": "Three months. Enough for the immersion to pay off and for your designer to really know your business." } },
+            { "@type": "Question", "name": "What if it isn't working out?", "acceptedAnswer": { "@type": "Answer", "text": "Tell us. If your designer isn't the right fit, we'll match you with a new one." } },
+            { "@type": "Question", "name": "Who owns the work?", "acceptedAnswer": { "@type": "Answer", "text": "You do. Every file and every design your designer creates is yours, and software licenses are included." } }
           ]
         }
       ]
     }
     </script>
 </head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="/" aria-label="Sunny Monkeys, home"><span class="mark" aria-hidden="true"></span><span>Sunny Monkeys</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+            <ul>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/in-house-designer" aria-current="page">In-House Designer</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/login">Log in</a>
+                <a class="btn btn-primary" href="/contact">Book a call</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<main id="main">
 
-<body class="inner-page in-house-page">
-
-    <!-- header area start -->
-    <header class="header-area header-one header--sticky">
-        <div class="header-container-one">
-            <div class="header-wrapper">
-                <a href="/" class="logo"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:48px;height:48px;object-fit:contain;display:block;border-radius:50%;"></a>
-                <div class="header-right">
-                    <nav class="nav-area drop-down-rts">
-                        <ul class="navbar-nav-1">
-                            <li class="menu-item"><a href="/"><span class="rolling-text">Home</span></a></li>
-                            <li class="menu-item"><a href="/services"><span class="rolling-text">Services</span></a></li>
-                            <li class="menu-item current-menu-item"><a href="/in-house-designer"><span class="rolling-text">In-House Designer</span></a></li>
-                            <li class="menu-item"><a href="/about"><span class="rolling-text">About</span></a></li>
-                            <li class="menu-item"><a href="/contact"><span class="rolling-text">Contact</span></a></li>
-                        </ul>
-                    </nav>
-                    <div class="action-area">
-                        <div class="login-btn-wrapper">
-                            <a href="/login" class="sm-login-btn"><span class="btn-text">Log In</span><span class="btn-text-hover">Log In</span></a>
-                        </div>
-                    </div>
+    <section class="hero">
+        <div class="wrap hero-grid">
+            <div>
+                <h1><span class="line">A designer</span><span class="line">who's all yours.</span></h1>
+                <p class="lead hero-rise">Your In-House Designer is a bilingual designer from our network in Latin America, dedicated to your business. They learn your brand, your values and how you operate, then take care of your design every week: social media, video editing, website updates, brochures, flyers and event materials. Remote, on your schedule, inside your tools, with Sunny Monkeys art direction behind every piece.</p>
+                <div class="actions hero-rise">
+                    <a class="btn btn-primary" href="/contact?package=in-house">Book a call</a>
+                    <a class="btn" href="#how">See how it works</a>
                 </div>
             </div>
-        </div>
-    </header>
-    <!-- header area end -->
-
-    <div id="smooth-wrapper">
-    <div id="smooth-content">
-
-    <!-- breadcrumb area start -->
-    <div class="rts-breadcrumb-area bg_image">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="baread-crumb-main-wrapper pt--100">
-                        <div class="inner">
-                            <span class="works">Your In-House Designer</span>
-                            <h1 class="title rts_hero__title">A Designer Who's All Yours</h1>
-                            <span class="bg-text">In-House</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-rise">
+<svg class="board board-d" viewBox="0 0 600 420" role="img" aria-labelledby="ih-board-d-title">
+<title id="ih-board-d-title">A week of work from your in-house designer: social posts, a video edit, a landing page, an event flyer and a weekly review.</title>
+<rect class="frame" x="0.75" y="0.75" width="598.5" height="418.5" rx="8"/>
+<g class="day"><text x="16" y="36">Mon</text><text x="133" y="36">Tue</text><text x="250" y="36">Wed</text><text x="367" y="36">Thu</text><text x="484" y="36">Fri</text></g>
+<g class="grid"><line x1="0" y1="50" x2="600" y2="50"/><line x1="125" y1="50" x2="125" y2="340"/><line x1="242" y1="50" x2="242" y2="340"/><line x1="359" y1="50" x2="359" y2="340"/><line x1="476" y1="50" x2="476" y2="340"/></g>
+<g class="chip" style="--i:0"><rect x="16" y="66" width="100" height="40" rx="6"/><text x="27" y="91">IG carousel</text></g>
+<g class="done" style="--i:0"><circle cx="116" cy="66" r="9"/><path d="M111.5 66 l3.0 3.0 l6.0 -6.0"/></g>
+<g class="chip" style="--i:1"><rect x="133" y="66" width="100" height="40" rx="6"/><text x="144" y="91">Reel edit</text></g>
+<g class="done" style="--i:1"><circle cx="233" cy="66" r="9"/><path d="M228.5 66 l3.0 3.0 l6.0 -6.0"/></g>
+<g class="chip" style="--i:2"><rect x="250" y="66" width="100" height="40" rx="6"/><text x="261" y="91">Landing page</text></g>
+<g class="done" style="--i:2"><circle cx="350" cy="66" r="9"/><path d="M345.5 66 l3.0 3.0 l6.0 -6.0"/></g>
+<g class="chip" style="--i:3"><rect x="367" y="66" width="100" height="40" rx="6"/><text x="378" y="91">Event flyer</text></g>
+<g class="chip" style="--i:4"><rect x="484" y="66" width="100" height="40" rx="6"/><text x="495" y="91">Brochure</text></g>
+<g class="chip" style="--i:5"><rect x="16" y="118" width="100" height="40" rx="6"/><text x="27" y="143">Stories</text></g>
+<g class="done" style="--i:5"><circle cx="116" cy="118" r="9"/><path d="M111.5 118 l3.0 3.0 l6.0 -6.0"/></g>
+<g class="chip" style="--i:6"><rect x="133" y="118" width="100" height="40" rx="6"/><text x="144" y="143">Email header</text></g>
+<g class="chip" style="--i:7"><rect x="250" y="118" width="100" height="40" rx="6"/><text x="261" y="143">Site update</text></g>
+<g class="chip" style="--i:8"><rect x="367" y="118" width="100" height="40" rx="6"/><text x="378" y="143">Ad set</text></g>
+<g class="chip" style="--i:9"><rect x="250" y="170" width="100" height="40" rx="6"/><text x="261" y="195">Pitch deck</text></g>
+<g class="review" style="--i:10"><rect x="16" y="355" width="568" height="40" rx="6"/><text x="44" y="380">Friday: weekly review with your Sunny Monkeys lead</text></g>
+</svg>
+<svg class="board board-m" viewBox="0 0 360 330" role="img" aria-labelledby="ih-board-m-title">
+<title id="ih-board-m-title">A week of work from your in-house designer: social posts, a video edit, a landing page, an event flyer and a weekly review.</title>
+<rect class="frame" x="0.75" y="0.75" width="358.5" height="328.5" rx="8"/>
+<g class="day"><text x="8" y="26">Mon</text><text x="78" y="26">Tue</text><text x="148" y="26">Wed</text><text x="218" y="26">Thu</text><text x="288" y="26">Fri</text></g>
+<g class="grid"><line x1="0" y1="36" x2="360" y2="36"/><line x1="74" y1="36" x2="74" y2="262"/><line x1="144" y1="36" x2="144" y2="262"/><line x1="214" y1="36" x2="214" y2="262"/><line x1="284" y1="36" x2="284" y2="262"/></g>
+<g class="chip" style="--i:0"><rect x="8" y="44" width="62" height="30" rx="6"/><text x="16" y="63">Carousel</text></g>
+<g class="done" style="--i:0"><circle cx="70" cy="44" r="7"/><path d="M66.5 44 l2.3 2.3 l4.7 -4.7"/></g>
+<g class="chip" style="--i:1"><rect x="78" y="44" width="62" height="30" rx="6"/><text x="86" y="63">Reel edit</text></g>
+<g class="done" style="--i:1"><circle cx="140" cy="44" r="7"/><path d="M136.5 44 l2.3 2.3 l4.7 -4.7"/></g>
+<g class="chip" style="--i:2"><rect x="148" y="44" width="62" height="30" rx="6"/><text x="156" y="63">Landing</text></g>
+<g class="done" style="--i:2"><circle cx="210" cy="44" r="7"/><path d="M206.5 44 l2.3 2.3 l4.7 -4.7"/></g>
+<g class="chip" style="--i:3"><rect x="218" y="44" width="62" height="30" rx="6"/><text x="226" y="63">Flyer</text></g>
+<g class="chip" style="--i:4"><rect x="288" y="44" width="62" height="30" rx="6"/><text x="296" y="63">Brochure</text></g>
+<g class="chip" style="--i:5"><rect x="8" y="84" width="62" height="30" rx="6"/><text x="16" y="103">Stories</text></g>
+<g class="done" style="--i:5"><circle cx="70" cy="84" r="7"/><path d="M66.5 84 l2.3 2.3 l4.7 -4.7"/></g>
+<g class="chip" style="--i:6"><rect x="78" y="84" width="62" height="30" rx="6"/><text x="86" y="103">Email</text></g>
+<g class="chip" style="--i:7"><rect x="148" y="84" width="62" height="30" rx="6"/><text x="156" y="103">Site fix</text></g>
+<g class="chip" style="--i:8"><rect x="218" y="84" width="62" height="30" rx="6"/><text x="226" y="103">Ad set</text></g>
+<g class="chip" style="--i:9"><rect x="148" y="124" width="62" height="30" rx="6"/><text x="156" y="143">Deck</text></g>
+<g class="review" style="--i:10"><rect x="8" y="276" width="344" height="30" rx="6"/><text x="26" y="297">Fri: weekly review with your lead</text></g>
+</svg>
             </div>
         </div>
-    </div>
-    <!-- breadcrumb area end -->
+    </section>
 
-    <!-- intro -->
-    <div class="ih-section">
-        <div class="container">
-            <p class="ih-eyebrow">Dedicated, not outsourced</p>
-            <h2 class="ih-title">The designer who built your brand stays with it</h2>
-            <p class="ih-lead">
-                Your In-House Designer is a bilingual designer from our network in Latin America, dedicated to your business. They learn your brand, your values and how you operate, then take care of your design every week: social media, video editing, website updates, brochures, flyers and event materials. Remote, on your schedule, inside your tools, with Sunny Monkeys art direction behind every piece.
-            </p>
-            <div class="ih-facts">
-                <span class="ih-fact">Full-time or part-time</span>
-                <span class="ih-fact">Start in 2 to 3 weeks</span>
-                <span class="ih-fact">Art direction included</span>
-                <span class="ih-fact">English and Spanish</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- the agency problem -->
-    <div class="ih-section alt">
-        <div class="container">
-            <p class="ih-eyebrow">Why not an agency?</p>
-            <h2 class="ih-title">One designer. Four or five brands. Something gives.</h2>
-            <p class="ih-text">
-                At most agencies, a designer handles four or five brands at the same time. They can't know the context of each business, so the work drifts: a different look every month, less consistency, less impact.
-            </p>
-            <p class="ih-text">
-                A good brief is enough for a brand that's just getting started. An established business needs someone who knows it inside out. That's what your in-house designer is: one person, dedicated to your brand, who gets better at your business every week.
-            </p>
-            <p class="ih-quote">"The designer who built your brand stays with it."</p>
-        </div>
-    </div>
-
-    <!-- what they take care of -->
-    <div class="ih-section">
-        <div class="container">
-            <p class="ih-eyebrow">What your designer takes care of</p>
-            <h2 class="ih-title">Everything your brand needs, week after week</h2>
-            <div class="ih-grid cols-3">
-                <div class="ih-card">
-                    <h3>Social media</h3>
-                    <p>Posts, stories, ads and templates, on brand and on time, for every platform you use.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>Video editing</h3>
-                    <p>Short videos for social media, ads and your website, cut and finished in your style.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>Website updates</h3>
-                    <p>New sections, landing pages and ongoing maintenance, so your site never falls behind.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>Brochures and flyers</h3>
-                    <p>Corporate print, sales material and everything you need for events and trade shows.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>Presentations</h3>
-                    <p>Pitch decks, proposals and corporate presentations that look like the same company every time.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>Everyday requests</h3>
-                    <p>Whatever the week brings: email graphics, signage, menus, badges, one-off pieces.</p>
-                </div>
-            </div>
-            <p class="ih-note">Need a brand-new website? That's a project with its own scope and quote. <a href="/services">See our services and packages</a>. Your designer keeps it updated afterwards.</p>
-        </div>
-    </div>
-
-    <!-- how it works -->
-    <div class="ih-section alt">
-        <div class="container">
-            <p class="ih-eyebrow">How it works</p>
-            <h2 class="ih-title">From the first call to a designer who knows your business</h2>
-            <div class="ih-grid cols-2">
-                <div class="ih-card">
-                    <span class="num">01</span>
-                    <h3>Book a call</h3>
-                    <p>Tell us what you need, full-time or part-time, and when you'd like to start.</p>
-                </div>
-                <div class="ih-card">
-                    <span class="num">02</span>
-                    <h3>We match you</h3>
-                    <p>We choose a designer from our network who fits your industry, your style and your hours. Your designer starts in 2 to 3 weeks.</p>
-                </div>
-                <div class="ih-card">
-                    <span class="num">03</span>
-                    <h3>Immersion, 1 to 2 weeks</h3>
-                    <p>Meetings with your team, a review of your brand and a working guide. A Sunny Monkeys lead works alongside your designer before they fly solo. We don't drop someone in and disappear.</p>
-                </div>
-                <div class="ih-card">
-                    <span class="num">04</span>
-                    <h3>Design, every week</h3>
-                    <p>Your designer works your hours, in Slack or Teams, with weekly reviews and our art direction. Nothing goes out without your approval.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- the two options -->
-    <div class="ih-section" id="plans">
-        <div class="container">
-            <p class="ih-eyebrow">Two ways to have one</p>
-            <h2 class="ih-title">Full-time or part-time, always dedicated</h2>
-            <p class="ih-text">Every match is different, so we go over pricing on the call. Both options start in 2 to 3 weeks and run for a minimum of 3 months.</p>
-            <div class="ih-grid cols-2">
-                <div class="ih-plan">
-                    <p class="ih-plan-name">Full-time</p>
-                    <h3 class="ih-plan-title">Your designer, all week</h3>
-                    <p class="ih-plan-desc">For brands with a steady flow of design work across channels. One designer, one brand.</p>
-                    <ul class="ih-plan-features">
-                        <li><i class="fa-regular fa-check"></i> Dedicated to your brand only</li>
-                        <li><i class="fa-regular fa-check"></i> Works your hours, in your tools</li>
-                        <li><i class="fa-regular fa-check"></i> 1 to 2 week immersion with your team</li>
-                        <li><i class="fa-regular fa-check"></i> Sunny Monkeys art direction and weekly reviews</li>
-                        <li><i class="fa-regular fa-check"></i> Software licenses included</li>
-                    </ul>
-                    <a href="/contact?package=in-house-full-time" class="ih-btn">Book a call <i class="fa-light fa-arrow-right"></i></a>
-                </div>
-                <div class="ih-plan">
-                    <p class="ih-plan-name">Part-time</p>
-                    <h3 class="ih-plan-title">Half the week, fully yours</h3>
-                    <p class="ih-plan-desc">For brands with regular but lighter design needs. Your designer works with one other brand at most, never more.</p>
-                    <ul class="ih-plan-features">
-                        <li><i class="fa-regular fa-check"></i> Two brands per designer, maximum</li>
-                        <li><i class="fa-regular fa-check"></i> Works your hours, in your tools</li>
-                        <li><i class="fa-regular fa-check"></i> 1 to 2 week immersion with your team</li>
-                        <li><i class="fa-regular fa-check"></i> Sunny Monkeys art direction and weekly reviews</li>
-                        <li><i class="fa-regular fa-check"></i> Software licenses included</li>
-                    </ul>
-                    <a href="/contact?package=in-house-part-time" class="ih-btn ghost">Book a call <i class="fa-light fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- what's included -->
-    <div class="ih-section alt">
-        <div class="container">
-            <p class="ih-eyebrow">What's included</p>
-            <h2 class="ih-title">A hire, without the hiring</h2>
-            <div class="ih-grid cols-3">
-                <div class="ih-card">
-                    <h3>Art direction and supervision</h3>
-                    <p>A Sunny Monkeys lead reviews the work and keeps the quality where it should be.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>Software, on us</h3>
-                    <p>Design licenses are included. Your designer comes with their tools.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>Everything is yours</h3>
-                    <p>You own every file and every design your designer creates.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>The right fit</h3>
-                    <p>If your designer isn't the right fit, we'll match you with a new one.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>Vacations and sick days</h3>
-                    <p>You decide: pause the work, or we arrange temporary coverage.</p>
-                </div>
-                <div class="ih-card">
-                    <h3>Your tools</h3>
-                    <p>Slack or Teams, your project board, your drive. If you don't have them yet, we set them up.</p>
-                </div>
-            </div>
-            <div class="ih-ai">
-                <h3>A note on AI</h3>
-                <p>We use AI to move faster. The ideas, the judgment and the art direction are human. And AI doesn't know your business. Your designer does.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- FAQ -->
-    <div class="ih-section">
-        <div class="container">
-            <p class="ih-eyebrow">Questions</p>
-            <h2 class="ih-title">Before you book the call</h2>
-            <div class="ih-faq">
-                <details>
-                    <summary>Is this outsourcing?</summary>
-                    <p>Remote, yes. Outsourced, no. Your designer works only for you (two brands at most on part-time), in your hours and your tools, with our art direction behind them. Think of it as a hire, without the hiring.</p>
-                </details>
-                <details>
-                    <summary>Where are the designers?</summary>
-                    <p>Bilingual designers in Latin America who work on US hours. Your designer speaks your team's language, in English and Spanish.</p>
-                </details>
-                <details>
-                    <summary>Can my designer build our new website?</summary>
-                    <p>A full new website is a project with its own scope and quote. Your designer keeps it updated afterwards. See our <a href="/services" style="color:#fff;text-decoration:underline;">services and packages</a>.</p>
-                </details>
-                <details>
-                    <summary>What's the minimum commitment?</summary>
-                    <p>Three months. Enough for the immersion to pay off and for your designer to really know your business.</p>
-                </details>
-                <details>
-                    <summary>What if it isn't working out?</summary>
-                    <p>Tell us. If your designer isn't the right fit, we'll match you with a new one.</p>
-                </details>
-                <details>
-                    <summary>Who owns the work?</summary>
-                    <p>You do. Every file and every design your designer creates is yours, and software licenses are included.</p>
-                </details>
-            </div>
-        </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="ih-section alt ih-cta">
-        <div class="container">
-            <p class="ih-eyebrow">Let's find your designer</p>
-            <h2 class="ih-title">Tell us what your team needs every week</h2>
-            <p class="ih-text">We'll come back with a match, a start date and a plan for the immersion.</p>
-            <a href="/contact?package=in-house" class="ih-btn">Book a call <i class="fa-light fa-arrow-right"></i></a>
-        </div>
-    </div>
-
-    <!-- footer -->
-    <div class="rts-footer-area-one rts-section-gapTop">
-        <div class="container">
-            <div class="row rts-section-gapBottom">
-                <div class="col-lg-12">
-                    <div class="footer-main-wrapper-one">
-                        <div class="footer-left-area">
-                            <a href="/" class="logo-footer"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:52px;height:52px;object-fit:contain;display:block;margin-bottom:16px;border-radius:50%;"></a>
-                            <p class="disc">Bold, strategic design for brands <br> that want to stand out and grow.</p>
-                            <div class="rts-social-area-one">
-                                <ul>
-                                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" target="_blank" rel="noopener" aria-label="Sunny Monkeys on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="footer-single-wized-start">
-                            <h5 class="title">Useful Links</h5>
-                            <ul class="footer-nav">
-                                <li><a href="/about">About Us</a></li>
-                                <li><a href="/services">Our Services</a></li>
-                                <li><a href="/in-house-designer">In-House Designer</a></li>
-                                <li><a href="/contact">Contact Us</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-single-wized-start">
-                            <h5 class="title">Legal</h5>
-                            <ul class="footer-nav">
-                                <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                <li><a href="/terms">Terms &amp; Conditions</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-single-wized-start">
-                            <h5 class="title">Contact Info</h5>
-                            <ul class="footer-nav">
-                                <li><a href="mailto:contact@sunnymonkeys.com">contact@sunnymonkeys.com</a></li>
-                                <li><a href="tel:+16193044022">+1 619 304 4022</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-bottom-one">
-                        <p>2026 &copy; Sunny Monkeys LLC. All rights reserved. &nbsp;|&nbsp;
-                            <a href="/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp;
-                            <a href="/terms">Terms &amp; Conditions</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- footer end -->
-
-    </div>
-    </div>
-    <!-- smooth wrapper end -->
-
-    <!-- Scripts style two -->
-    <div class="loading-screen" id="loading-screen">
-        <span class="bar top-bar"></span>
-        <span class="bar down-bar"></span>
-        <span class="progress-line"></span>
-        <span class="loading-counter"> </span>
-    </div>
-
-    <div class="bg-noise"></div>
-
-    <!-- back to top start -->
-    <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
-        </svg>
-    </div>
-    <!-- back to top end -->
-
-    <!-- pre loader start -->
-    <div class="rts-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="no">
-        <span class="fn-cursor"></span>
-    </div>
-    <div class="rts-cursor cursor-inner" data-default="yes" data-link="yes" data-slider="no">
-        <span class="fn-cursor">
-        <span class="fn-left"></span>
-        <span class="fn-right"></span>
-        </span>
-    </div>
-    <!-- pre loader end -->
-
-    <!-- dark light switcher start-->
-    <div class="modal-sidebar-scroll rts-dark-light">
-        <ul>
-            <li class="go-dark-w"><span>Dark</span><i class="rts-go-dark fal fa-moon"></i></li>
-            <li class="go-light-w"><span>Light</span><i class="rts-go-light fa-light fa-brightness"></i></li>
+    <section class="section-tight rule-top">
+        <div class="wrap">
+            <ul class="facts" style="--cols:4">
+            <li><h4>Full-time or part-time</h4><p>One brand, or two at most.</p></li>
+            <li><h4>Starts in 2 to 3 weeks</h4><p>From the call to a designer at work.</p></li>
+            <li><h4>Art direction included</h4><p>A Sunny Monkeys lead reviews the work.</p></li>
+            <li><h4>English and Spanish</h4><p>Your designer speaks your team's language.</p></li>
         </ul>
+        </div>
+    </section>
+
+    <section class="section ink">
+        <div class="wrap grid-2">
+            <div>
+                <h2>One designer. Four or five brands. Something gives.</h2>
+                <div class="stack prose" style="margin-top: 1.5rem">
+                    <p>At most agencies, a designer handles four or five brands at the same time. They can't know the context of each business, so the work drifts: a different look every month, less consistency, less impact.</p>
+                    <p>A good brief is enough for a brand that's just getting started. An established business needs someone who knows it inside out. That's what your in-house designer is: one person, dedicated to your brand, who gets better at your business every week.</p>
+                    <p class="quote">"The designer who built your brand stays with it."</p>
+                </div>
+            </div>
+            <div>
+<svg class="diagram diagram-d" viewBox="0 0 600 310" role="img" aria-labelledby="juggle-d-title">
+<title id="juggle-d-title">At an agency one designer juggles five brands. In-house, one designer works for one brand.</title>
+<text class="label" x="20" y="34">At an agency</text>
+<text class="label" x="330" y="34">In-house</text>
+<line class="tick" x1="300" y1="20" x2="300" y2="290" stroke="currentColor" stroke-opacity="0.25"/>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="150.0" y2="72.0"/><g class="brand"><rect x="133.0" y="55.0" width="34" height="34" rx="6"/><text x="150.0" y="78.0" text-anchor="middle">A</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="233.7" y2="132.8"/><g class="brand"><rect x="216.7" y="115.8" width="34" height="34" rx="6"/><text x="233.7" y="138.8" text-anchor="middle">B</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="201.7" y2="231.2"/><g class="brand"><rect x="184.7" y="214.2" width="34" height="34" rx="6"/><text x="201.7" y="237.2" text-anchor="middle">C</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="98.3" y2="231.2"/><g class="brand"><rect x="81.3" y="214.2" width="34" height="34" rx="6"/><text x="98.3" y="237.2" text-anchor="middle">D</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="66.3" y2="132.8"/><g class="brand"><rect x="49.3" y="115.8" width="34" height="34" rx="6"/><text x="66.3" y="138.8" text-anchor="middle">E</text></g></g>
+<circle class="person" cx="150" cy="138.0" r="12.0"/><path class="person" d="M128.0 182.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="20" y="290">Five brands. None of them known well.</text>
+<circle class="pulse" cx="400" cy="160" r="40" style="--ox:400px;--oy:160px"/>
+<line class="solid" x1="430" y1="160" x2="512" y2="160"/>
+<g class="brand"><rect x="512" y="134" width="70" height="52" rx="6"/><text x="547" y="166" text-anchor="middle">You</text></g>
+<circle class="person" cx="400" cy="138.0" r="12.0"/><path class="person" d="M378.0 182.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="330" y="290">One brand, known inside out.</text>
+</svg>
+<svg class="diagram diagram-m" viewBox="0 0 300 500" role="img" aria-labelledby="juggle-m-title">
+<title id="juggle-m-title">At an agency one designer juggles five brands. In-house, one designer works for one brand.</title>
+<text class="label" x="16" y="30">At an agency</text>
+<text class="label" x="16" y="322">In-house</text>
+<line class="tick" x1="16" y1="286" x2="284" y2="286" stroke="currentColor" stroke-opacity="0.25"/>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="150.0" y2="74.0"/><g class="brand"><rect x="133.0" y="57.0" width="34" height="34" rx="6"/><text x="150.0" y="80.0" text-anchor="middle">A</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="222.3" y2="126.5"/><g class="brand"><rect x="205.3" y="109.5" width="34" height="34" rx="6"/><text x="222.3" y="132.5" text-anchor="middle">B</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="194.7" y2="211.5"/><g class="brand"><rect x="177.7" y="194.5" width="34" height="34" rx="6"/><text x="194.7" y="217.5" text-anchor="middle">C</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="105.3" y2="211.5"/><g class="brand"><rect x="88.3" y="194.5" width="34" height="34" rx="6"/><text x="105.3" y="217.5" text-anchor="middle">D</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="77.7" y2="126.5"/><g class="brand"><rect x="60.7" y="109.5" width="34" height="34" rx="6"/><text x="77.7" y="132.5" text-anchor="middle">E</text></g></g>
+<circle class="person" cx="150" cy="128.0" r="12.0"/><path class="person" d="M128.0 172.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="16" y="262">Five brands. None of them known well.</text>
+<circle class="pulse" cx="92" cy="412" r="40" style="--ox:92px;--oy:412px"/>
+<line class="solid" x1="122" y1="412" x2="204" y2="412"/>
+<g class="brand"><rect x="204" y="386" width="70" height="52" rx="6"/><text x="239" y="418" text-anchor="middle">You</text></g>
+<circle class="person" cx="92" cy="390.0" r="12.0"/><path class="person" d="M70.0 434.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="16" y="486">One brand, known inside out.</text>
+</svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Everything your brand needs, week after week</h2>
+            </div>
+            <ul class="facts" style="--cols:3">
+            <li><h4>Social media</h4><p>Posts, stories, ads and templates, on brand and on time, for every platform you use.</p></li>
+            <li><h4>Video editing</h4><p>Short videos for social media, ads and your website, cut and finished in your style.</p></li>
+            <li><h4>Website updates</h4><p>New sections, landing pages and ongoing maintenance, so your site never falls behind.</p></li>
+            <li><h4>Brochures and flyers</h4><p>Corporate print, sales material and everything you need for events and trade shows.</p></li>
+            <li><h4>Presentations</h4><p>Pitch decks, proposals and corporate presentations that look like the same company every time.</p></li>
+            <li><h4>Everyday requests</h4><p>Whatever the week brings: email graphics, signage, menus, badges, one-off pieces.</p></li>
+        </ul>
+            <p class="prose" style="margin-top: 2.5rem; max-width: 66ch">Need a brand-new website? That's a project with its own scope and quote. <a href="/services">See our services and packages</a>. Your designer keeps it updated afterwards.</p>
+        </div>
+    </section>
+
+    <section class="section rule-top" id="how">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>From the first call to a designer who knows your business</h2>
+            </div>
+            <ol class="steps" style="--cols:4">
+            <li><h3>Book a call</h3><p>Tell us what you need, full-time or part-time, and when you'd like to start.</p></li>
+            <li><h3>We match you</h3><p>We choose a designer from our network who fits your industry, your style and your hours. Your designer starts in 2 to 3 weeks.</p></li>
+            <li><h3>Immersion, 1 to 2 weeks</h3><p>Meetings with your team, a review of your brand and a working guide. A Sunny Monkeys lead works alongside your designer before they fly solo. We don't drop someone in and disappear.</p></li>
+            <li><h3>Design, every week</h3><p>Your designer works your hours, in Slack or Teams, with weekly reviews and our art direction. Nothing goes out without your approval.</p></li>
+        </ol>
+            <div style="margin-top: 3rem; max-width: 760px">
+<svg class="diagram timeline diagram-d" viewBox="0 0 600 230" role="img" aria-labelledby="tl-d-title">
+<title id="tl-d-title">Timeline: a call, a match within two to three weeks, one to two weeks of immersion, then design every week.</title>
+<line class="tick" x1="170.0" y1="44" x2="170.0" y2="206"/>
+<text class="week" x="195.9" y="36" text-anchor="middle">W1</text>
+<line class="tick" x1="221.8" y1="44" x2="221.8" y2="206"/>
+<text class="week" x="247.6" y="36" text-anchor="middle">W2</text>
+<line class="tick" x1="273.5" y1="44" x2="273.5" y2="206"/>
+<text class="week" x="299.4" y="36" text-anchor="middle">W3</text>
+<line class="tick" x1="325.2" y1="44" x2="325.2" y2="206"/>
+<text class="week" x="351.1" y="36" text-anchor="middle">W4</text>
+<line class="tick" x1="377.0" y1="44" x2="377.0" y2="206"/>
+<text class="week" x="402.9" y="36" text-anchor="middle">W5</text>
+<line class="tick" x1="428.8" y1="44" x2="428.8" y2="206"/>
+<text class="week" x="454.6" y="36" text-anchor="middle">W6</text>
+<line class="tick" x1="480.5" y1="44" x2="480.5" y2="206"/>
+<text class="week" x="506.4" y="36" text-anchor="middle">W7</text>
+<line class="tick" x1="532.2" y1="44" x2="532.2" y2="206"/>
+<text class="week" x="558.1" y="36" text-anchor="middle">W8</text>
+<line class="tick" x1="584.0" y1="44" x2="584.0" y2="206"/>
+<text x="16" y="79">Book a call</text>
+<rect class="bar outline" style="--i:0" x="170.0" y="60" width="31.0" height="26" rx="6"/>
+<text x="16" y="117">We match you</text>
+<rect class="bar outline" style="--i:1" x="201.1" y="98" width="124.2" height="26" rx="6"/>
+<text x="16" y="155">Immersion</text>
+<rect class="bar fill" style="--i:2" x="325.2" y="136" width="103.5" height="26" rx="6"/>
+<text x="16" y="193">Design, every week</text>
+<rect class="bar fill" style="--i:3" x="428.8" y="174" width="155.2" height="26" rx="6"/>
+</svg>
+<svg class="diagram timeline diagram-m" viewBox="0 0 360 300" role="img" aria-labelledby="tl-m-title">
+<title id="tl-m-title">Timeline: a call, a match within two to three weeks, one to two weeks of immersion, then design every week.</title>
+<line class="tick" x1="10.0" y1="38" x2="10.0" y2="262"/>
+<text class="week" x="31.2" y="30" text-anchor="middle">W1</text>
+<line class="tick" x1="52.5" y1="38" x2="52.5" y2="262"/>
+<text class="week" x="73.8" y="30" text-anchor="middle">W2</text>
+<line class="tick" x1="95.0" y1="38" x2="95.0" y2="262"/>
+<text class="week" x="116.2" y="30" text-anchor="middle">W3</text>
+<line class="tick" x1="137.5" y1="38" x2="137.5" y2="262"/>
+<text class="week" x="158.8" y="30" text-anchor="middle">W4</text>
+<line class="tick" x1="180.0" y1="38" x2="180.0" y2="262"/>
+<text class="week" x="201.2" y="30" text-anchor="middle">W5</text>
+<line class="tick" x1="222.5" y1="38" x2="222.5" y2="262"/>
+<text class="week" x="243.8" y="30" text-anchor="middle">W6</text>
+<line class="tick" x1="265.0" y1="38" x2="265.0" y2="262"/>
+<text class="week" x="286.2" y="30" text-anchor="middle">W7</text>
+<line class="tick" x1="307.5" y1="38" x2="307.5" y2="262"/>
+<text class="week" x="328.8" y="30" text-anchor="middle">W8</text>
+<line class="tick" x1="350.0" y1="38" x2="350.0" y2="262"/>
+<text x="10" y="68">Book a call</text>
+<rect class="bar outline" style="--i:0" x="10.0" y="76" width="25.5" height="22" rx="6"/>
+<text x="10" y="128">We match you</text>
+<rect class="bar outline" style="--i:1" x="35.5" y="136" width="102.0" height="22" rx="6"/>
+<text x="10" y="188">Immersion</text>
+<rect class="bar fill" style="--i:2" x="137.5" y="196" width="85.0" height="22" rx="6"/>
+<text x="10" y="248">Design, every week</text>
+<rect class="bar fill" style="--i:3" x="222.5" y="256" width="127.5" height="22" rx="6"/>
+</svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="section ink">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Full-time or part-time, always dedicated</h2>
+                <p class="lead">Every match is different, so we go over pricing on the call. Both options start in 2 to 3 weeks and run for a minimum of 3 months.</p>
+            </div>
+            <div class="plans" style="--cols:2">
+                <article class="plan">
+                    <p class="plan-name">Full-time</p>
+                    <h3>Your designer, all week</h3>
+                    <p>For brands with a steady flow of design work across channels. One designer, one brand.</p>
+                    <ul>
+                        <li>Dedicated to your brand only</li>
+                        <li>Works your hours, in your tools</li>
+                        <li>1 to 2 week immersion with your team</li>
+                        <li>Sunny Monkeys art direction and weekly reviews</li>
+                        <li>Software licenses included</li>
+                    </ul>
+                    <a class="btn btn-primary" href="/contact?package=in-house-full-time">Book a call</a>
+                </article>
+                <article class="plan">
+                    <p class="plan-name">Part-time</p>
+                    <h3>Half the week, fully yours</h3>
+                    <p>For brands with regular but lighter design needs. Your designer works with one other brand at most, never more.</p>
+                    <ul>
+                        <li>Two brands per designer, maximum</li>
+                        <li>Works your hours, in your tools</li>
+                        <li>1 to 2 week immersion with your team</li>
+                        <li>Sunny Monkeys art direction and weekly reviews</li>
+                        <li>Software licenses included</li>
+                    </ul>
+                    <a class="btn btn-primary" href="/contact?package=in-house-part-time">Book a call</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>A hire, without the hiring</h2>
+            </div>
+            <ul class="facts" style="--cols:4">
+            <li><h4>Art direction and supervision</h4><p>A Sunny Monkeys lead reviews the work and keeps the quality where it should be.</p></li>
+            <li><h4>Software, on us</h4><p>Design licenses are included. Your designer comes with their tools.</p></li>
+            <li><h4>Everything is yours</h4><p>You own every file and every design your designer creates.</p></li>
+            <li><h4>The right fit</h4><p>If your designer isn't the right fit, we'll match you with a new one.</p></li>
+            <li><h4>Vacations and sick days</h4><p>You decide: pause the work, or we arrange temporary coverage.</p></li>
+            <li><h4>Your tools</h4><p>Slack or Teams, your project board, your drive. If you don't have them yet, we set them up.</p></li>
+            <li><h4>A note on AI</h4><p>We use AI to move faster. The ideas, the judgment and the art direction are human. And AI doesn't know your business. Your designer does.</p></li>
+            <li><h4>A minimum of 3 months</h4><p>Enough for the immersion to pay off and for your designer to really know your business.</p></li>
+        </ul>
+        </div>
+    </section>
+
+    <section class="section rule-top">
+        <div class="wrap grid-2 sidebar">
+            <div>
+                <h2>Before you book the call</h2>
+            </div>
+            <ul class="faq">
+                <li><details><summary>Is this outsourcing?</summary><div class="answer prose"><p>Remote, yes. Outsourced, no. Your designer works only for you (two brands at most on part-time), in your hours and your tools, with our art direction behind them. Think of it as a hire, without the hiring.</p></div></details></li>
+                <li><details><summary>Where are the designers?</summary><div class="answer prose"><p>Bilingual designers in Latin America who work on US hours. Your designer speaks your team's language, in English and Spanish.</p></div></details></li>
+                <li><details><summary>Can my designer build our new website?</summary><div class="answer prose"><p>A full new website is a project with its own scope and quote. Your designer keeps it updated afterwards. See our <a href="/services">services and packages</a>.</p></div></details></li>
+                <li><details><summary>What's the minimum commitment?</summary><div class="answer prose"><p>Three months. Enough for the immersion to pay off and for your designer to really know your business.</p></div></details></li>
+                <li><details><summary>What if it isn't working out?</summary><div class="answer prose"><p>Tell us. If your designer isn't the right fit, we'll match you with a new one.</p></div></details></li>
+                <li><details><summary>Who owns the work?</summary><div class="answer prose"><p>You do. Every file and every design your designer creates is yours, and software licenses are included.</p></div></details></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section ink cta">
+        <div class="wrap">
+            <h2>Tell us what your team needs every week.</h2>
+            <p class="lead">We'll come back with a match, a start date and a plan for the immersion.</p>
+            <div class="actions">
+                <a class="btn btn-primary btn-lg" href="/contact?package=in-house">Book a call</a>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="site-footer ink">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <a class="brand" href="/" aria-label="Sunny Monkeys, home"><span class="mark" aria-hidden="true"></span><span>Sunny Monkeys</span></a>
+                <p class="tagline">A design studio for startups and small businesses. Projects with a fixed price, or a designer of your own.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/services">Services and packages</a></li>
+                    <li><a href="/in-house-designer">In-House Designer</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/login">Client log in</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:contact@sunnymonkeys.com">contact@sunnymonkeys.com</a></li>
+                    <li><a href="tel:+16193044022">+1 619 304 4022</a></li>
+                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" rel="noopener">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <p class="small muted">Occasional notes on branding and design. No spam, and you can leave any time.</p>
+                <form class="newsletter" id="newsletter-form" action="/portal/inquiry.php" method="post" novalidate style="margin-top: 1rem">
+                    <label class="visually-hidden" for="nl-email">Email address</label>
+                    <input class="trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <input id="nl-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+                    <button class="btn" type="submit">Subscribe</button>
+                    <p class="form-status small" role="status" aria-live="polite" style="flex-basis: 100%"></p>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sunny Monkeys LLC. All rights reserved.</p>
+            <ul>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms &amp; Conditions</a></li>
+            </ul>
+        </div>
     </div>
-    <!-- dark light switcher end -->
-
-    <script defer src="assets/js/vendor/jquery.min.js"></script>
-    <script defer src="assets/js/plugins/bootstrap.min.js"></script>
-    <script defer src="assets/js/plugins/contact.form.js?v=4"></script>
-    <script defer src="assets/js/vendor/waypoint.js"></script>
-    <script defer src="assets/js/plugins/swiper.js"></script>
-    <script defer src="assets/js/plugins/resizer-sensor.js"></script>
-    <script defer src="assets/js/plugins/sticky-sidebar.js"></script>
-    <script defer src="assets/js/plugins/isotop.js"></script>
-    <script defer src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
-    <script defer src="assets/js/plugins/smoothscroll-varticle.js"></script>
-    <script defer src="assets/js/vendor/gsap.js"></script>
-    <script defer src="assets/js/plugins/scrolltiger.js"></script>
-    <script defer src="assets/js/plugins/scrolltoplugin.js"></script>
-    <script defer src="assets/js/plugins/splittext.js"></script>
-    <script defer src="assets/js/plugins/smoothscroll.js"></script>
-    <script defer src="assets/js/plugins/scrollmagic.js"></script>
-    <script defer src="assets/js/plugins/animate-scrollmagic.js"></script>
-    <script defer src="assets/js/plugins/tilt.js"></script>
-    <script defer src="assets/js/plugins/counterup.js"></script>
-    <script defer src="assets/js/vendor/waw.js"></script>
-    <script defer src="assets/js/main.js?v=2"></script>
-    <!-- Scripts style two End -->
-
+</footer>
+<script src="/assets/js/sm.js?v=1" defer></script>
 </body>
 </html>

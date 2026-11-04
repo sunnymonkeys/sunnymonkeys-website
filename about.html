@@ -3,79 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-style-mode" content="1">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
-    <title>About Sunny Monkeys | Branding &amp; Web Design Studio</title>
-    <meta name="description" content="The story behind Sunny Monkeys, a boutique creative design studio helping growing brands look great and connect with their audience.">
+    <title>About Sunny Monkeys | A Design Studio With a Designer of Your Own</title>
+    <meta name="description" content="Why Sunny Monkeys exists: fixed-price branding and web projects for startups and small businesses, and dedicated bilingual in-house designers who stay with your brand.">
     <link rel="canonical" href="https://sunnymonkeys.com/about">
+    <link rel="icon" type="image/png" href="/assets/images/fav.png">
+    <meta name="theme-color" content="#ffffff">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Sunny Monkeys LLC">
-    <meta property="og:title" content="About Sunny Monkeys | Branding &amp; Web Design Studio">
-    <meta property="og:description" content="The story behind Sunny Monkeys, a boutique creative design studio helping growing brands look great and connect with their audience.">
+    <meta property="og:site_name" content="Sunny Monkeys">
+    <meta property="og:title" content="About Sunny Monkeys | A Design Studio With a Designer of Your Own">
+    <meta property="og:description" content="Why Sunny Monkeys exists: fixed-price branding and web projects for startups and small businesses, and dedicated bilingual in-house designers who stay with your brand.">
     <meta property="og:url" content="https://sunnymonkeys.com/about">
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
-    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
-    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/site.css?v=2">
-    <style>
-    /* ── Login button ── */
-    .sm-login-btn {
-        display: inline-flex; align-items: center; overflow: hidden; position: relative;
-        border: 2px solid #fff !important; background: #fff !important; color: #111 !important;
-        padding: 10px 28px !important; border-radius: 6px !important;
-        font-size: 1.25rem !important; font-weight: 700 !important;
-        text-decoration: none !important; letter-spacing: 0.04em !important;
-        transition: background 0.25s, color 0.25s, border-color 0.25s !important;
-        white-space: nowrap !important;
-    }
-    .sm-login-btn .btn-text { display: inline-block; transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s; }
-    .sm-login-btn .btn-text-hover { position: absolute; left: 50%; transform: translateX(-50%) translateY(100%); opacity: 0; transition: transform 0.3s cubic-bezier(.23,1,.32,1), opacity 0.3s; font-weight: 700; white-space: nowrap; }
-    .sm-login-btn:hover .btn-text { transform: translateY(-130%); opacity: 0; }
-    .sm-login-btn:hover .btn-text-hover { transform: translateX(-50%) translateY(-50%); opacity: 1; }
-    .sm-login-btn:hover { background: #111 !important; color: #fff !important; border-color: #111 !important; }
-    
-    .under-construction {
-        min-height: 100vh; display: flex; flex-direction: column;
-        align-items: center; justify-content: center;
-        background: #111; color: #fff; text-align: center; padding: 40px 20px;
-    }
-    .uc-logo { margin-bottom: 48px; }
-    .uc-logo img { height: 64px; width: auto; }
-    .uc-eyebrow { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #8a8a8a; margin-bottom: 24px; }
-    .uc-title { font-size: clamp(5rem, 9vw, 9.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 24px; }
-    .uc-title span { color: #7a7a7a; }
-    .uc-sub { font-size: 1.8rem; color: #aaa; max-width: 560px; line-height: 1.7; margin-bottom: 48px; }
-    .uc-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #111; padding: 18px 36px; border-radius: 8px; font-size: 1.6rem; font-weight: 700; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s; }
-    .uc-btn:hover { opacity: 0.85; color: #111; }
-    .uc-footer { margin-top: 80px; font-size: 1.4rem; color: #666; }
-    .uc-footer a { color: #999; text-decoration: none; }
-    .uc-footer a:hover { color: #fff; }
-
-    </style>
+    <meta property="og:image" content="https://sunnymonkeys.com/assets/images/og-sunny-monkeys.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/sm.css?v=1">
 </head>
-<body class="inner-page about-page">
-
-    <!-- Minimal header with back link -->
-    <header style="position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
-        <a href="/"><img src="assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys" style="width:44px;height:44px;object-fit:contain;display:block;border-radius:50%;"></a>
-        <a href="/" style="color:#999;font-size:1.4rem;text-decoration:none;letter-spacing:0.05em;">← Back to Home</a>
-    </header>
-
-    <div class="under-construction">
-        <p class="uc-eyebrow">Our Story</p>
-        <h1 class="uc-title">Coming <span>Soon</span></h1>
-        <p class="uc-sub">We're putting our story into words. <br>Check back soon, or just reach out directly.</p>
-        <a href="/contact" class="uc-btn">Get In Touch <i class="fa-light fa-arrow-right"></i></a>
-        <p class="uc-footer">
-            <a href="/">Home</a> &nbsp;&middot;&nbsp;
-            <a href="/services">Services</a> &nbsp;&middot;&nbsp;
-            <a href="/privacy-policy">Privacy Policy</a>
-        </p>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="/" aria-label="Sunny Monkeys, home"><span class="mark" aria-hidden="true"></span><span>Sunny Monkeys</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+            <ul>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/in-house-designer">In-House Designer</a></li>
+                <li><a href="/about" aria-current="page">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/login">Log in</a>
+                <a class="btn btn-primary" href="/contact">Book a call</a>
+            </div>
+        </nav>
     </div>
+</header>
+<main id="main">
 
+    <section class="hero hero-simple">
+        <div class="wrap">
+            <h1><span class="line">A studio built</span><span class="line">around one idea.</span></h1>
+            <p class="lead hero-rise">The designer who builds your brand should be the one who stays with it.</p>
+        </div>
+    </section>
+
+    <section class="section rule-top">
+        <div class="wrap grid-2 sidebar">
+            <div class="stack prose">
+                <h2 style="font-size: var(--t-2); text-transform: none; letter-spacing: 0">A note from Marco, founder</h2>
+                <p>I started Sunny Monkeys after watching the same thing happen again and again at agencies. A designer gets four or five brands at once. They do their best, but they can't know the context of each business, so every month the work looks a little different, and a little less like the company it's for. The client notices. The designer notices. Nobody can fix it, because the model doesn't allow it.</p>
+                <p>A good brief is enough for a brand that's just getting started. That's why we do projects with a clear scope and a fixed price: a brand identity, a website that works, the templates you need to show up every week.</p>
+                <p>But an established business needs more than a brief. It needs someone who knows it inside out. So we built the second half of the studio around that: Your In-House Designer. One bilingual designer, dedicated to your brand, working your hours inside your tools, with our art direction behind them. Remote, but not outsourced.</p>
+                <p>We use AI to move faster. The ideas, the judgment and the art direction are human.</p>
+                <p class="quote">"The designer who built your brand stays with it."</p>
+            </div>
+            <div>
+<svg class="diagram diagram-d" viewBox="0 0 600 310" role="img" aria-labelledby="juggle-d-title">
+<title id="juggle-d-title">At an agency one designer juggles five brands. In-house, one designer works for one brand.</title>
+<text class="label" x="20" y="34">At an agency</text>
+<text class="label" x="330" y="34">In-house</text>
+<line class="tick" x1="300" y1="20" x2="300" y2="290" stroke="currentColor" stroke-opacity="0.25"/>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="150.0" y2="72.0"/><g class="brand"><rect x="133.0" y="55.0" width="34" height="34" rx="6"/><text x="150.0" y="78.0" text-anchor="middle">A</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="233.7" y2="132.8"/><g class="brand"><rect x="216.7" y="115.8" width="34" height="34" rx="6"/><text x="233.7" y="138.8" text-anchor="middle">B</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="201.7" y2="231.2"/><g class="brand"><rect x="184.7" y="214.2" width="34" height="34" rx="6"/><text x="201.7" y="237.2" text-anchor="middle">C</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="98.3" y2="231.2"/><g class="brand"><rect x="81.3" y="214.2" width="34" height="34" rx="6"/><text x="98.3" y="237.2" text-anchor="middle">D</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:160px"><line class="line" x1="150" y1="160" x2="66.3" y2="132.8"/><g class="brand"><rect x="49.3" y="115.8" width="34" height="34" rx="6"/><text x="66.3" y="138.8" text-anchor="middle">E</text></g></g>
+<circle class="person" cx="150" cy="138.0" r="12.0"/><path class="person" d="M128.0 182.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="20" y="290">Five brands. None of them known well.</text>
+<circle class="pulse" cx="400" cy="160" r="40" style="--ox:400px;--oy:160px"/>
+<line class="solid" x1="430" y1="160" x2="512" y2="160"/>
+<g class="brand"><rect x="512" y="134" width="70" height="52" rx="6"/><text x="547" y="166" text-anchor="middle">You</text></g>
+<circle class="person" cx="400" cy="138.0" r="12.0"/><path class="person" d="M378.0 182.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="330" y="290">One brand, known inside out.</text>
+</svg>
+<svg class="diagram diagram-m" viewBox="0 0 300 500" role="img" aria-labelledby="juggle-m-title">
+<title id="juggle-m-title">At an agency one designer juggles five brands. In-house, one designer works for one brand.</title>
+<text class="label" x="16" y="30">At an agency</text>
+<text class="label" x="16" y="322">In-house</text>
+<line class="tick" x1="16" y1="286" x2="284" y2="286" stroke="currentColor" stroke-opacity="0.25"/>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="150.0" y2="74.0"/><g class="brand"><rect x="133.0" y="57.0" width="34" height="34" rx="6"/><text x="150.0" y="80.0" text-anchor="middle">A</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="222.3" y2="126.5"/><g class="brand"><rect x="205.3" y="109.5" width="34" height="34" rx="6"/><text x="222.3" y="132.5" text-anchor="middle">B</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="194.7" y2="211.5"/><g class="brand"><rect x="177.7" y="194.5" width="34" height="34" rx="6"/><text x="194.7" y="217.5" text-anchor="middle">C</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="105.3" y2="211.5"/><g class="brand"><rect x="88.3" y="194.5" width="34" height="34" rx="6"/><text x="105.3" y="217.5" text-anchor="middle">D</text></g></g>
+<g class="orbit" style="--ox:150px;--oy:150px"><line class="line" x1="150" y1="150" x2="77.7" y2="126.5"/><g class="brand"><rect x="60.7" y="109.5" width="34" height="34" rx="6"/><text x="77.7" y="132.5" text-anchor="middle">E</text></g></g>
+<circle class="person" cx="150" cy="128.0" r="12.0"/><path class="person" d="M128.0 172.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="16" y="262">Five brands. None of them known well.</text>
+<circle class="pulse" cx="92" cy="412" r="40" style="--ox:92px;--oy:412px"/>
+<line class="solid" x1="122" y1="412" x2="204" y2="412"/>
+<g class="brand"><rect x="204" y="386" width="70" height="52" rx="6"/><text x="239" y="418" text-anchor="middle">You</text></g>
+<circle class="person" cx="92" cy="390.0" r="12.0"/><path class="person" d="M70.0 434.0 a22.0 22.0 0 0 1 44.0 0 z"/>
+<text class="note" x="16" y="486">One brand, known inside out.</text>
+</svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="section rule-top">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Where we are</h2>
+            </div>
+            <ul class="facts" style="--cols:4">
+            <li><h4>A US studio</h4><p>Sunny Monkeys LLC is registered in the United States, with clients across the country.</p></li>
+            <li><h4>Designers in Latin America</h4><p>Our network of bilingual designers works on US hours, in English and Spanish.</p></li>
+            <li><h4>Your tools, your hours</h4><p>Slack or Teams, your project board, your drive. We fit into how your team already works.</p></li>
+            <li><h4>One contact</h4><p>A Sunny Monkeys lead stays with you from the first call through every weekly review.</p></li>
+        </ul>
+        </div>
+    </section>
+
+    <section class="section rule-top">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>How we work</h2>
+            </div>
+            <ol class="steps" style="--cols:3">
+            <li><h3>Discovery</h3><p>We get to know your brand, your goals and what makes you different from everyone else.</p></li>
+            <li><h3>Creative direction</h3><p>We craft a visual and messaging strategy that captures your brand's essence and speaks to your audience.</p></li>
+            <li><h3>Delivery</h3><p>We bring it all to life: polished, on-brand and ready to work from day one. Nothing goes live without your approval, and you own everything we make.</p></li>
+        </ol>
+        </div>
+    </section>
+
+    <section class="section ink cta">
+        <div class="wrap">
+            <h2>Let's talk about your brand.</h2>
+            <p class="lead">A project with a fixed price, or a designer of your own. We'll reply by email to set up a call.</p>
+            <div class="actions">
+                <a class="btn btn-primary btn-lg" href="/contact">Get in touch</a>
+                <a class="btn btn-lg" href="/services">See services and packages</a>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="site-footer ink">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <a class="brand" href="/" aria-label="Sunny Monkeys, home"><span class="mark" aria-hidden="true"></span><span>Sunny Monkeys</span></a>
+                <p class="tagline">A design studio for startups and small businesses. Projects with a fixed price, or a designer of your own.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/services">Services and packages</a></li>
+                    <li><a href="/in-house-designer">In-House Designer</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/login">Client log in</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:contact@sunnymonkeys.com">contact@sunnymonkeys.com</a></li>
+                    <li><a href="tel:+16193044022">+1 619 304 4022</a></li>
+                    <li><a href="https://www.linkedin.com/company/sunny-monkeys/" rel="noopener">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <p class="small muted">Occasional notes on branding and design. No spam, and you can leave any time.</p>
+                <form class="newsletter" id="newsletter-form" action="/portal/inquiry.php" method="post" novalidate style="margin-top: 1rem">
+                    <label class="visually-hidden" for="nl-email">Email address</label>
+                    <input class="trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <input id="nl-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+                    <button class="btn" type="submit">Subscribe</button>
+                    <p class="form-status small" role="status" aria-live="polite" style="flex-basis: 100%"></p>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sunny Monkeys LLC. All rights reserved.</p>
+            <ul>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms &amp; Conditions</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="/assets/js/sm.js?v=1" defer></script>
 </body>
 </html>
