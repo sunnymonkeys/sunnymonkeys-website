@@ -74,7 +74,8 @@ No eyebrow labels above headings, no all-caps labels, no single accented word in
 - **Marquee** (`.marquee`): a slow strip of what we make, between the hero and the next section, with sun and sky dots as separators. Pauses on hover; wraps as a static list under reduced motion.
 - **Packages**: plan headers in a 3-column grid with a 3px gradient rule on top, then one comparison `<table>` (sky-wash header) (feature rows, plan columns). Below 720px the table becomes feature-first lists.
 - **FAQ**: native `<details>` with a styled `<summary>`.
-- **Navigation**: sticky white header, blue mark plus black wordmark, text links (blue underline on the current page), quiet "Log in", filled "Book a call". Below 900px a button opens a full-screen ink menu with the glow.
+- **Navigation**: sticky white header, blue mark plus black wordmark, text links (blue underline on the current page), the filled "Book a call", and "Log in" on its own at the far right: body font, 15px, grey, with a small person icon and a hairline divider, so it reads as a utility link and not as a second call to action. Below 900px a button opens a full-screen ink menu with the glow; the menu ends with "Client log in".
+- **Client portal**: the same tokens on `portal/assets/portal.css`: white pages, condensed uppercase titles, sky-gradient primary buttons, outline small buttons, sky-wash table headers, sun-wash row hovers, blue toggles, pill badges (sun for promotions and pending, green for approved and new, red for declined and failed email).
 - **Footer**: ink band with the mark, three link columns, the newsletter form and the legal line.
 
 ## Imagery and motion

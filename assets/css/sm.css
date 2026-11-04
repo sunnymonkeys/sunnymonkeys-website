@@ -205,6 +205,14 @@ h4 { font-size: var(--t-3); font-weight: 600; line-height: 1.2; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { border-bottom-color: var(--blue); }
 .site-nav .nav-actions { display: flex; align-items: center; gap: var(--s-3); }
 .site-nav .nav-actions .btn { min-height: 2.6rem; padding: 0.45rem 1.1rem; font-size: 1.125rem; }
+.nav-login {
+  display: inline-flex; align-items: center; gap: 0.45rem; margin-left: var(--s-3); padding: 0.4rem 0 0.4rem var(--s-3);
+  border-left: 1px solid var(--grey-2); font: 500 var(--t-small) / 1 var(--font-body); color: var(--grey-3);
+  text-decoration: none; white-space: nowrap; transition: color 0.2s;
+}
+.nav-login svg { width: 1.1rem; height: 1.1rem; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav-login:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 0.2em; text-decoration-color: var(--blue); }
+.login-mobile { display: none; }
 .nav-toggle {
   display: none; margin-left: auto; width: 3rem; height: 3rem; padding: 0;
   border: 1.5px solid var(--ink); border-radius: var(--radius); background: transparent; cursor: pointer;
@@ -212,6 +220,9 @@ h4 { font-size: var(--t-3); font-weight: 600; line-height: 1.2; }
 .nav-toggle span { display: block; width: 1.25rem; height: 2px; margin: 4px auto; background: var(--ink); transition: transform 0.25s var(--ease), opacity 0.2s; }
 @media (max-width: 899px) {
   .nav-toggle { display: block; }
+  .nav-login { display: none; }
+  .login-mobile { display: inline-block; font: 500 1.125rem / 1 var(--font-body); color: var(--grey-4); text-decoration: none; }
+  .login-mobile:hover { color: var(--paper); }
   .site-nav {
     position: fixed; inset: var(--header-h) 0 0 0; z-index: 49;
     flex-direction: column; align-items: flex-start; justify-content: flex-start;
@@ -230,7 +241,6 @@ h4 { font-size: var(--t-3); font-weight: 600; line-height: 1.2; }
   .site-nav a { font-size: 2.25rem; }
   .site-nav .nav-actions { flex-direction: column; align-items: flex-start; gap: var(--s-3); }
   .site-nav .nav-actions .btn { font-size: 1.375rem; min-height: 3rem; padding: 0.7rem 1.5rem; }
-  .site-nav .nav-actions a:not(.btn) { font-size: 1.5rem; }
 }
 
 /* Hero: two soft blobs, sky on the right and sun on the left, drifting slowly */

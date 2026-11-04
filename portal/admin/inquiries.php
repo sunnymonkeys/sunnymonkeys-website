@@ -50,49 +50,20 @@ function action_button(int $id, string $action, string $label) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inquiries | Sunny Monkeys</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0d0d0d; color: #fff; font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
-  header { background: #111; border-bottom: 1px solid #222; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
-  header .brand { display: flex; align-items: center; gap: 12px; }
-  header img { height: 32px; width: auto; display: block; }
-  header h1 { font-size: 1rem; font-weight: 600; }
-  header nav a { color: #aaa; font-size: 0.88rem; text-decoration: none; margin-left: 20px; }
-  header nav a:hover { color: #fff; }
-  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
-  h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; }
-  .tabs { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
-  .tabs a { color: #aaa; text-decoration: none; font-size: 0.88rem; padding: 8px 14px; border: 1px solid #222; border-radius: 8px; }
-  .tabs a.active { background: #fff; color: #000; border-color: #fff; font-weight: 600; }
-  .btn-sm { background: #222; border: 1px solid #333; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; text-decoration: none; display: inline-block; }
-  .btn-sm:hover { background: #333; }
-  .card { border: 1px solid #1e1e1e; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; background: #101010; }
-  .card.unread { border-color: #3a3a3a; background: #151515; }
-  .card-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
-  .who { font-weight: 600; }
-  .who a { color: #9ecbff; text-decoration: none; font-weight: 400; margin-left: 8px; }
-  .meta { color: #666; font-size: 0.8rem; }
-  .msg { color: #ddd; font-size: 0.92rem; line-height: 1.6; white-space: pre-wrap; margin: 10px 0 14px; }
-  .badge { font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; margin-left: 8px; }
-  .badge.service { background: #1e1e2e; color: #a9a9ff; }
-  .badge.new { background: #1e2e1e; color: #6fcf6f; }
-  .badge.fail { background: #2e1e1e; color: #ff8a8a; }
-  .actions { display: flex; gap: 6px; flex-wrap: wrap; }
-  table { width: 100%; border-collapse: collapse; }
-  th { text-align: left; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #666; padding: 0 16px 12px; }
-  td { padding: 12px 16px; border-top: 1px solid #1e1e1e; font-size: 0.9rem; }
-  .empty { color: #555; text-align: center; padding: 48px; }
-  .copy-row { display: flex; justify-content: flex-end; margin-bottom: 12px; }
-</style>
+<link rel="icon" type="image/png" href="/assets/images/fav.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/portal/assets/portal.css?v=2">
 </head>
 <body>
 <header>
   <div class="brand">
-    <img src="/assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys">
+    <a class="logo" href="/"><span class="mark" aria-hidden="true"></span>Sunny Monkeys</a>
     <h1>Admin Portal</h1>
   </div>
   <nav>
-    <a href="index.php">← Clients</a>
+    <a href="index.php">Clients</a>
     <a href="../logout.php">Sign out</a>
   </nav>
 </header>

@@ -141,97 +141,22 @@ $msg        = $_GET['msg'] ?? '';
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunny Monkeys</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0d0d0d; color: #fff; font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
-  header { background: #111; border-bottom: 1px solid #222; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
-  header .brand { display: flex; align-items: center; gap: 12px; }
-  header img { height: 32px; width: auto; display: block; }
-  header h1 { font-size: 1rem; font-weight: 600; }
-  header nav a { color: #aaa; font-size: 0.88rem; text-decoration: none; margin-left: 20px; }
-  header nav a:hover { color: #fff; }
-  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
-  .client-header { margin-bottom: 28px; }
-  .client-header h2 { font-size: 1.6rem; font-weight: 700; }
-  .client-meta { display: flex; gap: 20px; margin-top: 6px; color: #666; font-size: 0.88rem; flex-wrap: wrap; }
-  .tabs { display: flex; gap: 2px; border-bottom: 1px solid #222; margin-bottom: 32px; }
-  .tab { padding: 10px 18px; font-size: 0.88rem; font-weight: 500; color: #666; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color .15s; }
-  .tab:hover { color: #aaa; }
-  .tab.active { color: #fff; border-bottom-color: #fff; }
-  .badge-pill { background: #8B1A2D; color: #fff; font-size: 0.7rem; padding: 2px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
-  .toast { position: fixed; top: 20px; right: 20px; background: #1a3a1a; border: 1px solid #2a6a2a; color: #6fcf6f; padding: 12px 20px; border-radius: 10px; font-size: 0.88rem; font-weight: 500; box-shadow: 0 4px 20px rgba(0,0,0,.4); z-index: 999; animation: slideIn .3s ease; }
-  @keyframes slideIn { from{opacity:0;transform:translateX(20px);}to{opacity:1;transform:translateX(0);} }
-  label { display: block; font-size: 0.73rem; font-weight: 600; letter-spacing: .08em; color: #777; margin-bottom: 5px; text-transform: uppercase; }
-  input[type=text],input[type=email],input[type=number],input[type=date],select,textarea { width:100%;background:#111;border:1px solid #2e2e2e;border-radius:8px;padding:10px 12px;color:#fff;font-size:0.9rem;outline:none;font-family:inherit; }
-  input:focus,select:focus,textarea:focus { border-color:#444; }
-  select option { background:#111; }
-  textarea { resize:vertical;min-height:80px; }
-  .form-row { display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px; }
-  .form-group { margin-bottom:16px; }
-  .btn { background:#fff;color:#000;border:none;border-radius:8px;padding:10px 20px;font-size:0.88rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block; }
-  .btn:hover { background:#e0e0e0; }
-  .btn-sm { background:#1e1e1e;border:1px solid #333;color:#ddd;padding:6px 12px;border-radius:6px;font-size:0.8rem;cursor:pointer;text-decoration:none;display:inline-block; }
-  .btn-sm:hover { background:#2a2a2a; }
-  .btn-danger { background:#2a0a0a;border:1px solid #5a1a1a;color:#ff6b6b; }
-  .btn-danger:hover { background:#3a1010; }
-  .btn-approve { background:#1a3a1a;color:#6fcf6f;border:1px solid #2a6a2a;padding:10px 20px;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer;white-space:nowrap; }
-  .btn-approve:hover { background:#1f461f; }
-  .btn-decline { background:#2a0a0a;color:#ff6b6b;border:1px solid #5a1a1a;padding:10px 20px;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer;white-space:nowrap; }
-  .btn-decline:hover { background:#3a1010; }
-  .toggle-row { display:flex;align-items:center;gap:14px;margin-bottom:24px;padding:14px 16px;background:#131313;border:1px solid #222;border-radius:10px; }
-  .toggle-label strong { display:block;font-size:0.9rem;font-weight:500;color:#ccc; }
-  .toggle-label span { font-size:0.8rem;color:#555; }
-  .switch { position:relative;display:inline-block;width:44px;height:26px;flex-shrink:0; }
-  .switch input { opacity:0;width:0;height:0; }
-  .slider { position:absolute;cursor:pointer;inset:0;background:#2e2e2e;border-radius:26px;transition:.25s; }
-  .slider:before { position:absolute;content:"";height:20px;width:20px;left:3px;bottom:3px;background:#666;border-radius:50%;transition:.25s; }
-  input:checked + .slider { background:#1e4a1e; }
-  input:checked + .slider:before { transform:translateX(18px);background:#6fcf6f; }
-  .section-card { background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:24px;margin-bottom:20px; }
-  .section-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:18px;color:#ccc; }
-  .divider { border:none;border-top:1px solid #1e1e1e;margin:20px 0; }
-
-  /* Quick-add packages */
-  .pkg-grid { display:flex;flex-direction:column;gap:12px;margin-bottom:20px; }
-  .pkg-item { background:#0d0d0d;border:1px solid #222;border-radius:10px;padding:14px 16px; }
-  .pkg-item-top { display:flex;align-items:center;gap:12px; }
-  .pkg-item-top label { font-size:0.92rem;font-weight:500;color:#ccc;text-transform:none;letter-spacing:0;cursor:pointer;margin:0; }
-  .pkg-price { font-size:0.8rem;color:#555;margin-left:auto; }
-  .pkg-promo { margin-top:12px;padding-top:12px;border-top:1px solid #1e1e1e;display:none; }
-  .pkg-promo.visible { display:block; }
-  .pkg-promo-inner { display:grid;grid-template-columns:auto 1fr 1fr;gap:10px;align-items:center; }
-  .pkg-promo-inner label { font-size:0.72rem;color:#666;text-transform:uppercase;letter-spacing:.08em;margin:0; }
-  .promo-badge { background:#2a1a0a;border:1px solid #6a3a1a;color:#f0a040;font-size:0.72rem;padding:2px 7px;border-radius:4px;white-space:nowrap; }
-  input[type=checkbox] { width:16px;height:16px;cursor:pointer;flex-shrink:0;accent-color:#6fcf6f; }
-
-  /* Add-ons table */
-  .addon-table { width:100%;border-collapse:collapse; }
-  .addon-table th { text-align:left;font-size:0.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555;padding:0 12px 10px; }
-  .addon-table td { padding:11px 12px;border-top:1px solid #1a1a1a;font-size:0.88rem;vertical-align:middle; }
-  .addon-table tr:hover td { background:#141414; }
-  .doc-item { display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid #1a1a1a; }
-  .doc-item:first-child { border-top:none; }
-  .empty { color:#555;font-size:0.88rem;padding:12px 0; }
-  .request-card { background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:18px 20px;margin-bottom:12px; }
-  .req-type { font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#666;margin-bottom:6px; }
-  .req-msg { font-size:0.92rem;color:#ccc;margin-bottom:8px;line-height:1.5; }
-  .req-date { font-size:0.78rem;color:#444; }
-  .status-badge { font-size:0.75rem;padding:3px 9px;border-radius:5px;font-weight:500; }
-  .status-pending  { background:#2a1a0a;border:1px solid #6a3a0a;color:#f0a040; }
-  .status-approved { background:#1a2a1a;border:1px solid #2a5a2a;color:#6fcf6f; }
-  .status-declined { background:#2a0a0a;border:1px solid #5a1a1a;color:#ff6b6b; }
-</style>
+<title>Client | Sunny Monkeys admin</title>
+<link rel="icon" type="image/png" href="/assets/images/fav.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/portal/assets/portal.css?v=2">
 </head>
 <body>
 <header>
   <div class="brand">
-    <img src="/assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys">
+    <a class="logo" href="/"><span class="mark" aria-hidden="true"></span>Sunny Monkeys</a>
     <h1>Admin Portal</h1>
   </div>
   <nav>
-    <a href="index.php">← Clients</a>
-    <a href="upload.php?client_id=<?= $id ?>">Upload Doc</a>
+    <a href="index.php">Clients</a>
+    <a href="upload.php?client_id=<?= $id ?>">Upload document</a>
     <a href="../logout.php">Sign out</a>
   </nav>
 </header>
@@ -240,7 +165,7 @@ $msg        = $_GET['msg'] ?? '';
   <div class="client-header">
     <h2><?= htmlspecialchars($client['name']) ?></h2>
     <div class="client-meta">
-      <span><?= htmlspecialchars($client['company'] ?? '—') ?></span>
+      <?php if (!empty($client['company'])): ?><span><?= htmlspecialchars($client['company']) ?></span><?php endif; ?>
       <span><?= htmlspecialchars($client['email']) ?></span>
       <span>Client since <?= date('M j, Y', strtotime($client['created_at'])) ?></span>
     </div>
@@ -261,7 +186,7 @@ $msg        = $_GET['msg'] ?? '';
     <?php if(empty($inv)): ?><p class="empty">No invoices yet.</p><?php else: foreach($inv as $doc): ?>
       <div class="doc-item">
         <div><div style="font-weight:500"><?= htmlspecialchars($doc['title']) ?></div>
-             <div style="font-size:0.78rem;color:#555;margin-top:2px"><?= date('M j, Y',strtotime($doc['uploaded_at'])) ?></div></div>
+             <div class="doc-date"><?= date('M j, Y',strtotime($doc['uploaded_at'])) ?></div></div>
         <a href="../download.php?id=<?= $doc['id'] ?>" class="btn-sm">Download</a>
       </div>
     <?php endforeach;endif; ?>
@@ -272,7 +197,7 @@ $msg        = $_GET['msg'] ?? '';
     <?php if(empty($con)): ?><p class="empty">No contracts yet.</p><?php else: foreach($con as $doc): ?>
       <div class="doc-item">
         <div><div style="font-weight:500"><?= htmlspecialchars($doc['title']) ?></div>
-             <div style="font-size:0.78rem;color:#555;margin-top:2px"><?= date('M j, Y',strtotime($doc['uploaded_at'])) ?></div></div>
+             <div class="doc-date"><?= date('M j, Y',strtotime($doc['uploaded_at'])) ?></div></div>
         <a href="../download.php?id=<?= $doc['id'] ?>" class="btn-sm">Download</a>
       </div>
     <?php endforeach;endif; ?>
@@ -282,7 +207,7 @@ $msg        = $_GET['msg'] ?? '';
 
   <!-- BASE PLAN -->
   <div class="section-card">
-    <h3>Base Plan</h3>
+    <h3>Base plan</h3>
     <form method="POST">
       <input type="hidden" name="action" value="save_subscription">
       <input type="hidden" name="tab" value="subscription">
@@ -313,14 +238,14 @@ $msg        = $_GET['msg'] ?? '';
           <input type="date" name="contract_start" value="<?= htmlspecialchars($sub['contract_start']??'') ?>"></div>
       </div>
       <div class="form-group">
-        <label>Client-facing description <span style="font-size:0.7rem;color:#555;text-transform:none;letter-spacing:0">(one bullet per line — shown on client dashboard)</span></label>
+        <label>Client-facing description <span style="font-size:0.85rem;color:#6b6b6b;font-family:Barlow,sans-serif;font-weight:400">(one bullet per line, shown on the client dashboard)</span></label>
         <textarea name="base_description" rows="6" placeholder="12–14 content pieces/month across Instagram, LinkedIn & Facebook&#10;Full monthly content calendar&#10;Branding updates, printables, flyers & presentations&#10;Weekly or biweekly check-in calls&#10;Same-day response during business hours (9am–5pm CT, Mon–Fri)"><?= htmlspecialchars($sub['base_description']??'') ?></textarea>
       </div>
       <div class="form-group">
-        <label>Internal Notes <span style="font-size:0.7rem;color:#555;text-transform:none;letter-spacing:0">(not visible to client)</span></label>
+        <label>Internal Notes <span style="font-size:0.85rem;color:#6b6b6b;font-family:Barlow,sans-serif;font-weight:400">(not visible to client)</span></label>
         <textarea name="notes"><?= htmlspecialchars($sub['notes']??'') ?></textarea>
       </div>
-      <button type="submit" class="btn">Save Plan</button>
+      <button type="submit" class="btn">Save plan</button>
     </form>
   </div>
 
@@ -328,7 +253,7 @@ $msg        = $_GET['msg'] ?? '';
 
   <!-- QUICK ADD STANDARD PACKAGES -->
   <div class="section-card">
-    <h3>Quick Add — Standard Packages</h3>
+    <h3>Quick add: standard packages</h3>
     <form method="POST">
       <input type="hidden" name="action" value="add_packages">
       <input type="hidden" name="subscription_id" value="<?= $sub['id'] ?>">
@@ -345,7 +270,7 @@ $msg        = $_GET['msg'] ?? '';
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
               <input type="checkbox" id="use-promo-<?= $key ?>" name="promo_<?= $key ?>" value="1" onchange="togglePromoFields('<?= $key ?>', this.checked)"
                 <?= $pkg['default_promo_price']!==null?'checked':'' ?>>
-              <label for="use-promo-<?= $key ?>" style="font-size:0.82rem;color:#aaa;text-transform:none;letter-spacing:0;cursor:pointer;margin:0">Activate promotional pricing</label>
+              <label for="use-promo-<?= $key ?>" style="font:500 0.95rem Barlow,sans-serif;cursor:pointer;margin:0">Activate promotional pricing</label>
             </div>
             <div id="promo-fields-<?= $key ?>" style="display:<?= $pkg['default_promo_price']!==null?'grid':'none' ?>;grid-template-columns:1fr 1fr;gap:10px">
               <div><label>Promo Price ($)</label>
@@ -359,13 +284,13 @@ $msg        = $_GET['msg'] ?? '';
         </div>
         <?php endforeach; ?>
       </div>
-      <button type="submit" class="btn">Add Selected Packages</button>
+      <button type="submit" class="btn">Add selected packages</button>
     </form>
   </div>
 
   <!-- CURRENT ADD-ONS -->
   <div class="section-card">
-    <h3>Active Add-ons</h3>
+    <h3>Active add-ons</h3>
     <?php if (!empty($addons)): ?>
     <table class="addon-table">
       <thead><tr><th>Service</th><th>Regular</th><th>Promo</th><th>Cycles Left</th><th>Status</th><th>Actions</th></tr></thead>
@@ -376,9 +301,9 @@ $msg        = $_GET['msg'] ?? '';
         <td>$<?= number_format($addon['price'],2) ?></td>
         <td><?php if($addon['promo_price']!==null&&$addon['promo_cycles_remaining']>0):?>
               <span class="promo-badge"><?= $addon['promo_price']==0?'FREE':'$'.number_format($addon['promo_price'],2) ?></span>
-            <?php else:?><span style="color:#444">—</span><?php endif;?></td>
-        <td><?= $addon['promo_cycles_remaining']>0?$addon['promo_cycles_remaining']:'<span style="color:#444">—</span>' ?></td>
-        <td><span style="font-size:0.8rem;color:<?= $addon['active']?'#6fcf6f':'#555' ?>"><?= $addon['active']?'Active':'Inactive' ?></span></td>
+            <?php else:?><span style="color:#a3a3a3">none</span><?php endif;?></td>
+        <td><?= $addon['promo_cycles_remaining']>0?$addon['promo_cycles_remaining']:'<span style="color:#a3a3a3">none</span>' ?></td>
+        <td><span class="status-badge <?= $addon['active']?'status-approved':'' ?>"><?= $addon['active']?'Active':'Inactive' ?></span></td>
         <td style="white-space:nowrap">
           <button class="btn-sm" onclick="toggleEdit(<?= $addon['id'] ?>)">Edit</button>
           <form method="POST" style="display:inline" onsubmit="return confirm('Remove?')">
@@ -390,7 +315,7 @@ $msg        = $_GET['msg'] ?? '';
         </td>
       </tr>
       <tr id="edit-<?= $addon['id'] ?>" style="display:none">
-        <td colspan="6" style="padding:14px 12px;background:#0a0a0a">
+        <td colspan="6" style="padding:14px 12px;background:#f2f2f2">
           <form method="POST">
             <input type="hidden" name="action" value="update_addon">
             <input type="hidden" name="addon_id" value="<?= $addon['id'] ?>">
@@ -403,7 +328,7 @@ $msg        = $_GET['msg'] ?? '';
               <div><label>Status</label><select name="active"><option value="1" <?= $addon['active']?'selected':'' ?>>Active</option><option value="0" <?= !$addon['active']?'selected':'' ?>>Inactive</option></select></div>
               <button type="submit" class="btn" style="white-space:nowrap">Save</button>
             </div>
-            <div><label>Client-facing description <span style="font-size:0.7rem;color:#555;text-transform:none;letter-spacing:0">(one bullet per line)</span></label>
+            <div><label>Client-facing description <span style="font-size:0.85rem;color:#6b6b6b;font-family:Barlow,sans-serif;font-weight:400">(one bullet per line)</span></label>
               <textarea name="addon_description" rows="3"><?= htmlspecialchars($addon['description']??'') ?></textarea></div>
           </form>
         </td>
@@ -414,7 +339,7 @@ $msg        = $_GET['msg'] ?? '';
     <hr class="divider">
     <?php else: ?><p class="empty" style="margin-bottom:16px">No add-ons yet.</p><?php endif; ?>
 
-    <h3 style="font-size:0.88rem;margin-bottom:14px">Add Custom Add-on</h3>
+    <h3 style="margin-top:4px">Add a custom add-on</h3>
     <form method="POST">
       <input type="hidden" name="action" value="add_addon">
       <input type="hidden" name="subscription_id" value="<?= $sub['id'] ?>">
@@ -426,12 +351,12 @@ $msg        = $_GET['msg'] ?? '';
         <div><label>Promo Cycles</label><input type="number" name="addon_promo_cycles" value="0"></div>
         <button type="submit" class="btn">Add</button>
       </div>
-      <div><label>Description <span style="font-size:0.7rem;color:#555;text-transform:none;letter-spacing:0">(one bullet per line)</span></label>
+      <div><label>Description <span style="font-size:0.85rem;color:#6b6b6b;font-family:Barlow,sans-serif;font-weight:400">(one bullet per line)</span></label>
         <textarea name="addon_description" rows="3" placeholder="What's included..."></textarea></div>
     </form>
   </div>
   <?php else: ?>
-  <p style="color:#555;font-size:0.88rem;padding:8px 0">Save the base plan first to unlock add-on management.</p>
+  <p class="empty" style="text-align:left;padding:8px 0">Save the base plan first to manage add-ons.</p>
   <?php endif; ?>
 
   <?php elseif ($active_tab === 'requests'): ?>
@@ -447,8 +372,8 @@ $msg        = $_GET['msg'] ?? '';
         <span class="status-badge status-<?= $req['status'] ?>"><?= ucfirst($req['status']) ?></span>
       </div>
       <?php if(!empty($req['admin_note'])): ?>
-        <div style="font-size:0.82rem;color:#666;padding-top:10px;border-top:1px solid #1e1e1e;margin-top:8px">
-          <strong style="color:#555">Note:</strong> <?= htmlspecialchars($req['admin_note']) ?></div>
+        <div style="font-size:0.9rem;color:#6b6b6b;padding-top:10px;border-top:1px solid #d6d6d6;margin-top:8px">
+          <strong>Note:</strong> <?= htmlspecialchars($req['admin_note']) ?></div>
       <?php endif; ?>
       <?php if($req['status']==='pending'): ?>
       <form method="POST" style="display:flex;gap:10px;margin-top:14px;align-items:flex-end;flex-wrap:wrap">
@@ -466,7 +391,7 @@ $msg        = $_GET['msg'] ?? '';
 </div>
 
 <?php if($msg): ?>
-<div class="toast" id="toast">✓ <?= htmlspecialchars($msg) ?></div>
+<div class="toast" id="toast"><?= htmlspecialchars($msg) ?></div>
 <script>setTimeout(()=>{ const t=document.getElementById('toast'); if(t){t.style.transition='opacity .4s';t.style.opacity='0';} },3500);</script>
 <?php endif; ?>
 <script>

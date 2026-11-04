@@ -34,94 +34,22 @@ $req_msg = $_GET['req_msg'] ?? '';
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunny Monkeys</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0d0d0d; color: #fff; font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
-
-  /* Header */
-  header { background: #111; border-bottom: 1px solid #222; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
-  header .brand { display: flex; align-items: center; gap: 12px; }
-  header img { height: 32px; width: auto; display: block; }
-  header h1 { font-size: 1rem; font-weight: 600; }
-  header nav { display: flex; align-items: center; gap: 20px; }
-  header nav span { color: #888; font-size: 0.9rem; }
-  header nav a { color: #aaa; font-size: 0.88rem; text-decoration: none; }
-  header nav a:hover { color: #fff; }
-
-  /* Layout */
-  .container { max-width: 860px; margin: 0 auto; padding: 44px 24px 80px; }
-  .page-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
-  .page-sub { color: #555; font-size: 0.9rem; margin-bottom: 40px; }
-
-  /* Section headers */
-  .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #555; margin-bottom: 14px; margin-top: 40px; }
-  .section-label:first-of-type { margin-top: 0; }
-
-  /* Plan cards */
-  .plan-card { background: #141414; border: 1px solid #222; border-radius: 14px; padding: 24px 26px; margin-bottom: 12px; }
-  .plan-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-  .plan-card-name { font-size: 1rem; font-weight: 700; color: #fff; }
-  .promo-chip { background: #2a1a0a; border: 1px solid #5a3a0a; color: #f0a040; font-size: 0.7rem; font-weight: 600; padding: 3px 9px; border-radius: 20px; text-transform: uppercase; letter-spacing: .06em; }
-  .plan-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .plan-bullets li { font-size: 0.9rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.45; }
-  .plan-bullets li::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #555; flex-shrink: 0; margin-top: 7px; }
-  .plan-empty { color: #555; font-size: 0.88rem; font-style: italic; }
-
-  /* Request button */
-  .request-btn { display: inline-flex; align-items: center; gap: 8px; background: #1e1e1e; border: 1px solid #333; color: #ccc; padding: 11px 20px; border-radius: 8px; font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: background .2s, color .2s; margin-top: 20px; }
-  .request-btn:hover { background: #2a2a2a; color: #fff; }
-  .request-btn svg { opacity: .6; }
-
-  /* Doc cards */
-  .doc-card { background: #141414; border: 1px solid #222; border-radius: 14px; overflow: hidden; margin-bottom: 12px; }
-  .doc-card-title { font-size: 0.7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #555; padding: 16px 20px 12px; border-bottom: 1px solid #1e1e1e; }
-  .doc-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-top: 1px solid #1a1a1a; }
-  .doc-item:first-of-type { border-top: none; }
-  .doc-info { display: flex; align-items: center; gap: 14px; }
-  .doc-icon { width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-  .doc-icon.invoice { background: #1a2a1a; }
-  .doc-icon.contract { background: #1a1a2a; }
-  .doc-name { font-size: 0.92rem; font-weight: 500; }
-  .doc-date { font-size: 0.78rem; color: #555; margin-top: 2px; }
-  .dl-btn { background: #1e1e1e; border: 1px solid #2e2e2e; color: #aaa; padding: 7px 14px; border-radius: 6px; font-size: 0.8rem; text-decoration: none; transition: background .2s; white-space: nowrap; }
-  .dl-btn:hover { background: #2a2a2a; color: #fff; }
-  .empty-state { color: #444; font-size: 0.88rem; padding: 20px; }
-
-  /* Slide-in panel */
-  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.65); z-index: 100; opacity: 0; pointer-events: none; transition: opacity .3s; }
-  .overlay.open { opacity: 1; pointer-events: all; }
-  .panel { position: fixed; top: 0; right: 0; bottom: 0; width: 440px; max-width: 100vw; background: #161616; border-left: 1px solid #2a2a2a; z-index: 101; transform: translateX(100%); transition: transform .3s cubic-bezier(.23,1,.32,1); display: flex; flex-direction: column; }
-  .panel.open { transform: translateX(0); }
-  .panel-head { padding: 24px 28px 20px; border-bottom: 1px solid #222; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
-  .panel-head h3 { font-size: 1.1rem; font-weight: 700; }
-  .panel-close { background: none; border: none; color: #666; font-size: 1.4rem; cursor: pointer; padding: 4px; line-height: 1; }
-  .panel-close:hover { color: #fff; }
-  .panel-body { padding: 28px; flex: 1; overflow-y: auto; }
-  .panel-hint { font-size: 0.85rem; color: #555; margin-bottom: 24px; line-height: 1.5; }
-  .p-group { margin-bottom: 20px; }
-  .p-group label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #666; margin-bottom: 7px; }
-  .p-group select, .p-group textarea { width: 100%; background: #111; border: 1px solid #2e2e2e; border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 0.92rem; outline: none; font-family: inherit; }
-  .p-group select:focus, .p-group textarea:focus { border-color: #444; }
-  .p-group select option { background: #111; }
-  .p-group textarea { resize: vertical; min-height: 120px; }
-  .panel-submit { width: 100%; background: #fff; color: #000; border: none; border-radius: 8px; padding: 14px; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: background .2s; }
-  .panel-submit:hover { background: #e8e8e8; }
-
-  /* Toast */
-  .toast { position: fixed; top: 20px; right: 20px; background: #1a3a1a; border: 1px solid #2a6a2a; color: #6fcf6f; padding: 12px 20px; border-radius: 10px; font-size: 0.88rem; font-weight: 500; box-shadow: 0 4px 20px rgba(0,0,0,.4); z-index: 999; animation: fadeIn .3s ease; }
-  @keyframes fadeIn { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
-</style>
+<title>Client Portal | Sunny Monkeys</title>
+<link rel="icon" type="image/png" href="/assets/images/fav.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/portal/assets/portal.css?v=2">
 </head>
 <body>
 
 <header>
   <div class="brand">
-    <img src="/assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys">
+    <a class="logo" href="/"><span class="mark" aria-hidden="true"></span>Sunny Monkeys</a>
     <h1>Client Portal</h1>
   </div>
   <nav>
-    <span>👋 <?= htmlspecialchars($first_name) ?></span>
+    <span><?= htmlspecialchars($first_name) ?></span>
     <a href="logout.php">Sign out</a>
   </nav>
 </header>
@@ -139,7 +67,7 @@ $req_msg = $_GET['req_msg'] ?? '';
     <div class="plan-card-header">
       <span class="plan-card-name"><?= htmlspecialchars($sub['base_name']) ?></span>
       <?php if ($sub['billing_cycle']): ?>
-        <span style="font-size:0.78rem;color:#555">Billed <?= htmlspecialchars($sub['billing_cycle']) ?></span>
+        <span class="meta">Billed <?= htmlspecialchars($sub['billing_cycle']) ?></span>
       <?php endif; ?>
     </div>
     <?php
@@ -196,7 +124,7 @@ $req_msg = $_GET['req_msg'] ?? '';
     <?php else: foreach ($invoices as $doc): ?>
       <div class="doc-item">
         <div class="doc-info">
-          <div class="doc-icon invoice">🧾</div>
+          <div class="doc-icon invoice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg></div>
           <div>
             <div class="doc-name"><?= htmlspecialchars($doc['title']) ?></div>
             <div class="doc-date"><?= date('M j, Y', strtotime($doc['uploaded_at'])) ?></div>
@@ -214,7 +142,7 @@ $req_msg = $_GET['req_msg'] ?? '';
     <?php else: foreach ($contracts as $doc): ?>
       <div class="doc-item">
         <div class="doc-info">
-          <div class="doc-icon contract">📄</div>
+          <div class="doc-icon contract"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h7"/></svg></div>
           <div>
             <div class="doc-name"><?= htmlspecialchars($doc['title']) ?></div>
             <div class="doc-date"><?= date('M j, Y', strtotime($doc['uploaded_at'])) ?></div>
@@ -234,12 +162,12 @@ $req_msg = $_GET['req_msg'] ?? '';
     <button class="panel-close" onclick="closePanel()">×</button>
   </div>
   <div class="panel-body">
-    <p class="panel-hint">Let us know what you'd like to add, remove, or ask about. We'll follow up within one business day.</p>
+    <p class="panel-hint">Let us know what you'd like to add, remove, or ask about. We'll follow up by email.</p>
     <form action="subscription-request.php" method="POST">
       <div class="p-group">
         <label>Request Type</label>
         <select name="type" required>
-          <option value="">— Select —</option>
+          <option value="">Choose one</option>
           <option value="addon">Add a service</option>
           <option value="removal">Remove a service</option>
           <option value="custom">Question or custom request</option>
@@ -247,7 +175,7 @@ $req_msg = $_GET['req_msg'] ?? '';
       </div>
       <div class="p-group">
         <label>Message</label>
-        <textarea name="message" placeholder="Describe what you'd like to change or ask about…" required></textarea>
+        <textarea name="message" placeholder="Describe what you'd like to change or ask about." required></textarea>
       </div>
       <button type="submit" class="panel-submit">Send Request</button>
     </form>
@@ -255,7 +183,7 @@ $req_msg = $_GET['req_msg'] ?? '';
 </div>
 
 <?php if ($req_msg): ?>
-<div class="toast" id="toast">✓ <?= htmlspecialchars($req_msg) ?></div>
+<div class="toast" id="toast"><?= htmlspecialchars($req_msg) ?></div>
 <script>setTimeout(()=>{ const t=document.getElementById('toast'); if(t){t.style.transition='opacity .4s';t.style.opacity='0';} },4000);</script>
 <?php endif; ?>
 

@@ -26,47 +26,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunny Monkeys</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0d0d0d; color: #fff; font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
-  header { background: #111; border-bottom: 1px solid #222; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
-  header .brand { display: flex; align-items: center; gap: 12px; }
-  header img { height: 32px; width: auto; display: block; }
-  header h1 { font-size: 1rem; font-weight: 600; }
-  header nav a { color: #aaa; font-size: 0.88rem; text-decoration: none; margin-left: 20px; }
-  header nav a:hover { color: #fff; }
-  .container { max-width: 520px; margin: 0 auto; padding: 48px 24px; }
-  h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 28px; }
-  label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; color: #aaa; margin-bottom: 6px; text-transform: uppercase; }
-  input { width: 100%; background: #111; border: 1px solid #333; border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 0.95rem; margin-bottom: 20px; outline: none; }
-  input:focus { border-color: #555; }
-  .btn { background: #fff; color: #000; border: none; border-radius: 8px; padding: 12px 24px; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
-  .btn:hover { background: #e0e0e0; }
-  .success { background: #0a2a0a; border: 1px solid #1a5a1a; color: #6fcf6f; padding: 10px 14px; border-radius: 8px; margin-bottom: 20px; font-size: 0.88rem; }
-  .error { background: #2a0a0a; border: 1px solid #5a1a1a; color: #ff6b6b; padding: 10px 14px; border-radius: 8px; margin-bottom: 20px; font-size: 0.88rem; }
-</style>
+<title>Add client | Sunny Monkeys admin</title>
+<link rel="icon" type="image/png" href="/assets/images/fav.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/portal/assets/portal.css?v=2">
 </head>
 <body>
 <header>
   <div class="brand">
-    <img src="/assets/images/logo-sunny-monkeys-white.png" alt="Sunny Monkeys">
+    <a class="logo" href="/"><span class="mark" aria-hidden="true"></span>Sunny Monkeys</a>
     <h1>Admin Portal</h1>
   </div>
-  <nav><a href="index.php">← Clients</a><a href="../logout.php">Sign out</a></nav>
+  <nav><a href="index.php">Clients</a><a href="../logout.php">Sign out</a></nav>
 </header>
-<div class="container">
-  <h2>Add New Client</h2>
+<div class="container narrow">
+  <h2>Add a client</h2>
   <?php if ($success): ?><div class="success"><?= htmlspecialchars($success) ?></div><?php endif; ?>
   <?php if ($error): ?><div class="error"><?= htmlspecialchars($error) ?></div><?php endif; ?>
   <form method="POST">
-    <label>Full Name</label><input type="text" name="name" required placeholder="Jane Smith">
-    <label>Email Address</label><input type="email" name="email" required placeholder="jane@company.com">
+    <label>Full name</label><input type="text" name="name" required placeholder="Jane Smith">
+    <label>Email address</label><input type="email" name="email" required placeholder="jane@company.com">
     <label>Company (optional)</label><input type="text" name="company" placeholder="Acme Inc.">
-    <label>Temporary Password</label><input type="text" name="password" required placeholder="They can change this later">
-    <div style="display:flex;gap:12px;margin-top:8px;">
-      <button type="submit" name="action" value="view" class="btn">Create & View Clients</button>
-      <button type="submit" name="action" value="another" class="btn" style="background:#222;color:#fff;border:1px solid #444;">Create & Add Another</button>
+    <label>Temporary password</label><input type="text" name="password" required placeholder="They can change this later">
+    <div style="display:flex;gap:12px;margin-top:8px;flex-wrap:wrap">
+      <button type="submit" name="action" value="view" class="btn">Create and view clients</button>
+      <button type="submit" name="action" value="another" class="btn btn-outline">Create and add another</button>
     </div>
   </form>
 </div>
