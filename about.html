@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/sm.css?v=3">
+    <link rel="stylesheet" href="/assets/css/sm.css?v=4">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -31,12 +31,12 @@
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
         <nav class="site-nav" id="site-nav" aria-label="Main">
             <ul>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/in-house-designer">In-House Designer</a></li>
-                <li><a href="/about" aria-current="page">About</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li style="--i:0"><a href="/services">Services</a></li>
+                <li style="--i:1"><a href="/in-house-designer">In-House Designer</a></li>
+                <li style="--i:2"><a href="/about" aria-current="page">About</a></li>
+                <li style="--i:3"><a href="/contact">Contact</a></li>
             </ul>
-            <div class="nav-actions">
+            <div class="nav-actions" style="--i:4">
                 <a href="/login">Log in</a>
                 <a class="btn btn-primary" href="/contact">Book a call</a>
             </div>
@@ -54,15 +54,15 @@
 
     <section class="section rule-top">
         <div class="wrap grid-2 sidebar">
-            <div class="stack prose">
+            <div class="stack prose" data-reveal>
                 <h2 style="font-size: var(--t-2); text-transform: none; letter-spacing: 0">A note from Marco, founder</h2>
-                <p>I started Sunny Monkeys after watching the same thing happen again and again at agencies. A designer gets four or five brands at once. They do their best, but they can't know the context of each business, so every month the work looks a little different, and a little less like the company it's for. The client notices. The designer notices. Nobody can fix it, because the model doesn't allow it.</p>
-                <p>A good brief is enough for a brand that's just getting started. That's why we do projects with a clear scope and a fixed price: a brand identity, a website that works, the templates you need to show up every week.</p>
-                <p>But an established business needs more than a brief. It needs someone who knows it inside out. So we built the second half of the studio around that: Your In-House Designer. One bilingual designer, dedicated to your brand, working your hours inside your tools, with our art direction behind them. Remote, but not outsourced.</p>
-                <p>We use AI to move faster. The ideas, the judgment and the art direction are human.</p>
+                <p>I started Sunny Monkeys after watching the same thing happen again and again at agencies: a designer gets four or five brands at once, can't know any of them well, and the work drifts. The client notices. The designer notices. The model doesn't let anyone fix it.</p>
+                <p>A good brief is enough for a brand that's just getting started. So we do projects with a clear scope and a fixed price.</p>
+                <p>An established business needs someone who knows it inside out. So we built Your In-House Designer: one bilingual designer, dedicated to your brand, with our art direction behind them. Remote, but not outsourced.</p>
                 <p class="quote">"The designer who built your brand stays with it."</p>
+                <p class="signature">Marco Mendoza, founder</p>
             </div>
-            <div>
+            <div data-reveal>
 <svg class="diagram diagram-d" viewBox="0 0 600 310" role="img" aria-labelledby="juggle-d-title">
 <title id="juggle-d-title">At an agency one designer juggles five brands. In-house, one designer works for one brand.</title>
 <text class="label" x="20" y="34">At an agency</text>
@@ -105,35 +105,35 @@
 
     <section class="section rule-top">
         <div class="wrap">
-            <div class="section-head">
+            <div class="section-head" data-reveal>
                 <h2>Where we are</h2>
             </div>
-            <ul class="facts" style="--cols:4">
-            <li><h4>A US studio</h4><p>Sunny Monkeys LLC is registered in the United States, with clients across the country.</p></li>
-            <li><h4>Designers in Latin America</h4><p>Our network of bilingual designers works on US hours, in English and Spanish.</p></li>
-            <li><h4>Your tools, your hours</h4><p>Slack or Teams, your project board, your drive. We fit into how your team already works.</p></li>
-            <li><h4>One contact</h4><p>A Sunny Monkeys lead stays with you from the first call through every weekly review.</p></li>
+            <ul class="facts" style="--cols:4" data-reveal="stagger">
+            <li><h4>A US studio</h4><p>Sunny Monkeys LLC, with clients across the country.</p></li>
+            <li><h4>Designers in Latin America</h4><p>Bilingual, on US hours, in English and Spanish.</p></li>
+            <li><h4>Your tools, your hours</h4><p>Slack or Teams, your board, your drive.</p></li>
+            <li><h4>One contact</h4><p>A Sunny Monkeys lead, from the first call on.</p></li>
         </ul>
         </div>
     </section>
 
     <section class="section rule-top">
         <div class="wrap">
-            <div class="section-head">
+            <div class="section-head" data-reveal>
                 <h2>How we work</h2>
             </div>
-            <ol class="steps" style="--cols:3">
-            <li><h3>Discovery</h3><p>We get to know your brand, your goals and what makes you different from everyone else.</p></li>
-            <li><h3>Creative direction</h3><p>We craft a visual and messaging strategy that captures your brand's essence and speaks to your audience.</p></li>
-            <li><h3>Delivery</h3><p>We bring it all to life: polished, on-brand and ready to work from day one. Nothing goes live without your approval, and you own everything we make.</p></li>
+            <ol class="steps" style="--cols:3" data-reveal="stagger">
+            <li><h3>Discovery</h3><p>We learn your brand, your goals and what makes you different.</p></li>
+            <li><h3>Creative direction</h3><p>A visual and messaging strategy that fits you and your audience.</p></li>
+            <li><h3>Delivery</h3><p>Polished, on-brand, approved by you. You own everything we make.</p></li>
         </ol>
         </div>
     </section>
 
     <section class="section ink cta">
-        <div class="wrap">
+        <div class="wrap" data-reveal>
             <h2>Let's talk about your brand.</h2>
-            <p class="lead">A project with a fixed price, or a designer of your own. We'll reply by email to set up a call.</p>
+            <p class="lead">A project with a fixed price, or a designer of your own.</p>
             <div class="actions">
                 <a class="btn btn-primary btn-lg" href="/contact">Get in touch</a>
                 <a class="btn btn-lg" href="/services">See services and packages</a>
@@ -187,6 +187,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/js/sm.js?v=3" defer></script>
+<script src="/assets/js/sm.js?v=4" defer></script>
 </body>
 </html>

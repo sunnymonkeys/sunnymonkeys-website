@@ -1,73 +1,90 @@
-/* sunnymonkeys.com scripts: menu, forms and the diagrams that start when they scroll into view.
+/* sunnymonkeys.com scripts, version 4: menu, header line, reveals, forms.
    No libraries. The forms post to /portal/inquiry.php, which saves every submission before emailing it. */
 (function () {
   'use strict';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
 
   /* Hero entrance: only when the page opens in a visible tab, so text is never left hidden */
-  if (!reduceMotion && document.visibilityState === 'visible') document.documentElement.classList.add('anim');
-  // Safety net: once the entrance is over, drop the class so the end state is the plain styles
-  setTimeout(function () { document.documentElement.classList.remove('anim'); }, 2500);
+  if (!reduceMotion && document.visibilityState === 'visible') root.classList.add('anim');
+  setTimeout(function () { root.classList.remove('anim'); }, 2500);
 
   /* Menu (phones and tablets) */
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('site-nav');
   if (toggle && nav) {
-    function setOpen(open) {
+    var setOpen = function (open) {
       document.body.classList.toggle('nav-open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    }
-    toggle.addEventListener('click', function () {
-      setOpen(!document.body.classList.contains('nav-open'));
-    });
+    };
+    toggle.addEventListener('click', function () { setOpen(!document.body.classList.contains('nav-open')); });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && document.body.classList.contains('nav-open')) { setOpen(false); toggle.focus(); }
     });
-    nav.addEventListener('click', function (e) {
-      if (e.target.closest('a')) setOpen(false);
-    });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
     window.matchMedia('(min-width: 900px)').addEventListener('change', function (m) { if (m.matches) setOpen(false); });
   }
 
-  /* Diagrams: animate once when they scroll into view */
-  var animated = Array.prototype.slice.call(document.querySelectorAll('.timeline'));
-  if (animated.length) {
-    if (reduceMotion) {
-      animated.forEach(function (el) { el.classList.add('is-static'); });
-    } else {
-      var reveal = function (el) { el.classList.add('is-visible'); animated = animated.filter(function (x) { return x !== el; }); };
-      var check = function () {
-        animated.forEach(function (el) {
-          var r = el.getBoundingClientRect();
-          if (r.width > 0 && r.top < window.innerHeight * 0.85 && r.bottom > 0) reveal(el);
+  /* Header: a gradient line draws under it once the page is scrolled */
+  var header = document.querySelector('.site-header');
+  var onHeader = function () { if (header) header.classList.toggle('is-scrolled', window.scrollY > 24); };
+
+  /* Reveals: grids, lists and diagrams animate once when they scroll into view */
+  var pending = Array.prototype.slice.call(document.querySelectorAll('[data-reveal], .timeline'));
+  pending.forEach(function (el) {
+    if (el.getAttribute('data-reveal') === 'stagger') {
+      Array.prototype.forEach.call(el.children, function (child, i) { child.style.setProperty('--i', i); });
+    }
+  });
+  var reveal = function (el) {
+    el.classList.add('is-visible');
+    pending = pending.filter(function (x) { return x !== el; });
+  };
+  var check = function () {
+    var h = window.innerHeight;
+    pending.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.width > 0 && r.top < h * 0.9 && r.bottom > 0) reveal(el);
+    });
+  };
+  if (reduceMotion) {
+    pending.forEach(function (el) { el.classList.add('is-visible', 'is-static'); });
+    pending = [];
+  } else {
+    root.classList.add('reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { reveal(entry.target); io.unobserve(entry.target); }
         });
-      };
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) { reveal(entry.target); io.unobserve(entry.target); }
-          });
-        }, { threshold: 0.35 });
-        animated.forEach(function (el) { io.observe(el); });
-      }
-      // Scroll check as well, for browsers that delay observer callbacks
-      var ticking = false;
-      var onScroll = function () {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function () { ticking = false; check(); });
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      window.addEventListener('load', check);
-      check();
+      }, { threshold: 0.12 });
+      pending.forEach(function (el) { io.observe(el); });
     }
   }
-  if (reduceMotion) {
-    document.querySelectorAll('.board').forEach(function (el) { el.classList.add('is-static'); });
-  }
+  var last = 0;
+  var timer = null;
+  var onScroll = function () {
+    var now = Date.now();
+    if (now - last < 80) {
+      if (!timer) timer = setTimeout(function () { timer = null; last = Date.now(); onHeader(); check(); }, 80);
+      return;
+    }
+    last = now;
+    onHeader();
+    check();
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', function () { onHeader(); check(); });
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') check(); });
+  // Early on, look a few more times in case the observer is slow to start
+  var tries = 0;
+  var early = setInterval(function () { check(); if (++tries >= 12 || !pending.length) clearInterval(early); }, 500);
+  onHeader();
+  check();
+  if (reduceMotion) document.querySelectorAll('.board').forEach(function (el) { el.classList.add('is-static'); });
 
   /* Forms */
   var pageLoadedAt = Date.now();
@@ -126,15 +143,13 @@
   var start = document.getElementById('cf-start');
   var startGroup = document.getElementById('cf-start-group');
   if (service && start && startGroup) {
-    function toggleStart() {
+    var toggleStart = function () {
       var inHouse = (service.value || '').indexOf('in-house') === 0;
       startGroup.hidden = !inHouse;
       start.required = inHouse;
       if (!inHouse) start.value = '';
-    }
+    };
     service.addEventListener('change', toggleStart);
-
-    // Preselect the service or package when arriving from a button, e.g. /contact?package=growth
     var pkg = (new URLSearchParams(window.location.search).get('package') || '').replace(/[^a-z-]/g, '');
     if (pkg && service.querySelector('option[value="' + pkg + '"]')) service.value = pkg;
     toggleStart();
