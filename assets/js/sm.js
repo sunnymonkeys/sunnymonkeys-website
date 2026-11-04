@@ -5,6 +5,9 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Hero entrance: only when the page opens in a visible tab, so text is never left hidden */
+  if (!reduceMotion && document.visibilityState === 'visible') document.documentElement.classList.add('anim');
+
   /* Menu (phones and tablets) */
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('site-nav');

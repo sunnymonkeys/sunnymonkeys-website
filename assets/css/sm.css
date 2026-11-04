@@ -299,7 +299,7 @@ table.compare { width: 100%; border-collapse: collapse; font-size: var(--t-small
   .compare th[scope="row"] { width: 100%; padding: 0 0 0.4rem; border: 0; font: 600 var(--t-3) / 1.2 var(--font-display); }
   .compare td { display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--s-2); padding: 0.25rem 0; border: 0; }
   .compare td::before, .compare td.yes::before { content: attr(data-plan); color: var(--fg-muted); }
-  .compare td.yes::after { content: "\2713 Included"; }
+  .compare td.yes::after { content: "\2713\00a0Included"; }
 }
 
 /* Boards and diagrams (inline SVG, monochrome). Each has a desktop and a phone drawing. */
@@ -368,12 +368,11 @@ table.compare { width: 100%; border-collapse: collapse; font-size: var(--t-small
   .timeline .bar { transition: none; transform: none; }
 }
 /* Hero: one orchestrated entrance on load, only for people who accept motion */
-@media (prefers-reduced-motion: no-preference) {
-  .hero h1 .line { opacity: 0; transform: translateY(0.3em); animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
-  .hero h1 .line:nth-child(2) { animation-delay: 0.08s; }
-  .hero h1 .line:nth-child(3) { animation-delay: 0.16s; }
-  .hero-rise { opacity: 0; transform: translateY(0.6rem); animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.28s forwards; }
-}
+/* sm.js adds html.anim only when the page loads in a visible tab and motion is welcome */
+html.anim .hero h1 .line { opacity: 0; transform: translateY(0.3em); animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+html.anim .hero h1 .line:nth-child(2) { animation-delay: 0.08s; }
+html.anim .hero h1 .line:nth-child(3) { animation-delay: 0.16s; }
+html.anim .hero-rise { opacity: 0; transform: translateY(0.6rem); animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.28s forwards; }
 @keyframes rise { to { opacity: 1; transform: none; } }
 
 /* FAQ */
