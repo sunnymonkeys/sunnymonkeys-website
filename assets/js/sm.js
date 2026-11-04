@@ -7,6 +7,8 @@
 
   /* Hero entrance: only when the page opens in a visible tab, so text is never left hidden */
   if (!reduceMotion && document.visibilityState === 'visible') document.documentElement.classList.add('anim');
+  // Safety net: once the entrance is over, drop the class so the end state is the plain styles
+  setTimeout(function () { document.documentElement.classList.remove('anim'); }, 2500);
 
   /* Menu (phones and tablets) */
   var toggle = document.querySelector('.nav-toggle');
