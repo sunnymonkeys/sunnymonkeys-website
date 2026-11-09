@@ -12,6 +12,10 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # Block hidden files and folders (.github, .git, ...) but keep .well-known for SSL renewals
 RewriteRule (^|/)\.(?!well-known/) - [F]
 
+# The unused WordPress install still sitting in the web root is not reachable (since 2026-11-09).
+# The site itself has no index.php; remove these lines once the wp-* files are deleted from the server.
+RewriteRule ^(wp-|xmlrpc\.php$|index\.php$|readme\.html$|license\.txt$) - [F,L]
+
 # Client portal
 RewriteRule ^login/?$ /portal/login.php [L]
 

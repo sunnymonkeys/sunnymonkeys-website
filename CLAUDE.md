@@ -59,5 +59,5 @@ This file is technical only. The repo is public, so keep business details out of
 - [ ] Make the repo private. This needs a read-only GitHub token in the server's git remote URL first (Marco does it in cPanel), then Marco flips the visibility, then test a deploy.
 - [ ] Real numbers for the site, if Marco wants them (projects, clients). The made-up stats band is gone; the home page states commitments instead.
 - [ ] Old template files and `service-1.html` are still on the server; harmless, but Marco can delete them from cPanel once he has a backup.
-- [ ] The unused WordPress install (`wp-*` in the web root) is still live and reachable, and `public_html/portal/config/setup.php` is still on the server (blocked, but dead weight). Marco deletes both from cPanel once backed up, or asks for `wp-*` to be blocked in `.htaccess` meanwhile.
+- [ ] The unused WordPress install (`wp-*`, `index.php`, `xmlrpc.php` in the web root) is blocked by `.htaccess` since 2026-11-09 but still on disk, like `public_html/portal/config/setup.php`. Marco deletes both from cPanel once backed up; then the WordPress rule in `.htaccess` can go.
 - [ ] Marco tries the admin pages (clients, upload, client view, inquiries) after the 2026-11-09 hardening: every form now carries a token and the sign-in cookie changed, so everyone signs in again.
