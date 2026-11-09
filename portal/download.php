@@ -1,31 +1,48 @@
 <?php
-session_start();
-if (!isset($_SESSION['user_id']) && !isset($_SESSION['admin_id'])) {
-    header('Location: login.php');
-    exit;
+// Serves a client's PDF. Admins can download any document; clients only their own.
+require_once __DIR__ . '/lib/core.php';
+portal_session();
+portal_no_cache();
+if (empty($_SESSION['user_id']) && empty($_SESSION['admin_id'])) {
+    portal_redirect('login.php');
 }
-require_once __DIR__ . '/config/db.php';
-$pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$id = intval($_GET['id'] ?? 0);
+function not_found(): void
+{
+    http_response_code(404);
+    header('Content-Type: text/plain; charset=utf-8');
+    exit('File not found.');
+}
 
-if (isset($_SESSION['admin_id'])) {
-    $stmt = $pdo->prepare('SELECT * FROM documents WHERE id = ?');
+$pdo = portal_db();
+$id  = (int) ($_GET['id'] ?? 0);
+
+if (!empty($_SESSION['admin_id'])) {
+    $stmt = $pdo->prepare('SELECT id, filename FROM documents WHERE id = ?');
     $stmt->execute([$id]);
 } else {
-    $stmt = $pdo->prepare('SELECT * FROM documents WHERE id = ? AND client_id = ?');
-    $stmt->execute([$id, $_SESSION['user_id']]);
+    $stmt = $pdo->prepare('SELECT id, filename FROM documents WHERE id = ? AND client_id = ?');
+    $stmt->execute([$id, (int) $_SESSION['user_id']]);
+}
+$doc = $stmt->fetch();
+if (!$doc) {
+    not_found();
 }
 
-$doc = $stmt->fetch(PDO::FETCH_ASSOC);
-if (!$doc) { http_response_code(404); die('File not found.'); }
-
-$filepath = __DIR__ . '/uploads/' . $doc['filename'];
-if (!file_exists($filepath)) { http_response_code(404); die('File not found.'); }
+// The stored name must be a plain file name inside uploads/, nothing else.
+$name = (string) $doc['filename'];
+if ($name === '' || basename($name) !== $name) {
+    not_found();
+}
+$dir  = realpath(__DIR__ . '/uploads');
+$path = $dir === false ? false : realpath($dir . '/' . $name);
+if ($path === false || strpos($path, $dir . DIRECTORY_SEPARATOR) !== 0 || !is_file($path)) {
+    not_found();
+}
 
 header('Content-Type: application/pdf');
-header('Content-Disposition: attachment; filename="' . basename($doc['filename']) . '"');
-header('Content-Length: ' . filesize($filepath));
-readfile($filepath);
+header('X-Content-Type-Options: nosniff');
+header('Content-Disposition: attachment; filename="' . str_replace(['"', "\r", "\n"], '', $name) . '"');
+header('Content-Length: ' . (string) filesize($path));
+readfile($path);
 exit;

@@ -66,8 +66,7 @@ $stored = $startLabel !== '' ? "Preferred start: $startLabel\n\n$message" : $mes
 $started = (int) ($_POST['started'] ?? 0);
 $spam = (($_POST['website'] ?? '') !== '') || ($started > 0 && (time() * 1000 - $started) < 3000);
 
-$ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? '';
-$ipHash = hash('sha256', $ip . '|' . DB_NAME);
+$ipHash = portal_ip_hash();
 
 try {
     $pdo = inquiries_db();

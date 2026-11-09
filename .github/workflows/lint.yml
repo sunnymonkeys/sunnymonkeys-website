@@ -1,0 +1,26 @@
+name: Check syntax
+
+# Runs on every branch except main. Main is checked by the deploy workflow right before deploying,
+# so this is the way to test a change before it goes live: push a branch, wait for the green check, merge.
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PHP syntax
+        run: |
+          php --version | head -1
+          find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
+
+      - name: JavaScript syntax
+        run: |
+          node --version
+          for f in assets/js/sm.js portal/assets/portal.js; do node --check "$f"; done

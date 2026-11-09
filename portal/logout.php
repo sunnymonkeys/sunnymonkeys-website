@@ -1,5 +1,5 @@
 <?php
-session_start();
-session_destroy();
-header('Location: https://sunnymonkeys.com/portal/login.php');
-exit;
+require_once __DIR__ . '/lib/core.php';
+portal_session();
+portal_session_destroy();
+portal_redirect('login.php');

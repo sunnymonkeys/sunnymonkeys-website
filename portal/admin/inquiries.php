@@ -1,15 +1,13 @@
 <?php
-session_start();
-if (!isset($_SESSION['admin_id'])) { header('Location: https://sunnymonkeys.com/portal/login.php'); exit; }
 require_once __DIR__ . '/../lib/inquiries.php';
+require_admin();
 $pdo = inquiries_db();
-
-if (empty($_SESSION['csrf'])) { $_SESSION['csrf'] = bin2hex(random_bytes(16)); }
 
 $tab = in_array($_GET['tab'] ?? '', ['contact', 'newsletter', 'spam'], true) ? $_GET['tab'] : 'contact';
 
 // Mark read/unread, or move in/out of spam
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    csrf_check();
     $id = (int) ($_POST['id'] ?? 0);
     switch ($_POST['action'] ?? '') {
         case 'read':     $pdo->prepare('UPDATE inquiries SET read_at = NOW() WHERE id = ?')->execute([$id]); break;
@@ -17,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && hash_equals($_SESSION['csrf'], $_PO
         case 'spam':     $pdo->prepare('UPDATE inquiries SET spam = 1 WHERE id = ?')->execute([$id]); break;
         case 'not-spam': $pdo->prepare('UPDATE inquiries SET spam = 0 WHERE id = ?')->execute([$id]); break;
     }
-    header('Location: inquiries.php?tab=' . $tab); exit;
+    portal_redirect('admin/inquiries.php?tab=' . $tab);
 }
 
 $counts = $pdo->query("
@@ -27,21 +25,21 @@ $counts = $pdo->query("
       SUM(type = 'newsletter' AND spam = 0)                   AS newsletter,
       SUM(spam = 1)                                           AS spam
     FROM inquiries
-")->fetch(PDO::FETCH_ASSOC);
+")->fetch();
 
 if ($tab === 'spam') {
-    $rows = $pdo->query('SELECT * FROM inquiries WHERE spam = 1 ORDER BY created_at DESC LIMIT 200')->fetchAll(PDO::FETCH_ASSOC);
+    $rows = $pdo->query('SELECT * FROM inquiries WHERE spam = 1 ORDER BY created_at DESC LIMIT 200')->fetchAll();
 } else {
     $stmt = $pdo->prepare('SELECT * FROM inquiries WHERE type = ? AND spam = 0 ORDER BY created_at DESC LIMIT 500');
     $stmt->execute([$tab]);
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $rows = $stmt->fetchAll();
 }
 
-function h($s) { return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8'); }
-function action_button(int $id, string $action, string $label) {
-    return '<form method="post" style="display:inline"><input type="hidden" name="csrf" value="' . h($_SESSION['csrf']) . '">'
-         . '<input type="hidden" name="id" value="' . $id . '"><input type="hidden" name="action" value="' . $action . '">'
-         . '<button class="btn-sm" type="submit">' . $label . '</button></form>';
+function action_button(int $id, string $action, string $label): string
+{
+    return '<form method="post" style="display:inline">' . csrf_field()
+         . '<input type="hidden" name="id" value="' . $id . '"><input type="hidden" name="action" value="' . h($action) . '">'
+         . '<button class="btn-sm" type="submit">' . h($label) . '</button></form>';
 }
 ?>
 <!DOCTYPE html>
@@ -50,11 +48,12 @@ function action_button(int $id, string $action, string $label) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inquiries | Sunny Monkeys</title>
+<meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="/assets/images/fav.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/portal/assets/portal.css?v=2">
+<link rel="stylesheet" href="/portal/assets/portal.css?v=3">
 </head>
 <body>
 <header>
@@ -92,12 +91,6 @@ function action_button(int $id, string $action, string $label) {
       <?php endforeach; ?>
       </tbody>
     </table>
-    <script>
-      document.getElementById('copy-emails').addEventListener('click', function () {
-        var emails = Array.from(document.querySelectorAll('.sub-email')).map(function (td) { return td.textContent.trim(); });
-        navigator.clipboard.writeText(emails.join('\n')).then(() => { this.textContent = 'Copied ' + emails.length; });
-      });
-    </script>
 
   <?php else: ?>
     <?php foreach ($rows as $r): $unread = $r['type'] === 'contact' && !$r['read_at'] && !$r['spam']; ?>
@@ -130,5 +123,6 @@ function action_button(int $id, string $action, string $label) {
     <?php endforeach; ?>
   <?php endif; ?>
 </div>
+<script src="/portal/assets/portal.js?v=1" defer></script>
 </body>
 </html>

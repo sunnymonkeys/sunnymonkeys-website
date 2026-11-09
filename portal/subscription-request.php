@@ -1,27 +1,24 @@
 <?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header('Location: https://sunnymonkeys.com/portal/login.php'); exit;
-}
-require_once __DIR__ . '/config/db.php';
-$pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8', DB_USER, DB_PASS);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// A signed-in client asks for a change to their plan. Saved for the admin, shown on the client's next page.
+require_once __DIR__ . '/lib/core.php';
+require_client();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: dashboard.php'); exit;
+    portal_redirect('dashboard.php');
 }
+csrf_check();
 
-$client_id = $_SESSION['user_id'];
-$type      = in_array($_POST['type'] ?? '', ['addon','removal','custom']) ? $_POST['type'] : 'custom';
-$message   = trim($_POST['message'] ?? '');
+$type    = $_POST['type'] ?? '';
+$type    = in_array($type, ['addon', 'removal', 'custom'], true) ? $type : 'custom';
+$message = trim((string) ($_POST['message'] ?? ''));
 
-if ($message) {
-    $pdo->prepare('INSERT INTO subscription_requests (client_id, type, message) VALUES (?, ?, ?)')
-       ->execute([$client_id, $type, $message]);
-    $msg = 'Your request was sent. We\'ll follow up shortly.';
+if ($message === '') {
+    flash_set('Please include a message with your request.');
+} elseif (portal_len($message) > 5000) {
+    flash_set('Please keep your request under 5,000 characters.');
 } else {
-    $msg = 'Please include a message with your request.';
+    portal_db()->prepare('INSERT INTO subscription_requests (client_id, type, message) VALUES (?, ?, ?)')
+        ->execute([(int) $_SESSION['user_id'], $type, $message]);
+    flash_set("Your request was sent. We'll follow up shortly.");
 }
-
-header('Location: dashboard.php?req_msg=' . urlencode($msg));
-exit;
+portal_redirect('dashboard.php');

@@ -221,3 +221,6 @@ input:checked + .slider::before { transform: translateX(18px); }
 .login-footer a, .login-back a { text-decoration: underline; text-underline-offset: 0.18em; }
 .login-footer a:hover, .login-back a:hover { text-decoration-color: var(--blue); }
 .login-back { text-align: center; margin-top: 1.5rem; color: var(--grey-3); }
+
+/* Toast fades out when portal.js hides it */
+.toast.is-hidden { opacity: 0; transition: opacity 0.4s; }

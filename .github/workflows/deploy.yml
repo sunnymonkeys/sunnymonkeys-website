@@ -31,6 +31,10 @@ jobs:
           php --version | head -1
           find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
 
+      - name: Check JavaScript files for syntax errors
+        run: |
+          for f in assets/js/sm.js portal/assets/portal.js; do node --check "$f"; done
+
       - name: Pull latest code on server
         run: |
           set -euo pipefail

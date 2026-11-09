@@ -1,7 +1,14 @@
 Options -Indexes
+ServerSignature Off
 ErrorDocument 404 /error.html
 
 RewriteEngine On
+
+# Temporary check, removed once verified: /https-check answers 302 if Apache does not see requests as HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^https-check$ /?https=not-seen [R=302,L]
+RewriteRule ^https-check$ /index.html [L]
 
 # Block hidden files and folders (.github, .git, ...) but keep .well-known for SSL renewals
 RewriteRule (^|/)\.(?!well-known/) - [F]
@@ -27,6 +34,40 @@ RewriteRule ^([a-z0-9-]+)$ /$1.html [L]
 
 # Browsers ask for /favicon.ico by default
 RewriteRule ^favicon\.ico$ /assets/images/fav.png [L]
+
+# Files that are never meant for the browser: config examples, notes, logs, dumps, backups
+<FilesMatch "\.(example|md|yml|yaml|log|sql|bak|sh|env|ini)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+<Files "error_log">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</Files>
+
+# Security headers on every response.
+# Content-Security-Policy: scripts only from this site (no inline scripts), styles from this site and
+# Google Fonts (inline style attributes are allowed, the pages use them for CSS variables), fonts from
+# Google Fonts, images from this site, forms and fetch() only to this site, never shown inside a frame.
+<IfModule mod_headers.c>
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+    Header always set Strict-Transport-Security "max-age=31536000"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Header always unset X-Powered-By
+</IfModule>
 
 # Browser caching. HTML is never cached, so page edits show right away.
 # CSS/JS are cached for a month: bump the ?v= on their links when you change them.

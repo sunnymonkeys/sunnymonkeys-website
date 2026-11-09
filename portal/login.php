@@ -1,33 +1,69 @@
 <?php
-session_start();
-if (isset($_SESSION['user_id']) || isset($_SESSION['admin_id'])) {
-    header('Location: https://sunnymonkeys.com/portal/' . (isset($_SESSION['admin_id']) ? 'admin/index.php' : 'dashboard.php'));
-    exit;
+require_once __DIR__ . '/lib/core.php';
+portal_session();
+if (!empty($_SESSION['user_id']) || !empty($_SESSION['admin_id'])) {
+    portal_redirect(!empty($_SESSION['admin_id']) ? 'admin/index.php' : 'dashboard.php');
 }
+portal_no_cache();
+
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once __DIR__ . '/config/db.php';
-    $pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8', DB_USER, DB_PASS);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $email    = trim($_POST['email']    ?? '');
-    $password = $_POST['password'] ?? '';
-    $stmt = $pdo->prepare('SELECT * FROM admins WHERE username = ?');
-    $stmt->execute([$email]);
-    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($admin && password_verify($password, $admin['password'])) {
-        $_SESSION['admin_id']   = $admin['id'];
-        $_SESSION['admin_name'] = $admin['username'];
-        header('Location: https://sunnymonkeys.com/portal/admin/index.php'); exit;
+    $email    = trim((string) ($_POST['email'] ?? ''));
+    $password = (string) ($_POST['password'] ?? '');
+
+    if (!csrf_valid()) {
+        $error = 'Your session expired. Please try again.';
+    } elseif ($email === '' || strlen($email) > 200 || $password === '' || strlen($password) > 1024) {
+        $error = 'Invalid email or password.';
+    } else {
+        $pdo         = portal_db();
+        $ipHash      = portal_ip_hash();
+        $accountHash = portal_hash(strtolower($email));
+
+        if (login_blocked($pdo, $ipHash, $accountHash)) {
+            $error = 'Too many sign-in attempts. Please wait 15 minutes and try again.';
+        } else {
+            $account = null;
+            $role    = '';
+
+            $stmt = $pdo->prepare('SELECT id, username, password FROM admins WHERE username = ?');
+            $stmt->execute([$email]);
+            $row = $stmt->fetch();
+            if ($row && password_verify($password, $row['password'])) {
+                $account = $row;
+                $role    = 'admin';
+            }
+            if (!$account) {
+                $stmt = $pdo->prepare('SELECT id, name, password FROM clients WHERE email = ?');
+                $stmt->execute([$email]);
+                $row = $stmt->fetch();
+                if ($row && password_verify($password, $row['password'])) {
+                    $account = $row;
+                    $role    = 'client';
+                }
+            }
+
+            if (!$account) {
+                // Same work whether or not the email exists, so response time gives nothing away.
+                password_verify($password, password_hash('not-a-real-account', PASSWORD_DEFAULT));
+                login_record_failure($pdo, $ipHash, $accountHash);
+                $error = 'Invalid email or password.';
+            } else {
+                if (password_needs_rehash($account['password'], PASSWORD_DEFAULT)) {
+                    $table = $role === 'admin' ? 'admins' : 'clients';
+                    $pdo->prepare("UPDATE $table SET password = ? WHERE id = ?")
+                        ->execute([password_hash($password, PASSWORD_DEFAULT), (int) $account['id']]);
+                }
+                login_clear_failures($pdo, $accountHash);
+                if ($role === 'admin') {
+                    portal_sign_in(['admin_id' => (int) $account['id'], 'admin_name' => $account['username']]);
+                    portal_redirect('admin/index.php');
+                }
+                portal_sign_in(['user_id' => (int) $account['id'], 'user_name' => $account['name']]);
+                portal_redirect('dashboard.php');
+            }
+        }
     }
-    $stmt = $pdo->prepare('SELECT * FROM clients WHERE email = ?');
-    $stmt->execute([$email]);
-    $client = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($client && password_verify($password, $client['password'])) {
-        $_SESSION['user_id']   = $client['id'];
-        $_SESSION['user_name'] = $client['name'];
-        header('Location: https://sunnymonkeys.com/portal/dashboard.php'); exit;
-    }
-    $error = 'Invalid email or password.';
 }
 ?>
 <!DOCTYPE html>
@@ -37,11 +73,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client portal | Sunny Monkeys</title>
     <meta name="robots" content="noindex">
-<link rel="icon" type="image/png" href="/assets/images/fav.png">
+    <link rel="icon" type="image/png" href="/assets/images/fav.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/portal/assets/portal.css?v=2">
+    <link rel="stylesheet" href="/portal/assets/portal.css?v=3">
 </head>
 <body>
     <div class="login-wrap">
@@ -52,11 +88,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="login-card">
                 <h2>Client portal</h2>
                 <p>Sign in to see your plan, invoices and contracts.</p>
-                <?php if ($error): ?><div class="error-box" role="alert"><?= htmlspecialchars($error) ?></div><?php endif; ?>
-                <form method="POST">
+                <?php if ($error): ?><div class="error-box" role="alert"><?= h($error) ?></div><?php endif; ?>
+                <form method="POST" action="/portal/login.php">
+                    <?= csrf_field() ?>
                     <div class="lf-group">
                         <label for="lf-email">Email address</label>
-                        <input type="email" id="lf-email" name="email" required autofocus autocomplete="username" placeholder="you@company.com">
+                        <input type="email" id="lf-email" name="email" required autofocus autocomplete="username" maxlength="200" placeholder="you@company.com" value="<?= h($_POST['email'] ?? '') ?>">
                     </div>
                     <div class="lf-group">
                         <label for="lf-pass">Password</label>

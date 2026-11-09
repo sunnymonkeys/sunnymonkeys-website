@@ -2,7 +2,7 @@
 // Shared helpers for website inquiries (contact form + newsletter sign-ups).
 // The table is created automatically the first time it's needed.
 
-require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . '/core.php';
 
 const INQUIRY_SERVICES = [
     'brand-identity'         => 'Brand Identity',
@@ -31,8 +31,7 @@ const INQUIRY_START_OPTIONS = [
 
 function inquiries_db(): PDO
 {
-    $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4', DB_USER, DB_PASS);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = portal_db();
     $pdo->exec("
         CREATE TABLE IF NOT EXISTS inquiries (
             id           INT AUTO_INCREMENT PRIMARY KEY,
@@ -56,5 +55,5 @@ function inquiries_db(): PDO
 
 function inquiry_len(string $s): int
 {
-    return function_exists('mb_strlen') ? mb_strlen($s) : strlen($s);
+    return portal_len($s);
 }
