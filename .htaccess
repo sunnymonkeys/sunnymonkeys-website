@@ -4,11 +4,10 @@ ErrorDocument 404 /error.html
 
 RewriteEngine On
 
-# Temporary check, removed once verified: /https-check answers 302 if Apache does not see requests as HTTPS
+# Everything over HTTPS. Apache sees the visitor's scheme here (checked 2026-11-09), so this cannot loop.
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !=https
-RewriteRule ^https-check$ /?https=not-seen [R=302,L]
-RewriteRule ^https-check$ /index.html [L]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # Block hidden files and folders (.github, .git, ...) but keep .well-known for SSL renewals
 RewriteRule (^|/)\.(?!well-known/) - [F]
