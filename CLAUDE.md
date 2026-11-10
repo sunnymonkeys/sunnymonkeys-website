@@ -23,6 +23,7 @@ This file is technical only. The repo is public, so keep business details out of
 - **Clean URLs:** `.htaccess` serves `/about` from `about.html` and 301-redirects any `*.html` URL to the clean one. Link with clean absolute paths (`/about`, `/services`, `/contact?package=growth`). A new page `name.html` is automatically available at `/name`; add it to `sitemap.xml`.
 - **Writing style:** no em dashes in site copy (use commas, colons or periods). Headlines are uppercase Barlow Condensed; no eyebrow labels, no accent colors. Client-facing copy in English.
 - Every page has its own `<title>`, meta description, canonical URL, Open Graph tags and the shared social image `assets/images/og-sunny-monkeys.png`. Keep them when you add pages.
+- **Questions and answers** (`ul.faq` with `<details>`, on `/services` and `/in-house-designer`) exist twice in each page: the visible list and a `FAQPage` block of structured data in the `<head>`. Change both together, with the same wording. Answers only restate what the pages already promise.
 - Local preview: any static server works, but clean URLs need one that maps `/about` to `about.html`.
 
 ## Deploying
