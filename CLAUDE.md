@@ -54,8 +54,9 @@ This file is technical only. The repo is public, so keep business details out of
 - Admins see everything at `/portal/admin/inquiries.php` (messages, newsletter sign-ups, spam). If an email failed, it shows "Email not sent" with the reason.
 - `portal/.htaccess` blocks direct access to `config/*.php` secrets and to `portal/lib/`.
 
-## Open items (as of 2026-11-09)
+## Open items (as of 2026-11-11)
 
+- [ ] Home care copy (live since 2026-11-11): Marco reviews it, including the founder note on /about, and defines the scope and price of the team hub. Until then the site says "custom quote".
 - [ ] Marco sends a test message from /contact and confirms the email reaches contact@sunnymonkeys.com. If it doesn't arrive, the likely cause is HostGator blocking outgoing SMTP; the fallback is an HTTPS email API.
 - [ ] Marco reviews the founder note on /about (written from the studio's positioning, not from an interview) and the "Where we are" facts.
 - [ ] Marco resets the portal admin password himself (bcrypt hash into the `admins` table via phpMyAdmin).
