@@ -270,7 +270,8 @@ h4 { font-size: var(--t-3); font-weight: 600; line-height: 1.2; }
 .marquee span { display: inline-flex; align-items: center; gap: 2.25rem; padding-right: 2.25rem; font: 600 1.25rem / 1 var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
 .marquee i { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--sun); }
 .marquee span:nth-child(2n) i { background: var(--blue); }
-@keyframes marquee { to { transform: translateX(-50%); } }
+/* Four identical groups, moved by one group's width (25%), so three always cover the screen and the loop never shows an end */
+@keyframes marquee { to { transform: translateX(-25%); } }
 
 /* Split: the two ways to work */
 .split { display: grid; }
