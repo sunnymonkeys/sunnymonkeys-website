@@ -1,8 +1,10 @@
 # Sunny Monkeys
 
-> Sunny Monkeys LLC is a US design studio for startups and small businesses. Two ways to work with us: Build, a brand or web project with a clear scope and a fixed price, or In-House, a dedicated bilingual designer embedded in your team every week, with our art direction.
+> Sunny Monkeys LLC is a US design studio for home care agencies: the agencies that send caregivers to people's homes. Three things we do: Build, a brand or website project with a clear scope and a fixed price; In-House, a dedicated bilingual designer embedded in the agency's team every week, with our art direction; and the team hub, one private place for an agency's caregivers and office staff.
 
-The idea behind the studio: the designer who builds your brand should be the one who stays with it. At most agencies a designer juggles four or five brands, can't know any of them well, and the work drifts. A good brief is enough for a brand that is just getting started, so we do fixed-price projects. An established business needs someone who knows it inside out, so we place one dedicated designer with it.
+The idea behind the studio: the designer who builds your brand should be the one who stays with it. At most design agencies a designer juggles four or five brands, can't know any of them well, and the work drifts. A good brief is enough for an agency that is just getting started, so we do fixed-price projects. An established agency needs someone who knows it inside out, so we place one dedicated designer with it.
+
+We work with home care agencies because it is the business we know from the inside: the payroll runs, the time off requests, the newsletters, the intake calls, the client binders and the presentations for home visits. Home care is what this site speaks to, and we still take on projects for other businesses.
 
 Every project and every designer comes with a quoted scope, weekly check-ins, nothing going live without your approval, and full ownership of every file and design.
 
@@ -10,25 +12,29 @@ Contact: contact@sunnymonkeys.com, +1 619 304 4022. We reply by email to set up 
 
 ## Build: services and packages
 
-- [Services and packages](https://sunnymonkeys.com/services): Brand identity (naming, logo, visual system, presentations and print). Web design (designed, built and launched, mobile-ready, with basic SEO; you edit your own text and images). Custom web apps and development (client portals, booking tools, dashboards and internal tools, custom quote). Social media design (posts, stories, ads and templates). Email design and marketing (templates and campaign graphics).
+- [Services and packages](https://sunnymonkeys.com/services): Brand identity (naming, logo and visual system, plus what an agency hands out: brochures, client binders and presentations for home visits). Web design (for families looking for care and caregivers looking for work; designed, built and launched, mobile-ready, with basic SEO; you edit your own text and images). Team hub and custom web apps (see below, custom quote). Social media design (hiring posts, stories, ads and templates). Email design and marketing (newsletters for families and caregivers, and emails for new leads).
 
 Packages are one-time projects. Every package includes a website you can edit yourself, weekly check-ins and a direct line to our team.
 
-- Starter, $799: for new businesses building their brand from the ground up. 2 logo concepts, brand colors and typography, brand guidelines document, business card design, 3 social media templates, branded email template, 1-page site (intro, services, about and a contact form), mobile-ready, basic SEO, 1 revision round, standard turnaround.
-- Growth, $1,799: for brands ready to show up consistently, digital and print. 3 logo concepts, brand colors and typography, full brand guidelines, business card design, 8 social media templates, branded email template, corporate presentation template, 3-page site (Home, About with mission, vision and values, and Contact), mobile-ready, basic SEO, 2 revision rounds, standard turnaround.
+- Starter, $799: for new agencies building their brand from the ground up. 2 logo concepts, brand colors and typography, brand guidelines document, business card design, 3 social media templates, branded email template, 1-page site (intro, services, about and a contact form), mobile-ready, basic SEO, 1 revision round, standard turnaround.
+- Growth, $1,799: for agencies ready to show up consistently, digital and print. 3 logo concepts, brand colors and typography, full brand guidelines, business card design, 8 social media templates, branded email template, corporate presentation template, 3-page site (Home, About with mission, vision and values, and Contact), mobile-ready, basic SEO, 2 revision rounds, standard turnaround.
 - Premium, $3,499: the full brand experience, with a website to bring it together. 5 logo concepts, brand colors and typography, full brand guidelines, business card design, 15 social media templates (full kit), email template plus campaign graphics, corporate presentation template, print and stationery suite, up to 5 pages (Home, About, Contact, Services, plus Portfolio, Blog or FAQ), mobile-ready, basic SEO plus Google Analytics, 3 revision rounds, priority turnaround.
 
-Websites are delivered live and working. Domain and hosting are paid by the client, in their name, and we help set them up. Revisions within the agreed scope. Anything different, or a custom web app, gets a custom quote.
+Websites are delivered live and working. Domain and hosting are paid by the client, in their name, and we help set them up. Revisions within the agreed scope. Anything different, a team hub or a custom web app gets a custom quote.
+
+## Team hub
+
+- [Team hub](https://sunnymonkeys.com/services#team-hub): a private site with the agency's name on it, where caregivers and office staff find what they now ask for by text and email. Time off requests, approvals and the holiday calendar. The newsletter and announcements. The handbook, policies and forms. Links to the agency's payroll, scheduling and training tools. Dashboards for the office, for the numbers now kept in spreadsheets. It holds team information only: client records stay in the agency's care software. The team hub is a new offer, scoped with a custom quote for each agency.
 
 ## In-House: your in-house designer
 
-- [Your In-House Designer](https://sunnymonkeys.com/in-house-designer): a bilingual designer (English and Spanish) from our network in Latin America, working US hours, dedicated to your brand, with a Sunny Monkeys lead providing art direction and weekly reviews. Full-time (dedicated to your brand only) or part-time (two brands per designer at most). Starts in 2 to 3 weeks from the call, with a 1 to 2 week immersion with your team. Minimum commitment of 3 months. Pricing on the call, because every match is different. Covers social media, video editing, website updates, brochures and flyers, presentations and everyday requests (email graphics, signage, menus, one-off pieces). Design software licenses included. You own every file and every design. Works in your tools: Slack or Teams, your board, your drive. Vacations and sick days: the work pauses or we arrange coverage. If the designer is not the right fit, we match you with a new one. A brand-new website is a separate project with its own quote; your designer keeps it updated afterwards. We use AI to move faster; the judgment is human.
+- [Your In-House Designer](https://sunnymonkeys.com/in-house-designer): a bilingual designer (English and Spanish) from our network in Latin America, working US hours, dedicated to your home care agency, with a Sunny Monkeys lead providing art direction and weekly reviews. Full-time (dedicated to your brand only) or part-time (two brands per designer at most). Starts in 2 to 3 weeks from the call, with a 1 to 2 week immersion with your team. Minimum commitment of 3 months. Pricing on the call, because every match is different. Covers recruiting and social media posts, video editing (caregiver spotlights and short videos), website updates (new pages, job openings, maintenance), family brochures, client binders and event material, home visit presentations and proposals, and everyday requests (newsletters, email graphics, signage, one-off pieces). Design software licenses included. You own every file and every design. Works in your tools: Slack or Teams, your board, your drive. Vacations and sick days: the work pauses or we arrange coverage. If the designer is not the right fit, we match you with a new one. A brand-new website is a separate project with its own quote; your designer keeps it updated afterwards. We use AI to move faster; the judgment is human.
 
 ## About and contact
 
-- [Home](https://sunnymonkeys.com/): the overview of both ways of working.
+- [Home](https://sunnymonkeys.com/): the overview of what we do for home care agencies.
 - [About](https://sunnymonkeys.com/about): why the studio exists, a note from Marco Mendoza, founder, and where we are: a US studio with clients across the country, designers in Latin America, one Sunny Monkeys lead as your contact from the first call on.
-- [Contact](https://sunnymonkeys.com/contact): the contact form, with options for each service, package and in-house plan, and what happens next.
+- [Contact](https://sunnymonkeys.com/contact): the contact form, with options for each service, package, in-house plan and the team hub, and what happens next.
 
 ## Optional
 

@@ -1,6 +1,6 @@
 # sunnymonkeys.com
 
-Website for Sunny Monkeys LLC, a small creative design studio. The owner is Marco. He's learning how the site works, so explain changes in plain language as you go.
+Website for Sunny Monkeys LLC, a small creative design studio. Since 2026-11-11 the site speaks to home care agencies (the agencies that send caregivers to people's homes). The owner is Marco. He's learning how the site works, so explain changes in plain language as you go.
 
 This file is technical only. The repo is public, so keep business details out of it.
 
@@ -21,6 +21,7 @@ This file is technical only. The repo is public, so keep business details out of
 - **Motion:** the hero entrance and the board loop are CSS animations; elements with `data-reveal` (or `data-reveal="stagger"` for their children) come in once when `sm.js` adds `is-visible`; icons draw themselves thanks to `pathLength="1"` on every shape; the header gets `is-scrolled` after 24px. Everything respects `prefers-reduced-motion`. Keep reveals to grids, lists and diagrams, not to every paragraph.
 - **Cache busting:** browsers and Cloudflare cache CSS and JS for a month (see `.htaccess`), so bump the `?v=` on the `sm.css` and `sm.js` links in all pages whenever you change them (`sm.css` is at `?v=6`, `sm.js` at `?v=4`, `portal.css` at `?v=3`, `portal.js` at `?v=1`). HTML is never cached.
 - **Clean URLs:** `.htaccess` serves `/about` from `about.html` and 301-redirects any `*.html` URL to the clean one. Link with clean absolute paths (`/about`, `/services`, `/contact?package=growth`). A new page `name.html` is automatically available at `/name`; add it to `sitemap.xml`.
+- **Audience:** the copy addresses a home care agency: "your agency", families looking for care, caregivers looking for work. "Agency" alone always means the home care agency; the design-agency comparison says "design agencies". The **team hub** (`/services#team-hub`, contact option `web-apps`) is described as holding team information only (time off, holidays, news, handbook, forms, links to tools, office dashboards). Never write copy that promises client records, care notes, shifts or invoices on this site's hosting: the host forbids health information.
 - **Writing style:** no em dashes in site copy (use commas, colons or periods). Headlines are uppercase Barlow Condensed; no eyebrow labels, no accent colors. Client-facing copy in English.
 - Every page has its own `<title>`, meta description, canonical URL, Open Graph tags and the shared social image `assets/images/og-sunny-monkeys.png`. Keep them when you add pages.
 - **Questions and answers** (`ul.faq` with `<details>`, on `/services` and `/in-house-designer`) exist twice in each page: the visible list and a `FAQPage` block of structured data in the `<head>`. Change both together, with the same wording. Answers only restate what the pages already promise.
