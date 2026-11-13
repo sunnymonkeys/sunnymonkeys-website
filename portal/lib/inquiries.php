@@ -9,6 +9,7 @@ const INQUIRY_SERVICES = [
     'web-design'             => 'Web Design',
     'web-apps'               => 'Custom Web Apps & Development',
     'social-media-design'    => 'Social Media Design',
+    'google-ads'             => 'Google Ads Management',
     'email-design-marketing' => 'Email Design & Marketing',
     'starter'                => 'Starter Package',
     'growth'                 => 'Growth Package',
