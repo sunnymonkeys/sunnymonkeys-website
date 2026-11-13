@@ -24,6 +24,7 @@ This file is technical only. The repo is public, so keep business details out of
 - **Audience:** the copy addresses a home care agency: "your agency", families looking for care, caregivers looking for work. "Agency" alone always means the home care agency; the design-agency comparison says "design agencies". The **team hub** (`/services#team-hub`, contact option `web-apps`) is described as holding team information only (time off, holidays, news, handbook, forms, links to tools, office dashboards). Never write copy that promises client records, care notes, shifts or invoices on this site's hosting: the host forbids health information.
 - **Writing style:** no em dashes in site copy (use commas, colons or periods). Headlines are uppercase Barlow Condensed; no eyebrow labels, no accent colors. Client-facing copy in English.
 - Every page has its own `<title>`, meta description, canonical URL, Open Graph tags and the shared social image `assets/images/og-sunny-monkeys.png`. Keep them when you add pages.
+- **Prices appear in several places.** Package and care plan prices: the plan cards and the two structured-data blocks in `services.html`, the option labels in `contact.html`, the Build list in `index.html`, and `llms.txt`. In-house prices: the lead, the two plan cards, the question and the structured data in `in-house-designer.html`, and `llms.txt`. Change them all together.
 - **Questions and answers** (`ul.faq` with `<details>`, on `/services` and `/in-house-designer`) exist twice in each page: the visible list and a `FAQPage` block of structured data in the `<head>`. Change both together, with the same wording. Answers only restate what the pages already promise.
 - Local preview: any static server works, but clean URLs need one that maps `/about` to `about.html`.
 
@@ -48,14 +49,15 @@ This file is technical only. The repo is public, so keep business details out of
 ## Contact form and newsletter
 
 - Both forms post to `portal/inquiry.php` from `assets/js/sm.js` (plain `fetch`, form-encoded, plus `form=contact|newsletter` and `started=<page load time>`). The reply text is shown in the `.form-status` line under the form.
-- Field names and option values are what the PHP validates (`INQUIRY_SERVICES` and `INQUIRY_START_OPTIONS` in `portal/lib/inquiries.php`). Choosing an In-House Designer option on the contact form shows a required "when would you like your designer to start" select (`#cf-start`); `inquiry.php` stores the answer as the first line of the message, so the `inquiries` table is unchanged. Buttons link to `/contact?package=<value>` to preselect an option.
+- Field names and option values are what the PHP validates (`INQUIRY_SERVICES` and `INQUIRY_START_OPTIONS` in `portal/lib/inquiries.php`). Choosing an In-House Designer option on the contact form shows a required "when would you like your designer to start" select (`#cf-start`); `inquiry.php` stores the answer as the first line of the message, so the `inquiries` table is unchanged. Buttons link to `/contact?package=<value>` to preselect an option. The care plans on `/services#care` use the values `care`, `care-plus` and `care-pro`.
 - Every submission is saved to the MySQL table `inquiries` first (created automatically by `portal/lib/inquiries.php`). Contact messages are then emailed through the Titan mailbox by `portal/lib/mailer.php`, a small SMTP client with no libraries, using `portal/config/mail.php`.
 - Spam handling: a hidden `website` trap field, submissions under 3 seconds after page load, and at most 5 submissions per hour per connection. Suspected spam is saved and flagged, never dropped.
 - Admins see everything at `/portal/admin/inquiries.php` (messages, newsletter sign-ups, spam). If an email failed, it shows "Email not sent" with the reason.
 - `portal/.htaccess` blocks direct access to `config/*.php` secrets and to `portal/lib/`.
 
-## Open items (as of 2026-11-11)
+## Open items (as of 2026-11-13)
 
+- [ ] Care plans (live since 2026-11-13): Marco confirms the Care Pro price and its monthly call, and defines what "priority response" means in hours, whether unused hours carry over, and the notice to cancel. The site promises none of those three yet.
 - [ ] Home care copy (live since 2026-11-11): Marco reviews it, including the founder note on /about, and defines the scope and price of the team hub. Until then the site says "custom quote".
 - [ ] Marco sends a test message from /contact and confirms the email reaches contact@sunnymonkeys.com. If it doesn't arrive, the likely cause is HostGator blocking outgoing SMTP; the fallback is an HTTPS email API.
 - [ ] Marco reviews the founder note on /about (written from the studio's positioning, not from an interview) and the "Where we are" facts.
